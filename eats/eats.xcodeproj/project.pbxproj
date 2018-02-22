@@ -13,6 +13,7 @@
 		082768BB203E6855001FA8E5 /* eats.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 082768B9203E6855001FA8E5 /* eats.xcdatamodeld */; };
 		082768BD203E6855001FA8E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 082768BC203E6855001FA8E5 /* Assets.xcassets */; };
 		082768C0203E6855001FA8E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 082768BE203E6855001FA8E5 /* LaunchScreen.storyboard */; };
+		D2A3D2FC827CEE9F88CF8038 /* Pods_eats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57EDDA5E266C3E51320BAA1F /* Pods_eats.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		082768BC203E6855001FA8E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		082768BF203E6855001FA8E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		082768C1203E6855001FA8E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57EDDA5E266C3E51320BAA1F /* Pods_eats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65BD59DB6FE86ADA82B7C660 /* Pods-eats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eats.release.xcconfig"; path = "Pods/Target Support Files/Pods-eats/Pods-eats.release.xcconfig"; sourceTree = "<group>"; };
+		C46910878E64AA64E96F87C5 /* Pods-eats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eats/Pods-eats.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2A3D2FC827CEE9F88CF8038 /* Pods_eats.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				082768B1203E6855001FA8E5 /* eats */,
 				082768B0203E6855001FA8E5 /* Products */,
+				7EE99C06BDFEAD929A970528 /* Pods */,
+				8C754089EE3FDB692A856009 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,23 @@
 			path = eats;
 			sourceTree = "<group>";
 		};
+		7EE99C06BDFEAD929A970528 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C46910878E64AA64E96F87C5 /* Pods-eats.debug.xcconfig */,
+				65BD59DB6FE86ADA82B7C660 /* Pods-eats.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8C754089EE3FDB692A856009 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57EDDA5E266C3E51320BAA1F /* Pods_eats.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 082768C4203E6855001FA8E5 /* Build configuration list for PBXNativeTarget "eats" */;
 			buildPhases = (
+				532DA11CDFB0D924859CA229 /* [CP] Check Pods Manifest.lock */,
 				082768AB203E6855001FA8E5 /* Sources */,
 				082768AC203E6855001FA8E5 /* Frameworks */,
 				082768AD203E6855001FA8E5 /* Resources */,
+				C4630C8F90289C9020C10FB9 /* [CP] Embed Pods Frameworks */,
+				F0D133191842CD74366AD52D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,6 +160,64 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		532DA11CDFB0D924859CA229 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-eats-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4630C8F90289C9020C10FB9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-eats/Pods-eats-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/YelpAPI/YelpAPI.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YelpAPI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eats/Pods-eats-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0D133191842CD74366AD52D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eats/Pods-eats-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		082768AB203E6855001FA8E5 /* Sources */ = {
@@ -276,6 +361,7 @@
 		};
 		082768C5203E6855001FA8E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C46910878E64AA64E96F87C5 /* Pods-eats.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -291,6 +377,7 @@
 		};
 		082768C6203E6855001FA8E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65BD59DB6FE86ADA82B7C660 /* Pods-eats.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
