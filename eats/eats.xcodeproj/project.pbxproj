@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		082768B3203E6855001FA8E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082768B2203E6855001FA8E5 /* AppDelegate.swift */; };
-		082768B5203E6855001FA8E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082768B4203E6855001FA8E5 /* ViewController.swift */; };
+		082768B5203E6855001FA8E5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082768B4203E6855001FA8E5 /* LoginViewController.swift */; };
 		082768B8203E6855001FA8E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 082768B6203E6855001FA8E5 /* Main.storyboard */; };
 		082768BB203E6855001FA8E5 /* eats.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 082768B9203E6855001FA8E5 /* eats.xcdatamodeld */; };
 		082768BD203E6855001FA8E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 082768BC203E6855001FA8E5 /* Assets.xcassets */; };
@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		082768AF203E6855001FA8E5 /* eats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		082768B2203E6855001FA8E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		082768B4203E6855001FA8E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		082768B4203E6855001FA8E5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		082768B7203E6855001FA8E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		082768BA203E6855001FA8E5 /* eats.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = eats.xcdatamodel; sourceTree = "<group>"; };
 		082768BC203E6855001FA8E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				082768B2203E6855001FA8E5 /* AppDelegate.swift */,
-				082768B4203E6855001FA8E5 /* ViewController.swift */,
+				082768B4203E6855001FA8E5 /* LoginViewController.swift */,
 				082768B6203E6855001FA8E5 /* Main.storyboard */,
 				082768BC203E6855001FA8E5 /* Assets.xcassets */,
 				082768BE203E6855001FA8E5 /* LaunchScreen.storyboard */,
@@ -224,7 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				082768B5203E6855001FA8E5 /* ViewController.swift in Sources */,
+				082768B5203E6855001FA8E5 /* LoginViewController.swift in Sources */,
 				082768BB203E6855001FA8E5 /* eats.xcdatamodeld in Sources */,
 				082768B3203E6855001FA8E5 /* AppDelegate.swift in Sources */,
 			);
@@ -368,7 +368,7 @@
 				DEVELOPMENT_TEAM = U63TPR2C89;
 				INFOPLIST_FILE = eats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bonnienguyen.eats;
+				PRODUCT_BUNDLE_IDENTIFIER = teamJABA.eats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -384,7 +384,7 @@
 				DEVELOPMENT_TEAM = U63TPR2C89;
 				INFOPLIST_FILE = eats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bonnienguyen.eats;
+				PRODUCT_BUNDLE_IDENTIFIER = teamJABA.eats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
