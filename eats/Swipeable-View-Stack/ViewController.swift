@@ -25,6 +25,11 @@ class ViewController: UIViewController, SwipeableCardViewDataSource {
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func refreshAction(_ sender: Any) {
+        viewDidLoad()
+    }
+    
 }
 
 // MARK: - SwipeableCardViewDataSource
