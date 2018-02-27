@@ -30,17 +30,17 @@
                                     <constraint firstAttribute="height" constant="400" id="mdS-bL-djT"/>
                                 </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTD-70-CZy">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVu-yg-pgV">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Eats" id="bba-J5-m9N">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="bth-7h-YAD">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OXd-qe-88r">
+                                    <navigationItem title="Eats" id="ixq-du-qlQ">
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="dxJ-9P-pO2">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="T7R-Y3-a5j">
                                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Settings"/>
                                                 <connections>
-                                                    <action selector="settingsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6qU-hc-Yy0"/>
+                                                    <action selector="settingsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zhz-zD-p25"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -50,15 +50,15 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="eVu-yg-pgV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2kv-3j-IK4"/>
                             <constraint firstItem="w8K-oz-Scp" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="5YV-47-XQ7"/>
-                            <constraint firstItem="MTD-70-CZy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7oM-Cs-tE3"/>
                             <constraint firstItem="w8K-oz-Scp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8Br-tM-Kpz"/>
                             <constraint firstItem="w8K-oz-Scp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="8vE-dw-Qgv"/>
                             <constraint firstItem="7gm-Im-TT0" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="AMa-L3-fXD"/>
+                            <constraint firstItem="eVu-yg-pgV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="AbH-FA-n7I"/>
                             <constraint firstItem="7gm-Im-TT0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RJu-RQ-HHc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="w8K-oz-Scp" secondAttribute="trailing" constant="5" id="YA0-vK-wkK"/>
-                            <constraint firstItem="MTD-70-CZy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="lFb-Cm-8kI"/>
-                            <constraint firstItem="MTD-70-CZy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="upw-ta-Mbn"/>
+                            <constraint firstItem="eVu-yg-pgV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tei-gg-xyA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

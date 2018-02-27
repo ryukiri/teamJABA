@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/austin/Documents/Info 449/Homework/teamJABA/eats/eats.xcodeproj">
+      location = "group:Swipeable-View-Stack.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
