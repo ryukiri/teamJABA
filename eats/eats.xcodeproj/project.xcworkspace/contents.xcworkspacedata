@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:eats.xcodeproj">
+      location = "self:Swipeable-View-Stack.xcodeproj">
    </FileRef>
 </Workspace>
