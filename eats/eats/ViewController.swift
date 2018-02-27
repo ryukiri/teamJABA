@@ -18,6 +18,8 @@ class ViewController: UIViewController, SwipeableCardViewDataSource {
         swipeableCardView.dataSource = self
     }
     
+    
+
     @IBAction func settingsAction(_ sender: Any) {
         let alert = UIAlertController(title: "Settings", message: "Settings will go here", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { (UIAlertAction)in
@@ -25,8 +27,6 @@ class ViewController: UIViewController, SwipeableCardViewDataSource {
         }))
         self.present(alert, animated: true, completion: nil)
     }
-    
-
 }
 
 // MARK: - SwipeableCardViewDataSource
