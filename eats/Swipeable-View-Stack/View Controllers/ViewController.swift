@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YelpAPI
 
 class ViewController: UIViewController, SwipeableCardViewDataSource {
 
@@ -14,7 +15,27 @@ class ViewController: UIViewController, SwipeableCardViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
+        let yelpRepo = (UIApplication.shared.delegate as! AppDelegate).yelpRepo
+        
+        let client = yelpRepo.client
+        
+        let query = YLPQuery(location: "Seattle, WA")
+        
+        client.search(with: query) { (response, error) in
+            if (error != nil) {
+                print(error as! String)
+                return
+            }
+            
+            if let businesses = response?.businesses {
+                for business in businesses {
+                    print(business.name)
+                    print(business.rating)
+                    print(business.categories)
+                }
+            }
+        }
         swipeableCardView.dataSource = self
     }
 

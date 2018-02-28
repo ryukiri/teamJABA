@@ -9,5 +9,7 @@ target 'Swipeable-View-Stack' do
   pod 'pop', '1.0.10'
   pod "YelpAPI"
   pod 'Firebase/Core'
+  pod 'AFNetworking'
+  pod 'BDBOAuth1Manager'
   
 end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08159EC8204684C70063A0E8 /* ylp.m in Sources */ = {isa = PBXBuildFile; fileRef = 08159EC7204684C70063A0E8 /* ylp.m */; };
+		08159ECD204696A10063A0E8 /* YelpRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08159ECC204696A10063A0E8 /* YelpRepo.swift */; };
 		D1DB4F6F686EE90C7F0A31C5 /* Pods_Swipeable_View_Stack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8862332D7E886ADB81FEDFB /* Pods_Swipeable_View_Stack.framework */; };
 		F7A387071F9BB6E400EF5B45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A387061F9BB6E400EF5B45 /* AppDelegate.swift */; };
 		F7A387091F9BB6E400EF5B45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A387081F9BB6E400EF5B45 /* ViewController.swift */; };
@@ -31,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08159EC6204684C60063A0E8 /* Swipeable-View-Stack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swipeable-View-Stack-Bridging-Header.h"; sourceTree = "<group>"; };
+		08159EC7204684C70063A0E8 /* ylp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ylp.m; sourceTree = "<group>"; };
+		08159ECC204696A10063A0E8 /* YelpRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpRepo.swift; sourceTree = "<group>"; };
 		37304D7E784FC84C5165D0E5 /* Pods-Swipeable-View-Stack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipeable-View-Stack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swipeable-View-Stack/Pods-Swipeable-View-Stack.debug.xcconfig"; sourceTree = "<group>"; };
 		5F8C8FF1559E3E60CA5906FD /* Pods-Swipeable-View-Stack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipeable-View-Stack.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swipeable-View-Stack/Pods-Swipeable-View-Stack.release.xcconfig"; sourceTree = "<group>"; };
 		A8862332D7E886ADB81FEDFB /* Pods_Swipeable_View_Stack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swipeable_View_Stack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +75,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08159EC4204682A30063A0E8 /* Swipeable View  */ = {
+			isa = PBXGroup;
+			children = (
+				F7A387181F9BB80100EF5B45 /* SwipeableCardViewContainer.swift */,
+				F7FC2D021F9C144300EEF1CE /* SwipeableCardViewDelegate.swift */,
+				F7A387221F9BB93400EF5B45 /* SwipeableCardViewDataSource.swift */,
+				F7FC2CF61F9BC94400EEF1CE /* SwipeableView.swift */,
+				F7FC2D001F9C132F00EEF1CE /* SwipeableViewDelegate.swift */,
+				F7FC2CF81F9BD6D800EEF1CE /* SwipeDirection.swift */,
+				F7FC2CFA1F9BDB1400EEF1CE /* CGPoint+SwipeableAdditions.swift */,
+				F7FC2CFC1F9C06A500EEF1CE /* CGRect+SwipeAdditions.swift */,
+				F7A3871E1F9BB8D800EF5B45 /* NibView.swift */,
+				F7A387201F9BB8FB00EF5B45 /* UIView+Constraints.swift */,
+				F7A3871A1F9BB85100EF5B45 /* SwipeableCardViewCard.swift */,
+				F7A3871C1F9BB87900EF5B45 /* SwipeableCardViewCard.xib */,
+				F7FC2D041F9C355300EEF1CE /* SampleSwipeableCard.swift */,
+				F7FC2D061F9C355C00EEF1CE /* SampleSwipeableCard.xib */,
+				F7FC2D081F9C38F800EEF1CE /* SampleSwipeableCellViewModel.swift */,
+			);
+			path = "Swipeable View ";
+			sourceTree = "<group>";
+		};
+		08159EC5204682D00063A0E8 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F7A387081F9BB6E400EF5B45 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		08159EC9204685A20063A0E8 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		BF70FC3528C4AD7795EE2E29 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,27 +150,17 @@
 		F7A387051F9BB6E400EF5B45 /* Swipeable-View-Stack */ = {
 			isa = PBXGroup;
 			children = (
+				08159EC9204685A20063A0E8 /* API */,
+				08159EC5204682D00063A0E8 /* View Controllers */,
+				08159EC4204682A30063A0E8 /* Swipeable View  */,
 				F7A387061F9BB6E400EF5B45 /* AppDelegate.swift */,
-				F7A387081F9BB6E400EF5B45 /* ViewController.swift */,
-				F7A387181F9BB80100EF5B45 /* SwipeableCardViewContainer.swift */,
-				F7FC2D021F9C144300EEF1CE /* SwipeableCardViewDelegate.swift */,
-				F7A387221F9BB93400EF5B45 /* SwipeableCardViewDataSource.swift */,
-				F7FC2CF61F9BC94400EEF1CE /* SwipeableView.swift */,
-				F7FC2D001F9C132F00EEF1CE /* SwipeableViewDelegate.swift */,
-				F7FC2CF81F9BD6D800EEF1CE /* SwipeDirection.swift */,
-				F7FC2CFA1F9BDB1400EEF1CE /* CGPoint+SwipeableAdditions.swift */,
-				F7FC2CFC1F9C06A500EEF1CE /* CGRect+SwipeAdditions.swift */,
-				F7A3871E1F9BB8D800EF5B45 /* NibView.swift */,
-				F7A387201F9BB8FB00EF5B45 /* UIView+Constraints.swift */,
-				F7A3871A1F9BB85100EF5B45 /* SwipeableCardViewCard.swift */,
-				F7A3871C1F9BB87900EF5B45 /* SwipeableCardViewCard.xib */,
-				F7FC2D041F9C355300EEF1CE /* SampleSwipeableCard.swift */,
-				F7FC2D061F9C355C00EEF1CE /* SampleSwipeableCard.xib */,
-				F7FC2D081F9C38F800EEF1CE /* SampleSwipeableCellViewModel.swift */,
+				08159EC7204684C70063A0E8 /* ylp.m */,
 				F7A3870A1F9BB6E400EF5B45 /* Main.storyboard */,
 				F7A3870D1F9BB6E400EF5B45 /* Assets.xcassets */,
 				F7A3870F1F9BB6E400EF5B45 /* LaunchScreen.storyboard */,
 				F7A387121F9BB6E400EF5B45 /* Info.plist */,
+				08159EC6204684C60063A0E8 /* Swipeable-View-Stack-Bridging-Header.h */,
+				08159ECC204696A10063A0E8 /* YelpRepo.swift */,
 			);
 			path = "Swipeable-View-Stack";
 			sourceTree = "<group>";
@@ -168,6 +200,7 @@
 				TargetAttributes = {
 					F7A387021F9BB6E400EF5B45 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -246,6 +279,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Swipeable-View-Stack/Pods-Swipeable-View-Stack-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/BDBOAuth1Manager/BDBOAuth1Manager.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/YelpAPI/YelpAPI.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -253,6 +288,8 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BDBOAuth1Manager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YelpAPI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -270,11 +307,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08159ECD204696A10063A0E8 /* YelpRepo.swift in Sources */,
 				F7FC2D091F9C38F800EEF1CE /* SampleSwipeableCellViewModel.swift in Sources */,
 				F7FC2CFB1F9BDB1400EEF1CE /* CGPoint+SwipeableAdditions.swift in Sources */,
 				F7A387091F9BB6E400EF5B45 /* ViewController.swift in Sources */,
 				F7FC2CFD1F9C06A500EEF1CE /* CGRect+SwipeAdditions.swift in Sources */,
 				F7A3871B1F9BB85100EF5B45 /* SwipeableCardViewCard.swift in Sources */,
+				08159EC8204684C70063A0E8 /* ylp.m in Sources */,
 				F7FC2D031F9C144300EEF1CE /* SwipeableCardViewDelegate.swift in Sources */,
 				F7FC2D011F9C132F00EEF1CE /* SwipeableViewDelegate.swift in Sources */,
 				F7FC2D051F9C355300EEF1CE /* SampleSwipeableCard.swift in Sources */,
@@ -422,12 +461,15 @@
 			baseConfigurationReference = 37304D7E784FC84C5165D0E5 /* Pods-Swipeable-View-Stack.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6VSG94VVFH;
+				DEVELOPMENT_TEAM = U63TPR2C89;
 				INFOPLIST_FILE = "Swipeable-View-Stack/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.washington.teamJABA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Swipeable-View-Stack/Swipeable-View-Stack-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -438,12 +480,14 @@
 			baseConfigurationReference = 5F8C8FF1559E3E60CA5906FD /* Pods-Swipeable-View-Stack.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6VSG94VVFH;
+				DEVELOPMENT_TEAM = U63TPR2C89;
 				INFOPLIST_FILE = "Swipeable-View-Stack/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.washington.teamJABA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Swipeable-View-Stack/Swipeable-View-Stack-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
