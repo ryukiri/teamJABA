@@ -8,35 +8,31 @@
 
 import UIKit
 import YelpAPI
+import CoreLocation
 
-class ViewController: UIViewController, SwipeableCardViewDataSource {
+class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationManagerDelegate {
 
     @IBOutlet private weak var swipeableCardView: SwipeableCardViewContainer!
 
+    let locationManager = CLLocationManager()
+    let yelpRepo = (UIApplication.shared.delegate as! AppDelegate).yelpRepo
+    var cards: [BusinessCard] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        let yelpRepo = (UIApplication.shared.delegate as! AppDelegate).yelpRepo
-        
-        let client = yelpRepo.client
-        
-        let query = YLPQuery(location: "Seattle, WA")
-        
-        client.search(with: query) { (response, error) in
-            if (error != nil) {
-                print(error as! String)
-                return
-            }
-            
-            if let businesses = response?.businesses {
-                for business in businesses {
-                    print(business.name)
-                    print(business.rating)
-                    print(business.categories)
-                }
-            }
-        }
         swipeableCardView.dataSource = self
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+
+        if let currentLoc = locationManager.location?.coordinate {
+            cards = yelpRepo.searchTop(coordinate: currentLoc)
+        }
+        
+        for card in cards {
+            print(card)
+        }
     }
 
     @IBAction func settingsAction(_ sender: Any) {
@@ -46,11 +42,6 @@ class ViewController: UIViewController, SwipeableCardViewDataSource {
         }))
         self.present(alert, animated: true, completion: nil)
     }
-    
-    @IBAction func refreshAction(_ sender: Any) {
-        viewDidLoad()
-    }
-    
 }
 
 // MARK: - SwipeableCardViewDataSource
@@ -112,4 +103,5 @@ extension ViewController {
     }
 
 }
+
 
