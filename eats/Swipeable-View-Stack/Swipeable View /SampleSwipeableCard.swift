@@ -51,8 +51,6 @@ class SampleSwipeableCard: SwipeableCardViewCard {
                     self.imageView.image = UIImage(data: data)
                 }
             })
-//            imageView.image = viewModel.image // TODO Download photos
-
             backgroundContainerView.layer.cornerRadius = 14.0
         }
     }
