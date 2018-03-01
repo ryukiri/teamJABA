@@ -10,9 +10,9 @@ import UIKit
 
 struct SampleSwipeableCellViewModel {
 
-    let title: String
-    let subtitle: String
-    let color: UIColor
-    let image: UIImage
+    let name: String
+    let rating: String
+//    let phone: Double
+    let imageURL: URL
 
 }

@@ -11,10 +11,9 @@ import CoreMotion
 
 class SampleSwipeableCard: SwipeableCardViewCard {
 
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var subtitleLabel: UILabel!
-    @IBOutlet private weak var addButton: UIView!
-
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    
     @IBOutlet private weak var imageBackgroundColorView: UIView!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var backgroundContainerView: UIView!
@@ -36,14 +35,30 @@ class SampleSwipeableCard: SwipeableCardViewCard {
 
     private func configure(forViewModel viewModel: SampleSwipeableCellViewModel?) {
         if let viewModel = viewModel {
-            titleLabel.text = viewModel.title
-            subtitleLabel.text = viewModel.subtitle
-            imageBackgroundColorView.backgroundColor = viewModel.color
-            imageView.image = viewModel.image
-
+            nameLabel.text = viewModel.name
+            ratingLabel.text = viewModel.rating
+            
+            imageBackgroundColorView.backgroundColor = UIColor.cyan // temp
+            
+            self.getDataFromUrl(url: viewModel.imageURL, completion: { (data, response, error) in
+                guard
+                    let data = data,
+                    error == nil
+                else {
+                        return
+                }
+                DispatchQueue.main.async {
+                    self.imageView.image = UIImage(data: data)
+                }
+            })
             backgroundContainerView.layer.cornerRadius = 14.0
-            addButton.layer.cornerRadius = addButton.frame.size.height/4
         }
+    }
+    
+    private func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            completion(data, response, error)
+            }.resume()
     }
 
     override func layoutSubviews() {
