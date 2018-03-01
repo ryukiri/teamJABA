@@ -9,12 +9,20 @@
 import UIKit
 import YelpAPI
 
+extension UIApplication {
+    var yelpRepo : YelpRepo {
+        get {
+            return YelpRepo.shared
+        }
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    let yelpRepo = YelpRepo()
+//    let yelpRepo = YelpRepo()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

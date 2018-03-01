@@ -15,8 +15,8 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     @IBOutlet private weak var swipeableCardView: SwipeableCardViewContainer!
 
     let locationManager = CLLocationManager()
-    let yelpRepo = (UIApplication.shared.delegate as! AppDelegate).yelpRepo
-    var cards: [BusinessCard] = []
+    let yelpRepo = YelpRepo.shared
+    var businesses: [BusinessCard] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +27,18 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         locationManager.startUpdatingLocation()
 
         if let currentLoc = locationManager.location?.coordinate {
-            cards = yelpRepo.searchTop(coordinate: currentLoc)
-        }
-        
-        for card in cards {
-            print(card)
+            yelpRepo.searchTop(coordinate: currentLoc, completion: { (response, error) in
+                guard
+                    let businesses = response
+                else {
+                    print(error as Any)
+                    return
+                }
+                self.businesses = businesses
+                DispatchQueue.main.async {
+                    self.swipeableCardView.reloadData()
+                }
+            })
         }
     }
 
@@ -42,66 +49,24 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         }))
         self.present(alert, animated: true, completion: nil)
     }
-}
-
-// MARK: - SwipeableCardViewDataSource
-
-extension ViewController {
-
+    
+    // MARK: - SwipeableCardViewDataSource
+    
     func numberOfCards() -> Int {
-        return viewModels.count
+        return self.businesses.count
     }
-
+    
     func card(forItemAtIndex index: Int) -> SwipeableCardViewCard {
-        let viewModel = viewModels[index]
-        let cardView = SampleSwipeableCard()
-        cardView.viewModel = viewModel
-        return cardView
+        let business = self.businesses[index]
+        let card = SampleSwipeableCard()
+        
+        card.viewModel = SampleSwipeableCellViewModel(name: business.name, rating: String(business.rating))
+        
+        return card
     }
-
+    
     func viewForEmptyCards() -> UIView? {
         return nil
     }
-
 }
-
-extension ViewController {
-
-    var viewModels: [SampleSwipeableCellViewModel] {
-
-        let hamburger = SampleSwipeableCellViewModel(title: "McDonalds",
-                                                     subtitle: "Hamburger",
-                                                     color: UIColor(red:0.96, green:0.81, blue:0.46, alpha:1.0),
-                                                     image: #imageLiteral(resourceName: "hamburger"))
-
-        let panda = SampleSwipeableCellViewModel(title: "Panda",
-                                                  subtitle: "Animal",
-                                                  color: UIColor(red:0.29, green:0.64, blue:0.96, alpha:1.0),
-                                                  image: #imageLiteral(resourceName: "panda"))
-
-        let puppy = SampleSwipeableCellViewModel(title: "Puppy",
-                                                  subtitle: "Pet",
-                                                  color: UIColor(red:0.29, green:0.63, blue:0.49, alpha:1.0),
-                                                  image: #imageLiteral(resourceName: "puppy"))
-
-        let poop = SampleSwipeableCellViewModel(title: "Poop",
-                                                  subtitle: "Smelly",
-                                                  color: UIColor(red:0.69, green:0.52, blue:0.38, alpha:1.0),
-                                                  image: #imageLiteral(resourceName: "poop"))
-
-        let robot = SampleSwipeableCellViewModel(title: "Robot",
-                                                  subtitle: "Future",
-                                                  color: UIColor(red:0.90, green:0.99, blue:0.97, alpha:1.0),
-                                                  image: #imageLiteral(resourceName: "robot"))
-
-        let clown = SampleSwipeableCellViewModel(title: "Clown",
-                                                  subtitle: "Scary",
-                                                  color: UIColor(red:0.83, green:0.82, blue:0.69, alpha:1.0),
-                                                  image: #imageLiteral(resourceName: "clown"))
-
-        return [hamburger, panda, puppy, poop, robot, clown]
-    }
-
-}
-
 

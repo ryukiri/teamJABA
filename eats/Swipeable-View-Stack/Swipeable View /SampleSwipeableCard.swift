@@ -11,10 +11,9 @@ import CoreMotion
 
 class SampleSwipeableCard: SwipeableCardViewCard {
 
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var subtitleLabel: UILabel!
-    @IBOutlet private weak var addButton: UIView!
-
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    
     @IBOutlet private weak var imageBackgroundColorView: UIView!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var backgroundContainerView: UIView!
@@ -36,13 +35,13 @@ class SampleSwipeableCard: SwipeableCardViewCard {
 
     private func configure(forViewModel viewModel: SampleSwipeableCellViewModel?) {
         if let viewModel = viewModel {
-            titleLabel.text = viewModel.title
-            subtitleLabel.text = viewModel.subtitle
-            imageBackgroundColorView.backgroundColor = viewModel.color
-            imageView.image = viewModel.image
+            nameLabel.text = viewModel.name
+            ratingLabel.text = viewModel.rating
+            
+            imageBackgroundColorView.backgroundColor = UIColor.cyan // temp
+//            imageView.image = viewModel.image // TODO Download photos
 
             backgroundContainerView.layer.cornerRadius = 14.0
-            addButton.layer.cornerRadius = addButton.frame.size.height/4
         }
     }
 
