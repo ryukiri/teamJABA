@@ -13,29 +13,20 @@ class ViewController: UIViewController, SwipeableCardViewDataSource {
 
     @IBOutlet private weak var swipeableCardView: SwipeableCardViewContainer!
 
+    var yelpRepo = YelpRepo.shared
+    var businesses : [BusinessCard] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        let yelpRepo = (UIApplication.shared.delegate as! AppDelegate).yelpRepo
         
-        let client = yelpRepo.client
+        businesses = UIApplication.shared.yelpRepo.getBusinesses()
         
-        let query = YLPQuery(location: "Seattle, WA")
-        
-        client.search(with: query) { (response, error) in
-            if (error != nil) {
-                print(error as! String)
-                return
-            }
-            
-            if let businesses = response?.businesses {
-                for business in businesses {
-                    print(business.name)
-                    print(business.rating)
-                    print(business.categories)
-                }
-            }
+//        print("getting businesses")
+//        print(businesses)
+        for business in businesses {
+            print(business.name)
         }
+    
         swipeableCardView.dataSource = self
     }
 

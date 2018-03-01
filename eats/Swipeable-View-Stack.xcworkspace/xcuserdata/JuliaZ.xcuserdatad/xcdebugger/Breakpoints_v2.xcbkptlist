@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swipeable-View-Stack/YelpRepo.swift"
+            timestampString = "541583134.336165"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swipeable_View_Stack.YelpRepo.__allocating_init() -&gt; Swipeable_View_Stack.YelpRepo"
+                  moduleName = "Swipeable-View-Stack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/JuliaZ/Desktop/Winter2018/INFO_449/TeamJABA/eats/Swipeable-View-Stack/YelpRepo.swift"
+                  timestampString = "541582877.445745"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swipeable_View_Stack.YelpRepo.init() -&gt; Swipeable_View_Stack.YelpRepo"
+                  moduleName = "Swipeable-View-Stack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/JuliaZ/Desktop/Winter2018/INFO_449/TeamJABA/eats/Swipeable-View-Stack/YelpRepo.swift"
+                  timestampString = "541582877.451147"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
