@@ -111,6 +111,7 @@
 		08159EC9204685A20063A0E8 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				08159ECC204696A10063A0E8 /* YelpRepo.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -163,7 +164,6 @@
 				F7A3870F1F9BB6E400EF5B45 /* LaunchScreen.storyboard */,
 				F7A387121F9BB6E400EF5B45 /* Info.plist */,
 				08159EC6204684C60063A0E8 /* Swipeable-View-Stack-Bridging-Header.h */,
-				08159ECC204696A10063A0E8 /* YelpRepo.swift */,
 			);
 			path = "Swipeable-View-Stack";
 			sourceTree = "<group>";

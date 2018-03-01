@@ -39,10 +39,28 @@ class SampleSwipeableCard: SwipeableCardViewCard {
             ratingLabel.text = viewModel.rating
             
             imageBackgroundColorView.backgroundColor = UIColor.cyan // temp
+            
+            self.getDataFromUrl(url: viewModel.imageURL, completion: { (data, response, error) in
+                guard
+                    let data = data,
+                    error == nil
+                else {
+                        return
+                }
+                DispatchQueue.main.async {
+                    self.imageView.image = UIImage(data: data)
+                }
+            })
 //            imageView.image = viewModel.image // TODO Download photos
 
             backgroundContainerView.layer.cornerRadius = 14.0
         }
+    }
+    
+    private func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            completion(data, response, error)
+            }.resume()
     }
 
     override func layoutSubviews() {

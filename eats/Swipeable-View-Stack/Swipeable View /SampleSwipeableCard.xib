@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,17 +31,18 @@
                             <rect key="frame" x="0.0" y="0.0" width="295" height="270"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n1H-9c-dJi">
-                                    <rect key="frame" x="72" y="60" width="150" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="295" height="270"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="150" id="CVM-cO-mJf"/>
-                                        <constraint firstAttribute="width" constant="150" id="ip6-pL-1gB"/>
+                                        <constraint firstAttribute="width" secondItem="n1H-9c-dJi" secondAttribute="height" multiplier="59:54" id="PgF-7H-LwJ"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.3646969199180603" green="0.75118285417556763" blue="0.96476590633392334" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
-                                <constraint firstItem="n1H-9c-dJi" firstAttribute="centerX" secondItem="KzP-I3-pDi" secondAttribute="centerX" id="Hgu-nb-BQm"/>
-                                <constraint firstItem="n1H-9c-dJi" firstAttribute="centerY" secondItem="KzP-I3-pDi" secondAttribute="centerY" id="MSn-Ry-zBs"/>
+                                <constraint firstItem="n1H-9c-dJi" firstAttribute="top" secondItem="KzP-I3-pDi" secondAttribute="top" id="Gac-Mf-wAf"/>
+                                <constraint firstAttribute="bottom" secondItem="n1H-9c-dJi" secondAttribute="bottom" id="Izm-o6-RSH"/>
+                                <constraint firstAttribute="trailing" secondItem="n1H-9c-dJi" secondAttribute="trailing" id="J0f-dN-ygL"/>
+                                <constraint firstItem="n1H-9c-dJi" firstAttribute="leading" secondItem="KzP-I3-pDi" secondAttribute="leading" id="y72-NX-aIo"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="trc-we-5GV">

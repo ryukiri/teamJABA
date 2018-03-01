@@ -41,6 +41,9 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
                     return
                 }
                 self.businesses = businesses
+                for bus in businesses {
+                    print(bus)
+                }
                 DispatchQueue.main.async {
                     self.spinner.stopAnimating()
                     self.spinner.isHidden = true
@@ -69,7 +72,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         let business = self.businesses[index]
         let card = SampleSwipeableCard()
         
-        card.viewModel = SampleSwipeableCellViewModel(name: business.name, rating: String(business.rating))
+        card.viewModel = SampleSwipeableCellViewModel(name: business.name, rating: String(business.rating), imageURL: business.imageURL!)
         
         return card
     }
