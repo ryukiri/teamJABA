@@ -25,9 +25,18 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8K-oz-Scp" customClass="SwipeableCardViewContainer" customModule="Swipeable_View_Stack" customModuleProvider="target">
                                 <rect key="frame" x="5" y="153.66666666666663" width="404" height="400"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Gga-EH-Tgb">
+                                        <rect key="frame" x="192" y="190.00000000000003" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Gga-EH-Tgb" secondAttribute="trailing" constant="192" id="SQI-RJ-9Vb"/>
+                                    <constraint firstItem="Gga-EH-Tgb" firstAttribute="top" secondItem="w8K-oz-Scp" secondAttribute="top" constant="190" id="aI1-GY-Zdq"/>
+                                    <constraint firstItem="Gga-EH-Tgb" firstAttribute="leading" secondItem="w8K-oz-Scp" secondAttribute="leading" constant="192" id="ixb-Az-XoT"/>
                                     <constraint firstAttribute="height" constant="400" id="mdS-bL-djT"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gga-EH-Tgb" secondAttribute="bottom" constant="190" id="tgL-s3-T5A"/>
                                 </constraints>
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVu-yg-pgV">
@@ -64,6 +73,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="home-tab" id="WRh-SF-Mmr"/>
                     <connections>
+                        <outlet property="noCardsLeftLabel" destination="7gm-Im-TT0" id="fOK-BJ-Wom"/>
+                        <outlet property="spinner" destination="Gga-EH-Tgb" id="m8r-CP-dw7"/>
                         <outlet property="swipeableCardView" destination="w8K-oz-Scp" id="JNP-R5-hCO"/>
                     </connections>
                 </viewController>

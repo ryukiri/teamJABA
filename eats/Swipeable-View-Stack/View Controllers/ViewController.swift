@@ -13,7 +13,9 @@ import CoreLocation
 class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationManagerDelegate {
 
     @IBOutlet private weak var swipeableCardView: SwipeableCardViewContainer!
-
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var noCardsLeftLabel: UILabel!
+    
     let locationManager = CLLocationManager()
     let yelpRepo = YelpRepo.shared
     var businesses: [BusinessCard] = []
@@ -25,6 +27,10 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
+        self.spinner.startAnimating()
+        self.spinner.isHidden = false
+        self.noCardsLeftLabel.isHidden = true
 
         if let currentLoc = locationManager.location?.coordinate {
             yelpRepo.searchTop(coordinate: currentLoc, completion: { (response, error) in
@@ -36,6 +42,9 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
                 }
                 self.businesses = businesses
                 DispatchQueue.main.async {
+                    self.spinner.stopAnimating()
+                    self.spinner.isHidden = true
+                    self.noCardsLeftLabel.isHidden = false
                     self.swipeableCardView.reloadData()
                 }
             })
