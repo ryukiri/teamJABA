@@ -10,8 +10,7 @@ import UIKit
 import YelpAPI
 import CoreLocation
 
-class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationManagerDelegate {
-
+class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationManagerDelegate, SwipeableCardViewDelegate {
     @IBOutlet private weak var swipeableCardView: SwipeableCardViewContainer!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var noCardsLeftLabel: UILabel!
@@ -19,11 +18,16 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     let locationManager = CLLocationManager()
     let yelpRepo = YelpRepo.shared
     var businesses: [BusinessCard] = []
+    var selectedCard: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        self.title = "Eats"
+        
         swipeableCardView.dataSource = self
+        swipeableCardView.delegate = self
+        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
@@ -31,7 +35,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         self.spinner.startAnimating()
         self.spinner.isHidden = false
         self.noCardsLeftLabel.isHidden = true
-
+        
         if let currentLoc = locationManager.location?.coordinate {
             yelpRepo.searchTop(coordinate: currentLoc, completion: { (response, error) in
                 guard
@@ -52,7 +56,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     }
     
     @IBAction func refreshAction(_ sender: UIButton) {
-        viewDidLoad()
+        self.swipeableCardView.reloadData()
     }
     
     @IBAction func settingsAction(_ sender: Any) {
@@ -63,6 +67,17 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         self.present(alert, animated: true, completion: nil)
     }
     
+    func didSelect(card: SwipeableCardViewCard, atIndex index: Int) {
+        self.selectedCard = index
+        self.performSegue(withIdentifier: "detailsSegue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailsView = segue.destination as? DetailsViewController
+        detailsView?.business = self.businesses[self.selectedCard]
+    }
+
+    
     // MARK: - SwipeableCardViewDataSource
     
     func numberOfCards() -> Int {
@@ -72,7 +87,6 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     func card(forItemAtIndex index: Int) -> SwipeableCardViewCard {
         let business = self.businesses[index]
         let card = SampleSwipeableCard()
-        
         card.viewModel = SampleSwipeableCellViewModel(name: business.name, rating: String(business.rating), imageURL: business.imageURL!)
         
         return card
@@ -80,6 +94,10 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     
     func viewForEmptyCards() -> UIView? {
         return nil
+    }
+    
+    func didSelectCard(index: Int) {
+        print(index)
     }
 }
 

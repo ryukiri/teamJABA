@@ -33,5 +33,7 @@ protocol SwipeableCardViewDataSource: class {
     ///
     /// - Returns: view to be displayed underneath all cards
     func viewForEmptyCards() -> UIView?
-
+    
+    // Did select card
+    func didSelectCard(index: Int)
 }
