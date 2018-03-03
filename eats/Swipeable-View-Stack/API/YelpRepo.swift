@@ -10,13 +10,35 @@ import UIKit
 import YelpAPI
 import CoreLocation
 
-struct BusinessCard {
+//struct BusinessCard {
+//    let name: String
+//    let rating: Double
+//    let phone: String?
+//    let imageURL: URL?
+//    let image: UIImage?
+//}
+
+class BusinessCard {
     let name: String
     let rating: Double
     let phone: String?
     let imageURL: URL?
-//    let image: UIImage?
+    var image: UIImage?
+    
+    init(name: String, rating: Double, phone: String?, imageURL: URL?, image: UIImage?) {
+        self.name = name
+        self.rating = rating
+        self.phone = phone
+        self.image = image
+        self.imageURL = imageURL
+    }
+    
+    public func setImage(_ image: UIImage) {
+        self.image = image
+    }
 }
+
+let imageCache = NSCache<NSString, UIImage>()
 
 class YelpRepo {
     static let shared = YelpRepo()
@@ -46,9 +68,9 @@ class YelpRepo {
                     let rating = business.rating
                     let phone = business.phone
                     let imageURL = business.imageURL
-
+                    
                     cards.append(
-                        BusinessCard(name: name, rating: rating, phone: phone, imageURL: imageURL)
+                        BusinessCard(name: name, rating: rating, phone: phone, imageURL: imageURL, image: nil)
                     )
                 }
                 completion(cards, nil)
@@ -56,8 +78,28 @@ class YelpRepo {
         }
     }
     
-    public func getBusinesses() -> [BusinessCard] {
-        return self.businesses
+    public func downloadImage(url: URL, completion: @escaping (UIImage?, Error?) -> ()) {
+        if let cachedImage = imageCache.object(forKey: url.absoluteString as NSString) {
+            completion(cachedImage, nil)
+        } else {
+            self.getDataFromUrl(url: url, completion: { (data, response, error) in
+                guard
+                    let data = data,
+                    let image = UIImage(data: data),
+                    error == nil
+                    else {
+                        return
+                }
+                imageCache.setObject(image, forKey: url.absoluteString as NSString)
+                completion(image, nil)
+            })
+        }
+    }
+    
+    public func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            completion(data, response, error)
+            }.resume()
     }
 }
 

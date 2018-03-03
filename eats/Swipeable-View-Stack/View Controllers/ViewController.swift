@@ -45,11 +45,26 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
                     return
                 }
                 self.businesses = businesses
-                DispatchQueue.main.async {
-                    self.spinner.stopAnimating()
-                    self.spinner.isHidden = true
-                    self.noCardsLeftLabel.isHidden = false
-                    self.swipeableCardView.reloadData()
+
+                // download images
+                for business in self.businesses {
+                    if let imageURL = business.imageURL {
+                        self.yelpRepo.downloadImage(url: imageURL, completion: { (image, error) in
+                            guard
+                                let image = image,
+                                error == nil
+                                else {
+                                    return
+                            }
+                            DispatchQueue.main.async {
+                                business.setImage(image)
+                                self.spinner.stopAnimating()
+                                self.spinner.isHidden = true
+                                self.noCardsLeftLabel.isHidden = false
+                                self.swipeableCardView.reloadData()
+                            }
+                        })
+                    }
                 }
             })
         }
@@ -87,7 +102,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     func card(forItemAtIndex index: Int) -> SwipeableCardViewCard {
         let business = self.businesses[index]
         let card = SampleSwipeableCard()
-        card.viewModel = SampleSwipeableCellViewModel(name: business.name, rating: String(business.rating), imageURL: business.imageURL!)
+        card.viewModel = SampleSwipeableCellViewModel(name: business.name, rating: String(business.rating), imageURL: business.imageURL, image: business.image)
         
         return card
     }
