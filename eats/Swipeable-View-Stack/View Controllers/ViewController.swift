@@ -22,7 +22,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
         swipeableCardView.dataSource = self
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()

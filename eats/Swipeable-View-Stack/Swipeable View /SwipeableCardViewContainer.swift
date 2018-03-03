@@ -117,6 +117,7 @@ extension SwipeableCardViewContainer {
         guard let dataSource = dataSource else {
             return
         }
+        
 
         // Remove swiped card
         view.removeFromSuperview()

@@ -10,7 +10,7 @@ import UIKit
 import pop
 
 class SwipeableView: UIView {
-
+    
     var delegate: SwipeableViewDelegate?
 
     // MARK: Gesture Recognizer
@@ -109,12 +109,17 @@ class SwipeableView: UIView {
         }
     }
 
-    private var dragDirection: SwipeDirection? {
+    public var dragDirection: SwipeDirection? {
         let normalizedDragPoint = panGestureTranslation.normalizedDistanceForSize(bounds.size)
         return SwipeDirection.allDirections.reduce((distance: CGFloat.infinity, direction: nil), { closest, direction -> (CGFloat, SwipeDirection?) in
             let distance = direction.point.distanceTo(normalizedDragPoint)
             if distance < closest.distance {
                 return (distance, direction)
+            }
+            if closest.direction == SwipeDirection.right || closest.direction == SwipeDirection.topRight || closest.direction == SwipeDirection.bottomRight {
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let secondViewController = storyBoard.instantiateViewController(withIdentifier: "chose") as! ChoseViewController
+                UIApplication.shared.keyWindow?.rootViewController?.present(secondViewController, animated: true, completion: nil)
             }
             return closest
         }).direction
@@ -194,4 +199,6 @@ class SwipeableView: UIView {
         delegate?.didTap(view: self)
     }
 
+    
+    
 }
