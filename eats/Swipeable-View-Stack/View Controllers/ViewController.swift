@@ -17,7 +17,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     @IBOutlet weak var noCardsLeftLabel: UILabel!
     
     let locationManager = CLLocationManager()
-    let yelpRepo = YelpRepo.shared
+    var yelpRepo = YelpRepo.shared
     var businesses: [BusinessCard] = []
     
     override func viewDidLoad() {
@@ -55,14 +55,6 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         viewDidLoad()
     }
     
-    @IBAction func settingsAction(_ sender: Any) {
-        let alert = UIAlertController(title: "Settings", message: "Settings will go here", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { (UIAlertAction)in
-            print("Ok")
-        }))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
     // MARK: - SwipeableCardViewDataSource
     
     func numberOfCards() -> Int {
@@ -80,6 +72,13 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     
     func viewForEmptyCards() -> UIView? {
         return nil
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        let settingsViewController = segue.destination as! SettingsViewController
+        settingsViewController.yelpRepo = self.yelpRepo
     }
 }
 

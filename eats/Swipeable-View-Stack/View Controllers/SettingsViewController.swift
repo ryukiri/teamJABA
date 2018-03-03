@@ -9,7 +9,17 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
+    var yelpRepo : YelpRepo? = nil
 
+    @IBOutlet weak var openNowSwitch: UISwitch!
+    
+    @IBAction func `switch`(_ sender: UISwitch) {
+        if sender.isOn {
+           yelpRepo?.filterOpenNow();
+        } 
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,10 +36,14 @@ class SettingsViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+   
+    */
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let viewController = segue.destination as! ViewController
+        viewController.yelpRepo = self.yelpRepo!
     }
-    */
 
 }

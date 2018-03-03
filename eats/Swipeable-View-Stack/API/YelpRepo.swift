@@ -15,6 +15,9 @@ struct BusinessCard {
     let rating: Double
     let phone: String?
     let imageURL: URL?
+    let openNow: Bool
+//    let distance: Int
+//    let priceRange : String
 //    let image: UIImage?
 }
 
@@ -46,9 +49,11 @@ class YelpRepo {
                     let rating = business.rating
                     let phone = business.phone
                     let imageURL = business.imageURL
+                    let openNow = !business.isClosed
+//                    let distance = business.distance
 
                     cards.append(
-                        BusinessCard(name: name, rating: rating, phone: phone, imageURL: imageURL)
+                        BusinessCard(name: name, rating: rating, phone: phone, imageURL: imageURL, openNow: openNow)
                     )
                 }
                 completion(cards, nil)
@@ -59,5 +64,10 @@ class YelpRepo {
     public func getBusinesses() -> [BusinessCard] {
         return self.businesses
     }
+    
+    public func filterOpenNow() {
+        self.businesses = businesses.filter{$0.openNow == true}
+    }
+    
 }
 
