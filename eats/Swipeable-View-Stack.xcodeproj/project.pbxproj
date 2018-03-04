@@ -10,6 +10,17 @@
 		08159EC8204684C70063A0E8 /* ylp.m in Sources */ = {isa = PBXBuildFile; fileRef = 08159EC7204684C70063A0E8 /* ylp.m */; };
 		08159ECD204696A10063A0E8 /* YelpRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08159ECC204696A10063A0E8 /* YelpRepo.swift */; };
 		08B379802048B5960011C7EB /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3797F2048B5960011C7EB /* DetailsViewController.swift */; };
+		08B37983204A9EB40011C7EB /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B37982204A9EB40011C7EB /* extensions.swift */; };
+		08E523DF204BB0C6002D323C /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523E9204BB0C6002D323C /* AFNetworking.framework */; };
+		08E523E0204BB0C6002D323C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523EA204BB0C6002D323C /* Alamofire.framework */; };
+		08E523E1204BB0C6002D323C /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523EB204BB0C6002D323C /* AlamofireObjectMapper.framework */; };
+		08E523E2204BB0C6002D323C /* BDBOAuth1Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523EC204BB0C6002D323C /* BDBOAuth1Manager.framework */; };
+		08E523E3204BB0C6002D323C /* CDYelpFusionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523ED204BB0C6002D323C /* CDYelpFusionKit.framework */; };
+		08E523E4204BB0C6002D323C /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523EE204BB0C6002D323C /* GoogleToolboxForMac.framework */; };
+		08E523E5204BB0C6002D323C /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523EF204BB0C6002D323C /* nanopb.framework */; };
+		08E523E6204BB0C6002D323C /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523F0204BB0C6002D323C /* ObjectMapper.framework */; };
+		08E523E7204BB0C6002D323C /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523F1204BB0C6002D323C /* pop.framework */; };
+		08E523E8204BB0C6002D323C /* YelpAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523F2204BB0C6002D323C /* YelpAPI.framework */; };
 		91053654204789AD0006BC5A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91053653204789AD0006BC5A /* SettingsViewController.swift */; };
 		D1DB4F6F686EE90C7F0A31C5 /* Pods_Swipeable_View_Stack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8862332D7E886ADB81FEDFB /* Pods_Swipeable_View_Stack.framework */; };
 		F7A387071F9BB6E400EF5B45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A387061F9BB6E400EF5B45 /* AppDelegate.swift */; };
@@ -39,6 +50,17 @@
 		08159EC7204684C70063A0E8 /* ylp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ylp.m; sourceTree = "<group>"; };
 		08159ECC204696A10063A0E8 /* YelpRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpRepo.swift; sourceTree = "<group>"; };
 		08B3797F2048B5960011C7EB /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		08B37982204A9EB40011C7EB /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		08E523E9204BB0C6002D323C /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08E523EA204BB0C6002D323C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08E523EB204BB0C6002D323C /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlamofireObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08E523EC204BB0C6002D323C /* BDBOAuth1Manager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BDBOAuth1Manager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08E523ED204BB0C6002D323C /* CDYelpFusionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CDYelpFusionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08E523EE204BB0C6002D323C /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08E523EF204BB0C6002D323C /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08E523F0204BB0C6002D323C /* ObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08E523F1204BB0C6002D323C /* pop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = pop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08E523F2204BB0C6002D323C /* YelpAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YelpAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37304D7E784FC84C5165D0E5 /* Pods-Swipeable-View-Stack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipeable-View-Stack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swipeable-View-Stack/Pods-Swipeable-View-Stack.debug.xcconfig"; sourceTree = "<group>"; };
 		5F8C8FF1559E3E60CA5906FD /* Pods-Swipeable-View-Stack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipeable-View-Stack.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swipeable-View-Stack/Pods-Swipeable-View-Stack.release.xcconfig"; sourceTree = "<group>"; };
 		91053653204789AD0006BC5A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +94,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08E523DF204BB0C6002D323C /* AFNetworking.framework in Frameworks */,
+				08E523E0204BB0C6002D323C /* Alamofire.framework in Frameworks */,
+				08E523E1204BB0C6002D323C /* AlamofireObjectMapper.framework in Frameworks */,
+				08E523E2204BB0C6002D323C /* BDBOAuth1Manager.framework in Frameworks */,
+				08E523E3204BB0C6002D323C /* CDYelpFusionKit.framework in Frameworks */,
+				08E523E4204BB0C6002D323C /* GoogleToolboxForMac.framework in Frameworks */,
+				08E523E5204BB0C6002D323C /* nanopb.framework in Frameworks */,
+				08E523E6204BB0C6002D323C /* ObjectMapper.framework in Frameworks */,
+				08E523E7204BB0C6002D323C /* pop.framework in Frameworks */,
+				08E523E8204BB0C6002D323C /* YelpAPI.framework in Frameworks */,
 				D1DB4F6F686EE90C7F0A31C5 /* Pods_Swipeable_View_Stack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +136,7 @@
 				F7A387081F9BB6E400EF5B45 /* ViewController.swift */,
 				91053653204789AD0006BC5A /* SettingsViewController.swift */,
 				08B3797F2048B5960011C7EB /* DetailsViewController.swift */,
+				08B37982204A9EB40011C7EB /* extensions.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -130,6 +163,16 @@
 		BF70FC3528C4AD7795EE2E29 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				08E523E9204BB0C6002D323C /* AFNetworking.framework */,
+				08E523EA204BB0C6002D323C /* Alamofire.framework */,
+				08E523EB204BB0C6002D323C /* AlamofireObjectMapper.framework */,
+				08E523EC204BB0C6002D323C /* BDBOAuth1Manager.framework */,
+				08E523ED204BB0C6002D323C /* CDYelpFusionKit.framework */,
+				08E523EE204BB0C6002D323C /* GoogleToolboxForMac.framework */,
+				08E523EF204BB0C6002D323C /* nanopb.framework */,
+				08E523F0204BB0C6002D323C /* ObjectMapper.framework */,
+				08E523F1204BB0C6002D323C /* pop.framework */,
+				08E523F2204BB0C6002D323C /* YelpAPI.framework */,
 				A8862332D7E886ADB81FEDFB /* Pods_Swipeable_View_Stack.framework */,
 			);
 			name = Frameworks;
@@ -294,8 +337,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Swipeable-View-Stack/Pods-Swipeable-View-Stack-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/BDBOAuth1Manager/BDBOAuth1Manager.framework",
+				"${BUILT_PRODUCTS_DIR}/CDYelpFusionKit/CDYelpFusionKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/YelpAPI/YelpAPI.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
@@ -303,8 +350,12 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BDBOAuth1Manager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CDYelpFusionKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YelpAPI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
@@ -336,6 +387,7 @@
 				F7A387071F9BB6E400EF5B45 /* AppDelegate.swift in Sources */,
 				08B379802048B5960011C7EB /* DetailsViewController.swift in Sources */,
 				F7FC2CF71F9BC94400EEF1CE /* SwipeableView.swift in Sources */,
+				08B37983204A9EB40011C7EB /* extensions.swift in Sources */,
 				F7FC2CF91F9BD6D800EEF1CE /* SwipeDirection.swift in Sources */,
 				F7A387231F9BB93400EF5B45 /* SwipeableCardViewDataSource.swift in Sources */,
 				F7A3871F1F9BB8D800EF5B45 /* NibView.swift in Sources */,

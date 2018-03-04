@@ -19,11 +19,11 @@ class DetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         
-        self.view.layer.cornerRadius = 10
-        self.view.clipsToBounds = true
+        self.view.roundCorners()
+        self.businessImage.roundCorners()
         
         self.businessNameLabel.text = business?.name
-        //        self.businessImage = business?.imageURL
+        self.businessImage.image = business?.image
     }
     
     override func viewDidLoad() {
@@ -55,14 +55,4 @@ class DetailsViewController: UIViewController {
             }
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
