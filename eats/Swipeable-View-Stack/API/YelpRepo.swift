@@ -29,6 +29,7 @@ class YelpRepo {
     let client = YLPClient.init(apiKey: "WPruHqNCNtovPA8KxPdm9uPeotZ-y9mXjerGJAiL5Reww9KBdImvz5rx-B8Jx0NlTm-AhGoRTa4pU_iOnBToqHCdP8gOaZhgP_2AWDzE3MBdWvjWmr0ErL8hGjWOWnYx")
     
     public func searchTop(coordinate:  CLLocationCoordinate2D, completion: @escaping ([BusinessCard]?, Error?) -> Void) {
+        authenticate()
         var cards: [BusinessCard] = []
 
         let lat = coordinate.latitude as Double
@@ -69,5 +70,33 @@ class YelpRepo {
         self.businesses = businesses.filter{$0.openNow == true}
     }
     
+    private func authenticate() {
+        var authRequest = URLRequest(url: URL(string: "https://api.yelp.com/oauth2/token")!)
+        authRequest.setValue("Bearer WPruHqNCNtovPA8KxPdm9uPeotZ-y9mXjerGJAiL5Reww9KBdImvz5rx-B8Jx0NlTm-AhGoRTa4pU_iOnBToqHCdP8gOaZhgP_2AWDzE3MBdWvjWmr0ErL8hGjWOWnYx", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: authRequest) { (data, response, error) -> Void in
+            if error != nil {
+                NSLog("Problem connecting to internet. Getting data from local file.")
+                return
+            }
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [[String: AnyObject]] {
+                    
+                    //for each subject in json file..
+                    for item in json {
+                        let name = item["name"]
+                        print(name as? String)
+                    }
+                } else {
+                    NSLog("invalid response")
+                }
+            } catch let jsonError {
+                NSLog("Problem downloading!")
+                print(jsonError)
+                return
+            }
+        }
+        task.resume()
+    }
 }
 
