@@ -16,12 +16,22 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     @IBOutlet weak var noCardsLeftLabel: UILabel!
     
     let locationManager = CLLocationManager()
-    let yelpRepo = YelpRepo.shared
+    var yelpRepo = YelpRepo.shared
     var businesses: [BusinessCard] = []
     var selectedCard: Int = -1
     
+    var savedSettings : settings? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("LOADED VIEW")
+        
+        if savedSettings == nil {
+            savedSettings = settings(price: "$$", distance: 1000.0, openNow: true) //default settings
+        } else {
+            print("I got saved settings!")
+        }
         
         self.title = "Eats"
         
@@ -37,13 +47,21 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         self.noCardsLeftLabel.isHidden = true
         
         if let currentLoc = locationManager.location?.coordinate {
-            yelpRepo.searchTop(coordinate: currentLoc, completion: { (response, error) in
+            yelpRepo.searchTop(coordinate: currentLoc, openNow: (savedSettings?.openNow)!, completion: { (response, error) in
                 guard
-                    let businesses = response
+                    var businesses = response
                 else {
                     print(error as Any)
                     return
                 }
+                
+                //filter businesses
+                businesses = businesses.filter{$0.distance <= (self.savedSettings?.distance)!}
+                //filter by price
+                if self.savedSettings?.price != "Any" {
+                    businesses = businesses.filter {$0.price == self.savedSettings?.price}
+                }
+
                 self.businesses = businesses
 
                 // download images
@@ -70,16 +88,13 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         }
     }
     
-    @IBAction func refreshAction(_ sender: UIButton) {
-        self.swipeableCardView.reloadData()
+    override func viewDidAppear(_ animated: Bool) {
+        print("settings are: price = \(savedSettings?.price) distance = \(savedSettings?.distance) openNow = \(savedSettings?.openNow)")
+        
     }
     
-    @IBAction func settingsAction(_ sender: Any) {
-        let alert = UIAlertController(title: "Settings", message: "Settings will go here", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { (UIAlertAction)in
-            print("Ok")
-        }))
-        self.present(alert, animated: true, completion: nil)
+    @IBAction func refreshAction(_ sender: UIButton) {
+        self.swipeableCardView.reloadData()
     }
     
     func didSelect(card: SwipeableCardViewCard, atIndex index: Int) {
@@ -88,8 +103,14 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let detailsView = segue.destination as? DetailsViewController
-        detailsView?.business = self.businesses[self.selectedCard]
+        if segue.identifier == "details segue" {
+            let detailsView = segue.destination as? DetailsViewController
+            detailsView?.business = self.businesses[self.selectedCard]
+        }
+        if segue.identifier == "settings segue" {
+            let settingsView = segue.destination as? SettingsViewController
+            settingsView?.savedSettings = savedSettings
+        }
     }
 
     

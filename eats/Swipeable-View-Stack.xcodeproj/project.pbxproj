@@ -531,8 +531,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U63TPR2C89;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Swipeable-View-Stack/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.washington.teamJABA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -550,8 +551,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U63TPR2C89;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Swipeable-View-Stack/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.washington.teamJABA;
 				PRODUCT_NAME = "$(TARGET_NAME)";

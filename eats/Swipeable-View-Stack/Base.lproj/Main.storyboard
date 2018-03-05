@@ -24,16 +24,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Cards Left." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gm-Im-TT0">
-                                <rect key="frame" x="152" y="365" width="110.33333333333331" height="21"/>
+                                <rect key="frame" x="152" y="367.66666666666669" width="110.33333333333331" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Gga-EH-Tgb">
-                                <rect key="frame" x="197" y="358" width="20" height="20"/>
+                                <rect key="frame" x="197" y="314" width="20" height="113"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8K-oz-Scp" customClass="SwipeableCardViewContainer" customModule="Swipeable_View_Stack" customModuleProvider="target">
-                                <rect key="frame" x="5" y="175.66666666666663" width="404" height="400"/>
+                                <rect key="frame" x="5" y="178" width="404" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="mdS-bL-djT"/>
@@ -63,6 +63,7 @@
                                 <state key="normal" title="Refresh"/>
                                 <connections>
                                     <action selector="refreshAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YUB-1O-Wb1"/>
+                                    <segue destination="zUe-yJ-Ksw" kind="show" identifier="details segue" id="PG5-K1-q8e"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -72,7 +73,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
-                                    <action selector="settingsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8N2-BC-M2W"/>
+                                    <segue destination="Zig-cH-mLc" kind="show" identifier="settings segue" id="MkT-oD-ehc"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -81,7 +82,6 @@
                         <outlet property="noCardsLeftLabel" destination="7gm-Im-TT0" id="fOK-BJ-Wom"/>
                         <outlet property="spinner" destination="Gga-EH-Tgb" id="m8r-CP-dw7"/>
                         <outlet property="swipeableCardView" destination="w8K-oz-Scp" id="JNP-R5-hCO"/>
-                        <segue destination="zUe-yJ-Ksw" kind="presentation" identifier="detailsSegue" id="otX-Xu-cg6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -134,7 +134,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Mbs-bN-su4">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="Mbs-bN-su4">
                                 <rect key="frame" x="20" y="293" width="376" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </slider>
@@ -153,6 +153,10 @@
                                         <rect key="frame" x="8" y="15" width="47" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="&lt; Main"/>
+                                        <connections>
+                                            <action selector="backToMain:" destination="Zig-cH-mLc" eventType="touchUpInside" id="NTg-kF-4g8"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="settingsToMain segue" id="6jw-kl-gAH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -168,10 +172,22 @@
                                 <rect key="frame" x="327" y="361" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVs-E8-11U">
+                                <rect key="frame" x="153" y="445" width="111" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Update Settings"/>
+                                <connections>
+                                    <action selector="saveSettings:" destination="Zig-cH-mLc" eventType="touchUpInside" id="Cq8-7y-gxM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="fku-9e-3jk"/>
                     </view>
+                    <connections>
+                        <outlet property="distanceSlider" destination="Mbs-bN-su4" id="K73-Dd-s0Y"/>
+                        <outlet property="openNowSwitch" destination="a0A-gV-ZQ5" id="Mkd-4O-9FH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ytZ-iU-sXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -280,4 +296,7 @@
     <resources>
         <image name="home-tab" width="22" height="21"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="6jw-kl-gAH"/>
+    </inferredMetricsTieBreakers>
 </document>
