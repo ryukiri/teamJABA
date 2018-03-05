@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import MapKit
 
 class ChoseViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     var name : String?
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var mapView: MKMapView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +35,24 @@ class ChoseViewController: UIViewController {
         })
         
         // Do any additional setup after loading the view.
+        let initialLocation = CLLocation(latitude: (DataModel.shared.location?.coordinate?.latitude)!, longitude: (DataModel.shared.location?.coordinate?.longitude)!)
+        centerMapOnLocation(location: initialLocation)
+        
+        // show artwork on map
+        let artwork = MapDetails(title: DataModel.shared.name!,
+                              locationName: DataModel.shared.name!,
+                              discipline: "Restaurant",
+                              coordinate: CLLocationCoordinate2D(latitude: (DataModel.shared.location?.coordinate?.latitude)!, longitude: (DataModel.shared.location?.coordinate?.longitude)!))
+        mapView.addAnnotation(artwork)
     }
 
+    let regionRadius: CLLocationDistance = 500
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                  regionRadius, regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

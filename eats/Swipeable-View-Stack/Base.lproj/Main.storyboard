@@ -223,12 +223,17 @@
                                 <rect key="frame" x="40" y="535" width="61" height="30"/>
                                 <state key="normal" title="Navigate"/>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ouj-rX-bIh">
+                                <rect key="frame" x="20" y="573" width="374" height="128"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Ouj-rX-bIh" firstAttribute="leading" secondItem="cyP-uL-ME2" secondAttribute="leading" constant="20" id="GdP-vX-NGY"/>
                             <constraint firstItem="cyP-uL-ME2" firstAttribute="trailing" secondItem="eeP-9I-eq5" secondAttribute="trailing" constant="40" id="HAi-Tm-utB"/>
                             <constraint firstItem="lwb-Tk-NrI" firstAttribute="leading" secondItem="eyC-Rd-HnD" secondAttribute="leading" id="Hwp-qs-jGI"/>
                             <constraint firstItem="eeP-9I-eq5" firstAttribute="top" secondItem="lwb-Tk-NrI" secondAttribute="bottom" constant="25" id="Klo-UW-Ocm"/>
+                            <constraint firstItem="cyP-uL-ME2" firstAttribute="trailing" secondItem="Ouj-rX-bIh" secondAttribute="trailing" constant="20" id="Uj8-Xh-oGF"/>
                             <constraint firstItem="eyC-Rd-HnD" firstAttribute="top" secondItem="cyP-uL-ME2" secondAttribute="top" constant="16" id="d4l-1l-bWb"/>
                             <constraint firstItem="lwb-Tk-NrI" firstAttribute="centerX" secondItem="2kR-v2-IGL" secondAttribute="centerX" id="h9I-gm-qRm"/>
                             <constraint firstItem="eyC-Rd-HnD" firstAttribute="leading" secondItem="cyP-uL-ME2" secondAttribute="leading" constant="16" id="iF9-kK-IXu"/>
@@ -237,12 +242,15 @@
                             <constraint firstItem="cyP-uL-ME2" firstAttribute="trailing" secondItem="eyC-Rd-HnD" secondAttribute="trailing" constant="16" id="tid-Io-qof"/>
                             <constraint firstItem="CR5-k2-I5f" firstAttribute="top" secondItem="lwb-Tk-NrI" secondAttribute="bottom" constant="25" id="tzH-Xa-JeO"/>
                             <constraint firstItem="cyP-uL-ME2" firstAttribute="bottom" secondItem="lwb-Tk-NrI" secondAttribute="bottom" constant="226" id="uDl-Xg-ly2"/>
+                            <constraint firstItem="Ouj-rX-bIh" firstAttribute="top" secondItem="eeP-9I-eq5" secondAttribute="bottom" constant="8" id="xbC-4H-uCD"/>
+                            <constraint firstItem="cyP-uL-ME2" firstAttribute="bottom" secondItem="Ouj-rX-bIh" secondAttribute="bottom" constant="35" id="yty-Rc-Icl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cyP-uL-ME2"/>
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="DG0-QS-KWE" id="mrt-uG-47x"/>
                         <outlet property="image" destination="lwb-Tk-NrI" id="xvZ-Ch-EDg"/>
+                        <outlet property="mapView" destination="Ouj-rX-bIh" id="Emy-Fv-54N"/>
                         <outlet property="nameLabel" destination="l6J-Kf-kid" id="SQo-20-bSd"/>
                     </connections>
                 </viewController>
