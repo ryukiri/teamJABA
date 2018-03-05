@@ -47,8 +47,9 @@
 	</array>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-    		<string>googlechromes</string>
-    		<string>comgooglemaps</string>
+		<string>googlechromes</string>
+		<string>comgooglemaps</string>
+		<string>sms:</string>
 	</array>
 </dict>
 </plist>

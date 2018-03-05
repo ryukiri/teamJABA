@@ -218,6 +218,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeP-9I-eq5">
                                 <rect key="frame" x="334" y="535" width="40" height="30"/>
                                 <state key="normal" title="Share"/>
+                                <connections>
+                                    <action selector="shareButton:" destination="C8C-rK-ohD" eventType="touchUpInside" id="AHb-g6-bAG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CR5-k2-I5f">
                                 <rect key="frame" x="40" y="535" width="61" height="30"/>

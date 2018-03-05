@@ -85,4 +85,13 @@ class ChoseViewController: UIViewController {
             NSLog("Can't use com.google.maps://");
         }
     }
+    
+    @IBAction func shareButton(_ sender: Any) {
+        let text = "Some message"
+        
+        if UIApplication.shared.canOpenURL(URL(string:"sms:")!) {
+            UIApplication.shared.open(URL(string:"sms:")!, options: [:], completionHandler: nil)
+        }
+    }
+    
 }
