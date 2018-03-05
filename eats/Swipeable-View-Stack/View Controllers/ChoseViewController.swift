@@ -12,11 +12,13 @@ class ChoseViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     var name : String?
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var addressLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         name = DataModel.shared.name
         nameLabel.text = name
+        addressLabel.text = DataModel.shared.location?.address[0]
         self.getDataFromUrl(url: DataModel.shared.imageURL!, completion: { (data, response, error) in
             guard
                 let data = data,

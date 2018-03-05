@@ -123,9 +123,11 @@ class SwipeableView: UIView {
                 if DataModel.shared.count == 0 {
                     DataModel.shared.name = DataModel.shared.names[0]
                     DataModel.shared.imageURL = DataModel.shared.images[0]
+                    DataModel.shared.location = DataModel.shared.locations[0]
                 } else {
                     DataModel.shared.name = DataModel.shared.names[DataModel.shared.count/14]
                     DataModel.shared.imageURL = DataModel.shared.images[DataModel.shared.count/14]
+                    DataModel.shared.location = DataModel.shared.locations[DataModel.shared.count/14]
                 }
                 UIApplication.shared.keyWindow?.rootViewController?.present(choseVC, animated: true, completion: nil)
             } else if closest.direction == SwipeDirection.left || closest.direction == SwipeDirection.topLeft || closest.direction == SwipeDirection.bottomLeft{

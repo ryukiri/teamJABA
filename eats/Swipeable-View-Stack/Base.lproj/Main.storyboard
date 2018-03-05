@@ -193,7 +193,7 @@
                                 <rect key="frame" x="16" y="226" width="382" height="284"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eyC-Rd-HnD">
-                                <rect key="frame" x="16" y="36" width="382" height="40.666666666666657"/>
+                                <rect key="frame" x="16" y="36" width="382" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have chosen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywa-Xv-Bju">
                                         <rect key="frame" x="126.33333333333336" y="0.0" width="129.66666666666663" height="20.333333333333332"/>
@@ -203,6 +203,12 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6J-Kf-kid">
                                         <rect key="frame" x="170.33333333333334" y="20.333333333333336" width="41.666666666666657" height="20.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DG0-QS-KWE">
+                                        <rect key="frame" x="170.33333333333334" y="40.666666666666671" width="41.666666666666657" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -235,6 +241,7 @@
                         <viewLayoutGuide key="safeArea" id="cyP-uL-ME2"/>
                     </view>
                     <connections>
+                        <outlet property="addressLabel" destination="DG0-QS-KWE" id="mrt-uG-47x"/>
                         <outlet property="image" destination="lwb-Tk-NrI" id="xvZ-Ch-EDg"/>
                         <outlet property="nameLabel" destination="l6J-Kf-kid" id="SQo-20-bSd"/>
                     </connections>

@@ -78,7 +78,9 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         
         self.names.append(business.name)
         DataModel.shared.names = self.names
-        print("URLLLL: \(business.imageURL)")
+        
+        DataModel.shared.locations.append(business.location!)
+
         DataModel.shared.images.append(business.imageURL!)
         return card
     }
@@ -90,10 +92,15 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
 
 class DataModel {
     static let shared = DataModel()
+    var count = 0
+    
     var name: String?
     var names: [String] = []
-    var count = 0
-    var images: [URL] = []
+    
     var imageURL: URL?
+    var images: [URL] = []
+
+    var location: YLPLocation?
+    var locations: [YLPLocation] = []
 }
 

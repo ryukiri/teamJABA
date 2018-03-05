@@ -15,6 +15,7 @@ struct BusinessCard {
     let rating: Double
     let phone: String?
     let imageURL: URL?
+    let location: YLPLocation?
 //    let image: UIImage?
 }
 
@@ -46,9 +47,10 @@ class YelpRepo {
                     let rating = business.rating
                     let phone = business.phone
                     let imageURL = business.imageURL
-
+                    let location = business.location
+                    
                     cards.append(
-                        BusinessCard(name: name, rating: rating, phone: phone, imageURL: imageURL)
+                        BusinessCard(name: name, rating: rating, phone: phone, imageURL: imageURL, location: location)
                     )
                 }
                 completion(cards, nil)
