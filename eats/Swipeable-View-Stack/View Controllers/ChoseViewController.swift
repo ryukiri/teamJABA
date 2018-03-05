@@ -74,4 +74,15 @@ class ChoseViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func navigateButton(_ sender: Any) {
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!))
+        {
+            UIApplication.shared.openURL(NSURL(string:
+                "comgooglemaps://?saddr=&daddr=\(Float((DataModel.shared.location?.coordinate?.latitude)!)),\(Float((DataModel.shared.location?.coordinate?.longitude)!))&directionsmode=driving")! as URL)
+        } else
+        {
+            NSLog("Can't use com.google.maps://");
+        }
+    }
 }
