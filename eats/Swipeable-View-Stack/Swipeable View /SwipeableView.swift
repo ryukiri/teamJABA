@@ -118,8 +118,19 @@ class SwipeableView: UIView {
             }
             if closest.direction == SwipeDirection.right || closest.direction == SwipeDirection.topRight || closest.direction == SwipeDirection.bottomRight {
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                let secondViewController = storyBoard.instantiateViewController(withIdentifier: "chose") as! ChoseViewController
-                UIApplication.shared.keyWindow?.rootViewController?.present(secondViewController, animated: true, completion: nil)
+                let choseVC = storyBoard.instantiateViewController(withIdentifier: "chose") as! ChoseViewController
+                print("NAAAME: \(DataModel.shared.count/14)")
+                if DataModel.shared.count == 0 {
+                    DataModel.shared.name = DataModel.shared.names[0]
+                    DataModel.shared.imageURL = DataModel.shared.images[0]
+                } else {
+                    DataModel.shared.name = DataModel.shared.names[DataModel.shared.count/14]
+                    DataModel.shared.imageURL = DataModel.shared.images[DataModel.shared.count/14]
+                }
+                UIApplication.shared.keyWindow?.rootViewController?.present(choseVC, animated: true, completion: nil)
+            } else if closest.direction == SwipeDirection.left || closest.direction == SwipeDirection.topLeft || closest.direction == SwipeDirection.bottomLeft{
+                //BUG IF USER DOES NOT SWIPE CARD AWAY. NEED A WAY TO CHECK IF CARD IS ACTUALLY GONE
+                DataModel.shared.count += 1
             }
             return closest
         }).direction

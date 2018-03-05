@@ -19,6 +19,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     let locationManager = CLLocationManager()
     let yelpRepo = YelpRepo.shared
     var businesses: [BusinessCard] = []
+    var names: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,11 +76,24 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         
         card.viewModel = SampleSwipeableCellViewModel(name: business.name, rating: String(business.rating), imageURL: business.imageURL!)
         
+        self.names.append(business.name)
+        DataModel.shared.names = self.names
+        print("URLLLL: \(business.imageURL)")
+        DataModel.shared.images.append(business.imageURL!)
         return card
     }
     
     func viewForEmptyCards() -> UIView? {
         return nil
     }
+}
+
+class DataModel {
+    static let shared = DataModel()
+    var name: String?
+    var names: [String] = []
+    var count = 0
+    var images: [URL] = []
+    var imageURL: URL?
 }
 

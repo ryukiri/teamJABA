@@ -9,16 +9,38 @@
 import UIKit
 
 class ChoseViewController: UIViewController {
-
+    @IBOutlet weak var nameLabel: UILabel!
+    var name : String?
+    @IBOutlet weak var image: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        name = DataModel.shared.name
+        nameLabel.text = name
+        self.getDataFromUrl(url: DataModel.shared.imageURL!, completion: { (data, response, error) in
+            guard
+                let data = data,
+                error == nil
+                else {
+                    return
+            }
+            DispatchQueue.main.async {
+                self.image.image = UIImage(data: data)
+            }
+        })
+        
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            completion(data, response, error)
+            }.resume()
     }
     
 
