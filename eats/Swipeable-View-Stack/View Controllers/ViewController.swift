@@ -18,8 +18,8 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     let locationManager = CLLocationManager()
     var yelpRepo = YelpRepo.shared
     var businesses: [BusinessCard] = []
-    var names: [String] = [String]()
     var selectedCard: Int = -1
+    var chosenCard: Int = -1
     
     var savedSettings : settings = settings(price: "$", distance: 1000.0, openNow: true)
     
@@ -81,22 +81,35 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         self.swipeableCardView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let segueId = segue.identifier else {
+            return
+        }
+        switch segueId {
+        case "detailsSegue":
+            let detailsView = segue.destination as? DetailsViewController
+            detailsView?.business = self.businesses[self.selectedCard]
+        case "settingsSegue":
+            let settingsView = segue.destination as? SettingsViewController
+            settingsView?.savedSettings = self.savedSettings
+        case "chosenSegue":
+            let chosenView = segue.destination as? ChoseViewController
+            chosenView?.business = self.businesses[self.chosenCard]
+        default:
+            return
+        }
+    }
+    
+    // MARK: - SwipeableCardViewDelegate
     func didSelect(card: SwipeableCardViewCard, atIndex index: Int) {
         self.selectedCard = index
         self.performSegue(withIdentifier: "detailsSegue", sender: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailsSegue" {
-            let detailsView = segue.destination as? DetailsViewController
-            detailsView?.business = self.businesses[self.selectedCard]
-        }
-        if segue.identifier == "settingsSegue" {
-            let settingsView = segue.destination as! SettingsViewController
-            settingsView.savedSettings = self.savedSettings
-        }
+    func didEndSwipeRight(card: SwipeableCardViewCard, atIndex index: Int) {
+        self.chosenCard = index
+        self.performSegue(withIdentifier: "chosenSegue", sender: nil)
     }
-
     
     // MARK: - SwipeableCardViewDataSource
     
@@ -108,14 +121,8 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         let business = self.businesses[index]
         let card = SampleSwipeableCard()
         
-        if let name = business.name, let location = business.location, let imageURL = business.imageURL, let rating = business.rating, let image = business.image {
+        if let name = business.name, let imageURL = business.imageURL, let rating = business.rating, let image = business.image {
             card.viewModel = SampleSwipeableCellViewModel(name: name, rating: String(format:"%.1f", rating), imageURL: imageURL, image: image)
-        
-            self.names.append(name)
-            
-            DataModel.shared.names = self.names
-            DataModel.shared.locations.append(location)
-            DataModel.shared.images.append(imageURL)
         }
         return card
     }
@@ -125,20 +132,6 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     }
     
     func didSelectCard(index: Int) {
-        print(index)
+        self.selectedCard = index
     }
-}
-
-class DataModel {
-    static let shared = DataModel()
-    var count = 0
-    
-    var name: String?
-    var names: [String] = []
-    
-    var imageURL: URL?
-    var images: [URL] = []
-    
-    var location: CDYelpLocation?
-    var locations: [CDYelpLocation] = []
 }

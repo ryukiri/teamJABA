@@ -11,39 +11,52 @@ import MapKit
 
 class ChoseViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
-    var name : String?
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
+    let yelpRepo = YelpRepo.shared
+    
+    var business: BusinessCard? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        name = DataModel.shared.name
-//        nameLabel.text = name
-//        addressLabel.text = DataModel.shared.location?.address[0]
-//        self.getDataFromUrl(url: DataModel.shared.imageURL!, completion: { (data, response, error) in
-//            guard
-//                let data = data,
-//                error == nil
-//                else {
-//                    return
-//            }
-//            DispatchQueue.main.async {
-//                self.image.image = UIImage(data: data)
-//            }
-//        })
-//
-//        // Do any additional setup after loading the view.
-//        let initialLocation = CLLocation(latitude: (DataModel.shared.location?.coordinate?.latitude)!, longitude: (DataModel.shared.location?.coordinate?.longitude)!)
-//        centerMapOnLocation(location: initialLocation)
-//
-//        // show artwork on map
-//        let artwork = MapDetails(title: DataModel.shared.name!,
-//                              locationName: DataModel.shared.name!,
-//                              discipline: "Restaurant",
-//                              coordinate: CLLocationCoordinate2D(latitude: (DataModel.shared.location?.coordinate?.latitude)!, longitude: (DataModel.shared.location?.coordinate?.longitude)!))
-//        mapView.addAnnotation(artwork)
+        
+        guard
+            let id = business?.id,
+            let name = business?.name,
+            let location = business?.location,
+            let image = business?.image
+        else {
+            return
+        }
+        
+        nameLabel.text = name
+        addressLabel.text = location.addressOne
+        self.image.image = image
+        
+
+        // fetch coordinates
+        self.yelpRepo.searchBusinessWithID(id: id) { (response) in
+            if let business = response {
+                guard
+                    let coords = business.coordinates,
+                    let lat = coords.latitude,
+                    let long = coords.longitude
+                else {
+                    return
+                }
+                let initialLocation = CLLocation(latitude: lat, longitude: long)
+                self.centerMapOnLocation(location: initialLocation)
+                
+                // show artwork on map
+                let artwork = MapDetails(title: name,
+                                         locationName: name,
+                                         discipline: "Restaurant",
+                                         coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
+                self.mapView.addAnnotation(artwork)
+            }
+        }
     }
 
     let regionRadius: CLLocationDistance = 500

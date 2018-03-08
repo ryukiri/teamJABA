@@ -114,6 +114,14 @@ extension SwipeableCardViewContainer {
     }
 
     func didEndSwipe(onView view: SwipeableView) {
+        // Handle right swipe
+        if view.dragDirection == SwipeDirection.right || view.dragDirection == SwipeDirection.bottomRight || view.dragDirection == SwipeDirection.topRight {
+            if let cardView = view as? SwipeableCardViewCard,
+                let index = cardViews.index(of: cardView) {
+                delegate?.didEndSwipeRight(card: cardView, atIndex: index)
+            }
+        }
+        
         guard let dataSource = dataSource else {
             return
         }

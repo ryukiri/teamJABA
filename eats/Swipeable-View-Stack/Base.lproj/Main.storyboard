@@ -86,6 +86,7 @@
                         <outlet property="spinner" destination="Gga-EH-Tgb" id="m8r-CP-dw7"/>
                         <outlet property="swipeableCardView" destination="w8K-oz-Scp" id="JNP-R5-hCO"/>
                         <segue destination="zUe-yJ-Ksw" kind="presentation" identifier="detailsSegue" id="gGr-88-n3g"/>
+                        <segue destination="C8C-rK-ohD" kind="presentation" identifier="chosenSegue" id="Hr2-CT-T6o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
