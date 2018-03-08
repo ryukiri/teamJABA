@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import YelpAPI
 import CDYelpFusionKit
 import Alamofire
 import AlamofireObjectMapper
@@ -18,16 +19,19 @@ class BusinessCard {
     let rating: Double?
     let phone: String?
     let imageURL: URL?
+    let location: CDYelpLocation?
     var image: UIImage?
-    let price: String?
+    var price: String?
     
-    init(id: String?, name: String?, rating: Double?, phone: String?, imageURL: URL?, image: UIImage?, price: String?) {
+    
+    init(id: String, name: String, rating: Double, phone: String?, imageURL: URL?, image: UIImage?, location: CDYelpLocation?, price: String?) {
         self.id = id
         self.name = name
         self.rating = rating
         self.phone = phone
         self.image = image
         self.imageURL = imageURL
+        self.location = location
         self.price = price
     }
     
@@ -57,24 +61,29 @@ class YelpRepo {
         }
     }()
     
-    public func searchTop(coordinate:  CLLocationCoordinate2D, completion: @escaping ([BusinessCard]?, Error?) -> Void) {
+    public func searchTop(coordinate:  CLLocationCoordinate2D, openNow: Bool, completion: @escaping ([BusinessCard]?, Error?) -> Void) {
         var cards: [BusinessCard] = []
 
         let lat = coordinate.latitude as Double
         let long = coordinate.longitude as Double
         
-        yelpAPIClient.searchBusinesses(byTerm: nil, location: nil, latitude: lat, longitude: long, radius: 1000, categories: [.food], locale: .english_unitedStates, limit: 10, offset: 0, sortBy: .rating, priceTiers: [.oneDollarSign, .twoDollarSigns, .threeDollarSigns, .fourDollarSigns], openNow: true, openAt: nil, attributes: nil) { (response) in
+        yelpAPIClient.searchBusinesses(byTerm: nil, location: nil, latitude: lat, longitude: long, radius: 10000, categories: [.food], locale: .english_unitedStates, limit: 10, offset: 0, sortBy: .rating, priceTiers: [.oneDollarSign, .twoDollarSigns, .threeDollarSigns, .fourDollarSigns], openNow: openNow, openAt: nil, attributes: nil) { (response) in
                 if let businesses = response?.businesses {
                     for business in businesses {
-                        let id = business.id
-                        let name = business.name
-                        let rating = business.rating
-                        let phone = business.phone
-                        let imageURL = business.imageUrl
-                        let price = business.price
+                        guard
+                            let id = business.id,
+                            let name = business.name,
+                            let rating = business.rating,
+                            let phone = business.phone,
+                            let imageURL = business.imageUrl,
+                            let location = business.location,
+                            let price = business.price
+                        else {
+                            return
+                        }
                         
                         cards.append(
-                            BusinessCard(id: id, name: name, rating: rating, phone: phone, imageURL: imageURL, image: nil, price: price)
+                            BusinessCard(id: id, name: name, rating: rating, phone: phone, imageURL: imageURL, image: nil, location: location, price: price)
                         )
                     }
                     completion(cards, nil)
@@ -119,5 +128,6 @@ class YelpRepo {
             completion(data, response, error)
             }.resume()
     }
+    
 }
 

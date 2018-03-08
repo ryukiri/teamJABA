@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CDYelpFusionKit
 import CoreLocation
 
 class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationManagerDelegate, SwipeableCardViewDelegate {
@@ -15,9 +16,12 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     @IBOutlet weak var noCardsLeftLabel: UILabel!
     
     let locationManager = CLLocationManager()
-    let yelpRepo = YelpRepo.shared
+    var yelpRepo = YelpRepo.shared
     var businesses: [BusinessCard] = []
+    var names: [String] = [String]()
     var selectedCard: Int = -1
+    
+    var savedSettings : settings = settings(price: "$", distance: 1000.0, openNow: true)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +40,14 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         self.noCardsLeftLabel.isHidden = true
         
         if let currentLoc = locationManager.location?.coordinate {
-            yelpRepo.searchTop(coordinate: currentLoc, completion: { (response, error) in
+            yelpRepo.searchTop(coordinate: currentLoc, openNow: savedSettings.openNow, completion: { (response, error) in
                 guard
                     let businesses = response
                 else {
                     print(error as Any)
                     return
                 }
+                
                 self.businesses = businesses
 
                 // download images
@@ -69,16 +74,12 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         }
     }
     
-    @IBAction func refreshAction(_ sender: UIButton) {
-        self.swipeableCardView.reloadData()
+    override func viewDidAppear(_ animated: Bool) {
+        print("received settings as: price = \(savedSettings.price) distance = \(savedSettings.distance) openNow = \(savedSettings.openNow)")
     }
     
-    @IBAction func settingsAction(_ sender: Any) {
-        let alert = UIAlertController(title: "Settings", message: "Settings will go here", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { (UIAlertAction)in
-            print("Ok")
-        }))
-        self.present(alert, animated: true, completion: nil)
+    @IBAction func refreshAction(_ sender: UIButton) {
+        self.swipeableCardView.reloadData()
     }
     
     func didSelect(card: SwipeableCardViewCard, atIndex index: Int) {
@@ -87,8 +88,14 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let detailsView = segue.destination as? DetailsViewController
-        detailsView?.business = self.businesses[self.selectedCard]
+        if segue.identifier == "detailsSegue" {
+            let detailsView = segue.destination as? DetailsViewController
+            detailsView?.business = self.businesses[self.selectedCard]
+        }
+        if segue.identifier == "settingsSegue" {
+            let settingsView = segue.destination as! SettingsViewController
+            settingsView.savedSettings = self.savedSettings
+        }
     }
 
     
@@ -103,6 +110,13 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         let card = SampleSwipeableCard()
         card.viewModel = SampleSwipeableCellViewModel(name: business.name, rating: String(describing: business.rating), imageURL: business.imageURL, image: business.image)
         
+        if let name = business.name, let location = business.location, let imageURL = business.imageURL {
+            self.names.append(name)
+            
+            DataModel.shared.names = self.names
+            DataModel.shared.locations.append(location)
+            DataModel.shared.images.append(imageURL)
+        }
         return card
     }
     
@@ -115,3 +129,16 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     }
 }
 
+class DataModel {
+    static let shared = DataModel()
+    var count = 0
+    
+    var name: String?
+    var names: [String] = []
+    
+    var imageURL: URL?
+    var images: [URL] = []
+    
+    var location: CDYelpLocation?
+    var locations: [CDYelpLocation] = []
+}
