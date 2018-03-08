@@ -18,16 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Cards Left." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gm-Im-TT0">
-                                <rect key="frame" x="152" y="367.66666666666669" width="110.33333333333331" height="21"/>
+                                <rect key="frame" x="152" y="365" width="110.33333333333331" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8K-oz-Scp" customClass="SwipeableCardViewContainer" customModule="Swipeable_View_Stack" customModuleProvider="target">
-                                <rect key="frame" x="5" y="178" width="404" height="400"/>
+                                <rect key="frame" x="5" y="175.66666666666663" width="404" height="400"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Gga-EH-Tgb">
-                                        <rect key="frame" x="192" y="190" width="20" height="20"/>
+                                        <rect key="frame" x="192" y="190.00000000000003" width="20" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -39,50 +39,40 @@
                                     <constraint firstAttribute="bottom" secondItem="Gga-EH-Tgb" secondAttribute="bottom" constant="190" id="tgL-s3-T5A"/>
                                 </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVu-yg-pgV">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Eats" id="ixq-du-qlQ">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="O3T-QL-pve">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LAB-ou-Jtc">
-                                                <rect key="frame" x="20" y="7" width="83" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Refresh"/>
-                                                <connections>
-                                                    <action selector="refreshAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9hS-yR-hyG"/>
-                                                </connections>
-                                            </button>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="dxJ-9P-pO2">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="T7R-Y3-a5j">
-                                                <rect key="frame" x="311" y="7" width="83" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Settings"/>
-                                                <connections>
-                                                    <action selector="settingsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zhz-zD-p25"/>
-                                                    <segue destination="Zig-cH-mLc" kind="show" identifier="settingsSegue" id="Lab-aU-fSb"/>
-                                                </connections>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="eVu-yg-pgV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2kv-3j-IK4"/>
                             <constraint firstItem="w8K-oz-Scp" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="5YV-47-XQ7"/>
                             <constraint firstItem="w8K-oz-Scp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8Br-tM-Kpz"/>
                             <constraint firstItem="w8K-oz-Scp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="8vE-dw-Qgv"/>
                             <constraint firstItem="7gm-Im-TT0" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="AMa-L3-fXD"/>
-                            <constraint firstItem="eVu-yg-pgV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="AbH-FA-n7I"/>
                             <constraint firstItem="7gm-Im-TT0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RJu-RQ-HHc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="w8K-oz-Scp" secondAttribute="trailing" constant="5" id="YA0-vK-wkK"/>
-                            <constraint firstItem="eVu-yg-pgV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tei-gg-xyA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="home-tab" id="WRh-SF-Mmr"/>
+                    <navigationItem key="navigationItem" id="Eft-85-ahJ">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="b1i-bs-qnM">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VXp-eF-Acr">
+                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Refresh"/>
+                                <connections>
+                                    <action selector="refreshAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WiJ-wK-AuT"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ezr-bi-9qt">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gxy-eM-ODi">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="Zig-cH-mLc" kind="show" identifier="settingsSegue" id="7JL-yZ-hn8"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="noCardsLeftLabel" destination="7gm-Im-TT0" id="fOK-BJ-Wom"/>
                         <outlet property="spinner" destination="Gga-EH-Tgb" id="m8r-CP-dw7"/>
@@ -91,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="609" y="133"/>
+            <point key="canvasLocation" x="915.94202898550736" y="132.88043478260872"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="MpM-XT-YgN">
@@ -154,14 +144,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nw8-1F-yjm">
-                                        <rect key="frame" x="8" y="15" width="47" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="&lt; Main"/>
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="settingsToMain segue" id="Esn-J3-BNg"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
@@ -195,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ytZ-iU-sXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1394.2028985507247" y="132.88043478260872"/>
+            <point key="canvasLocation" x="1701.449275362319" y="132.88043478260872"/>
         </scene>
         <!--Chose View Controller-->
         <scene sceneID="Sqk-4F-N0a">
@@ -278,7 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mup-MY-hWn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2215.9420289855075" y="132.88043478260872"/>
+            <point key="canvasLocation" x="2523.1884057971015" y="132.88043478260872"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="g4l-Cc-HWq">
@@ -292,19 +274,34 @@
                         <color key="selectedImageTintColor" red="0.89615154269999997" green="0.27896335719999998" blue="0.22344629469999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="m9Y-sy-6nA"/>
+                        <segue destination="3qh-Tu-TWE" kind="relationship" relationship="viewControllers" id="m9Y-sy-6nA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqL-xE-e4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-163.19999999999999" y="133.00492610837438"/>
+            <point key="canvasLocation" x="-455" y="133"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iXo-6g-dqy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3qh-Tu-TWE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="home-tab" id="WRh-SF-Mmr"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="drD-QY-znK">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cRc-fI-Mj3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JT3-1T-vOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="210" y="133"/>
         </scene>
     </scenes>
     <resources>
         <image name="home-tab" width="22" height="21"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Lab-aU-fSb"/>
-        <segue reference="Esn-J3-BNg"/>
-    </inferredMetricsTieBreakers>
 </document>

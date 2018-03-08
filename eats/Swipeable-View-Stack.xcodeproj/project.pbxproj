@@ -475,10 +475,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DD4HT9LN9C;
+				DEVELOPMENT_TEAM = U63TPR2C89;
 				INFOPLIST_FILE = "Swipeable-View-Stack/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.washington.teamJABA1;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.washington.teamJABA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Swipeable-View-Stack/Swipeable-View-Stack-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -494,10 +494,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DD4HT9LN9C;
+				DEVELOPMENT_TEAM = U63TPR2C89;
 				INFOPLIST_FILE = "Swipeable-View-Stack/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.washington.teamJABA1;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.washington.teamJABA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Swipeable-View-Stack/Swipeable-View-Stack-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

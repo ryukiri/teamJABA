@@ -25,6 +25,8 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Eats"
 
         swipeableCardView.dataSource = self
         locationManager.delegate = self
@@ -61,14 +63,6 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     
     override func viewDidAppear(_ animated: Bool) {
         print("received settings as: price = \(savedSettings.price) distance = \(savedSettings.distance) openNow = \(savedSettings.openNow)")
-    }
-    
-    @IBAction func settingsAction(_ sender: Any) {
-        let alert = UIAlertController(title: "Settings", message: "Settings will go here", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { (UIAlertAction)in
-            print("Ok")
-        }))
-        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - SwipeableCardViewDataSource
