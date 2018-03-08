@@ -108,9 +108,10 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     func card(forItemAtIndex index: Int) -> SwipeableCardViewCard {
         let business = self.businesses[index]
         let card = SampleSwipeableCard()
-        card.viewModel = SampleSwipeableCellViewModel(name: business.name, rating: String(describing: business.rating), imageURL: business.imageURL, image: business.image)
         
-        if let name = business.name, let location = business.location, let imageURL = business.imageURL {
+        if let name = business.name, let location = business.location, let imageURL = business.imageURL, let rating = business.rating, let image = business.image {
+            card.viewModel = SampleSwipeableCellViewModel(name: name, rating: String(format:"%.1f", rating), imageURL: imageURL, image: image)
+        
             self.names.append(name)
             
             DataModel.shared.names = self.names
