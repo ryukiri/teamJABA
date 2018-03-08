@@ -21,6 +21,8 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     var businesses: [BusinessCard] = []
     var names: [String] = [String]()
     
+    var savedSettings : settings = settings(price: "$", distance: 1000.0, openNow: true)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,6 +43,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
                     print(error as Any)
                     return
                 }
+                                
                 self.businesses = businesses
                 DispatchQueue.main.async {
                     self.spinner.stopAnimating()
@@ -54,6 +57,10 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     
     @IBAction func refreshAction(_ sender: UIButton) {
         viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("received settings as: price = \(savedSettings.price) distance = \(savedSettings.distance) openNow = \(savedSettings.openNow)")
     }
     
     @IBAction func settingsAction(_ sender: Any) {
@@ -87,6 +94,13 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     
     func viewForEmptyCards() -> UIView? {
         return nil
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "settingsSegue" {
+            let settingsView = segue.destination as! SettingsViewController
+            settingsView.savedSettings = self.savedSettings
+        }
     }
 }
 
