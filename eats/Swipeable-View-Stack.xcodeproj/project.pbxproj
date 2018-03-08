@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		08159EC8204684C70063A0E8 /* ylp.m in Sources */ = {isa = PBXBuildFile; fileRef = 08159EC7204684C70063A0E8 /* ylp.m */; };
 		08159ECD204696A10063A0E8 /* YelpRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08159ECC204696A10063A0E8 /* YelpRepo.swift */; };
+		0887C2C22051344E0031DC1D /* DateTimeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0887C2C12051344E0031DC1D /* DateTimeHelpers.swift */; };
 		08B379802048B5960011C7EB /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3797F2048B5960011C7EB /* DetailsViewController.swift */; };
 		08B37983204A9EB40011C7EB /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B37982204A9EB40011C7EB /* extensions.swift */; };
 		08E523DF204BB0C6002D323C /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523E9204BB0C6002D323C /* AFNetworking.framework */; };
@@ -49,6 +50,7 @@
 		08159EC6204684C60063A0E8 /* Swipeable-View-Stack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swipeable-View-Stack-Bridging-Header.h"; sourceTree = "<group>"; };
 		08159EC7204684C70063A0E8 /* ylp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ylp.m; sourceTree = "<group>"; };
 		08159ECC204696A10063A0E8 /* YelpRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpRepo.swift; sourceTree = "<group>"; };
+		0887C2C12051344E0031DC1D /* DateTimeHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeHelpers.swift; sourceTree = "<group>"; };
 		08B3797F2048B5960011C7EB /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		08B37982204A9EB40011C7EB /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		08E523E9204BB0C6002D323C /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,7 +127,6 @@
 				F7A3871C1F9BB87900EF5B45 /* SwipeableCardViewCard.xib */,
 				F7FC2D041F9C355300EEF1CE /* SampleSwipeableCard.swift */,
 				F7FC2D061F9C355C00EEF1CE /* SampleSwipeableCard.xib */,
-				F7FC2D081F9C38F800EEF1CE /* SampleSwipeableCellViewModel.swift */,
 			);
 			path = "Swipeable View ";
 			sourceTree = "<group>";
@@ -149,6 +150,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		0887C2C02051343A0031DC1D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0887C2C12051344E0031DC1D /* DateTimeHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		08B379812048F9F00011C7EB /* Swipe Logic */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +167,14 @@
 				F7FC2CFC1F9C06A500EEF1CE /* CGRect+SwipeAdditions.swift */,
 			);
 			path = "Swipe Logic";
+			sourceTree = "<group>";
+		};
+		08E523F3204BB974002D323C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F7FC2D081F9C38F800EEF1CE /* SampleSwipeableCellViewModel.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		BF70FC3528C4AD7795EE2E29 /* Frameworks */ = {
@@ -208,8 +225,10 @@
 		F7A387051F9BB6E400EF5B45 /* Swipeable-View-Stack */ = {
 			isa = PBXGroup;
 			children = (
+				0887C2C02051343A0031DC1D /* Helpers */,
 				08159EC9204685A20063A0E8 /* API */,
 				08159EC5204682D00063A0E8 /* View Controllers */,
+				08E523F3204BB974002D323C /* Cells */,
 				08159EC4204682A30063A0E8 /* Swipeable View  */,
 				F7A387061F9BB6E400EF5B45 /* AppDelegate.swift */,
 				08159EC7204684C70063A0E8 /* ylp.m */,
@@ -379,6 +398,7 @@
 				F7FC2CFD1F9C06A500EEF1CE /* CGRect+SwipeAdditions.swift in Sources */,
 				F7A3871B1F9BB85100EF5B45 /* SwipeableCardViewCard.swift in Sources */,
 				08159EC8204684C70063A0E8 /* ylp.m in Sources */,
+				0887C2C22051344E0031DC1D /* DateTimeHelpers.swift in Sources */,
 				F7FC2D031F9C144300EEF1CE /* SwipeableCardViewDelegate.swift in Sources */,
 				F7FC2D011F9C132F00EEF1CE /* SwipeableViewDelegate.swift in Sources */,
 				F7FC2D051F9C355300EEF1CE /* SampleSwipeableCard.swift in Sources */,

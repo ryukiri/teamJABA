@@ -9,11 +9,16 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-    var business: BusinessCard? = nil
-
     @IBOutlet weak var businessNameLabel: UILabel!
     @IBOutlet weak var businessImage: UIImageView!
+    @IBOutlet weak var ratingImage: UIImageView!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var hoursLabel: UILabel!
     
+    let yelpRepo = YelpRepo.shared
+    let dateTime =  DateTimeHelper()
+    
+    var business: BusinessCard? = nil
     var initialTouchPoint: CGPoint = CGPoint(x: 0,y: 0)
     
     override func viewWillAppear(_ animated: Bool) {
@@ -22,8 +27,48 @@ class DetailsViewController: UIViewController {
         self.view.roundCorners()
         self.businessImage.roundCorners()
         
-        self.businessNameLabel.text = business?.name
-        self.businessImage.image = business?.image
+        guard
+            let id = business?.id,
+            let name = business?.name,
+            let image = business?.image,
+            let rating = business?.rating,
+            let price = business?.price
+        else {
+            return
+        }
+        
+        self.businessNameLabel.text = name
+        self.businessImage.image = image
+        self.ratingImage.image = self.getRatingImage(rating)
+        self.priceLabel.text = price
+        
+        // fetch hours
+        self.yelpRepo.searchBusinessWithID(id: id) { (response) in
+            if let business = response {
+                guard
+                    let hours = business.hours
+                else {
+                    return
+                }
+                let hour = hours[0]
+                if let openTimes = hour.open {
+                    for open in openTimes {
+                        if let openDay = open.day, openDay == self.dateTime.getDayOfWeek(),
+                            let start = open.start, let end = open.end {
+                            if self.dateTime.format24Hour(time: start) == self.dateTime.format24Hour(time: end) {
+                                self.hoursLabel.text = "24 Hours"
+                            } else {
+                                var range: String = ""
+                                range += self.dateTime.format24Hour(time: start)
+                                range += " - "
+                                range += self.dateTime.format24Hour(time: end)
+                                self.hoursLabel.text = range
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -33,6 +78,31 @@ class DetailsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func getRatingImage(_ rating: Double) -> UIImage {
+        switch rating {
+        case 1.0:
+            return #imageLiteral(resourceName: "yelp_stars_one_regular")
+        case 1.5:
+            return #imageLiteral(resourceName: "yelp_stars_one_half_regular")
+        case 2.0:
+            return #imageLiteral(resourceName: "yelp_stars_two_regular")
+        case 2.5:
+            return #imageLiteral(resourceName: "yelp_stars_two_half_regular")
+        case 3.0:
+            return #imageLiteral(resourceName: "yelp_stars_three_regular")
+        case 3.5:
+            return #imageLiteral(resourceName: "yelp_stars_three_half_regular")
+        case 4.0:
+            return #imageLiteral(resourceName: "yelp_stars_four_regular")
+        case 4.5:
+            return #imageLiteral(resourceName: "yelp_stars_four_half_regular")
+        case 5.0:
+            return #imageLiteral(resourceName: "yelp_stars_five_regular")
+        default:
+            return #imageLiteral(resourceName: "yelp_stars_zero_regular")
+        }
     }
     
 

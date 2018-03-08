@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import YelpAPI
 import CoreLocation
 
 class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationManagerDelegate, SwipeableCardViewDelegate {
@@ -102,7 +101,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     func card(forItemAtIndex index: Int) -> SwipeableCardViewCard {
         let business = self.businesses[index]
         let card = SampleSwipeableCard()
-        card.viewModel = SampleSwipeableCellViewModel(name: business.name, rating: String(business.rating), imageURL: business.imageURL, image: business.image)
+        card.viewModel = SampleSwipeableCellViewModel(name: business.name, rating: String(describing: business.rating), imageURL: business.imageURL, image: business.image)
         
         return card
     }
