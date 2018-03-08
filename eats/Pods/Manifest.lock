@@ -14,8 +14,14 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
+  - Alamofire (4.6.0)
+  - AlamofireObjectMapper (5.0.0):
+    - Alamofire (~> 4.1)
+    - ObjectMapper (~> 3.0)
   - BDBOAuth1Manager (2.0.0):
     - AFNetworking/NSURLSession (~> 3.0.0)
+  - CDYelpFusionKit (1.5.0):
+    - AlamofireObjectMapper (= 5.0.0)
   - Firebase/Core (4.9.0):
     - FirebaseAnalytics (= 4.0.9)
     - FirebaseCore (= 4.0.15)
@@ -36,28 +42,37 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - ObjectMapper (3.1.0)
   - pop (1.0.10)
   - YelpAPI (3.0.0)
 
 DEPENDENCIES:
   - AFNetworking
+  - Alamofire (~> 4.6)
+  - AlamofireObjectMapper (~> 5.0)
   - BDBOAuth1Manager
+  - CDYelpFusionKit (= 1.5.0)
   - Firebase/Core
+  - ObjectMapper (~> 3.1)
   - pop (= 1.0.10)
   - YelpAPI
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   BDBOAuth1Manager: 92d17d06f8a648602962304cd2f35ae7394fa001
+  CDYelpFusionKit: 665cf3881bff25db3a47ca3a4e3497e3a1ea552a
   Firebase: 632216af3ed7f31e3be34776947fdc7546cfb572
   FirebaseAnalytics: 388b630c15713f5dbf364071f5f3d6077fb52f4e
   FirebaseCore: 3bd047463058fa6b5d312c97502c52e45401cdfb
   FirebaseInstanceID: d2058a35e9bebda1b6dd42486b84917bde552a9d
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   YelpAPI: 9ae0ee45b998d306c1aff9b2d966dc23121f191e
 
-PODFILE CHECKSUM: 5fd9c8b4f327942badb653ea3e215dfe9fb5965b
+PODFILE CHECKSUM: 3bb22100033dcd5ad48d4d07a709e135f5468158
 
 COCOAPODS: 1.4.0

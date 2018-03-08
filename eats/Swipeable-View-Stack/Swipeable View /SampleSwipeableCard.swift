@@ -26,6 +26,8 @@ class SampleSwipeableCard: SwipeableCardViewCard {
 
     /// Inner Margin
     private static let kInnerMargin: CGFloat = 20.0
+    
+    let yelpRepo = YelpRepo.shared
 
     var viewModel: SampleSwipeableCellViewModel? {
         didSet {
@@ -40,27 +42,11 @@ class SampleSwipeableCard: SwipeableCardViewCard {
             
             imageBackgroundColorView.backgroundColor = UIColor.cyan // temp
             
-            self.getDataFromUrl(url: viewModel.imageURL, completion: { (data, response, error) in
-                guard
-                    let data = data,
-                    error == nil
-                else {
-                        return
-                }
-                DispatchQueue.main.async {
-                    self.imageView.image = UIImage(data: data)
-                }
-            })
+            self.imageView.image = viewModel.image
             backgroundContainerView.layer.cornerRadius = 14.0
         }
     }
     
-    private func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            completion(data, response, error)
-            }.resume()
-    }
-
     override func layoutSubviews() {
         super.layoutSubviews()
 
@@ -78,18 +64,6 @@ class SampleSwipeableCard: SwipeableCardViewCard {
                                               height: bounds.height - (2 * SampleSwipeableCard.kInnerMargin)))
         insertSubview(shadowView, at: 0)
         self.shadowView = shadowView
-
-        // Roll/Pitch Dynamic Shadow
-//        if motionManager.isDeviceMotionAvailable {
-//            motionManager.deviceMotionUpdateInterval = 0.02
-//            motionManager.startDeviceMotionUpdates(to: .main, withHandler: { (motion, error) in
-//                if let motion = motion {
-//                    let pitch = motion.attitude.pitch * 10 // x-axis
-//                    let roll = motion.attitude.roll * 10 // y-axis
-//                    self.applyShadow(width: CGFloat(roll), height: CGFloat(pitch))
-//                }
-//            })
-//        }
         self.applyShadow(width: CGFloat(0.0), height: CGFloat(0.0))
     }
 

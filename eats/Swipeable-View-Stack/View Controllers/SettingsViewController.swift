@@ -5,7 +5,6 @@
 //  Created by Julia Zaratan on 2/28/18.
 //  Copyright © 2018 Phill Farrugia. All rights reserved.
 //
-
 import UIKit
 
 struct settings {
@@ -27,20 +26,21 @@ class SettingsViewController: UIViewController {
         self.title = "Settings"
         
         //load current settings
-        let distance = savedSettings?.distance
-        let price = savedSettings?.price
-        let openNow = savedSettings?.openNow
+        guard
+            let distance = savedSettings?.distance,
+            let price = savedSettings?.price,
+            let openNow = savedSettings?.openNow
+        else {
+            return
+        }
         
-        distanceSlider.value = Float(distance!)
-        openNowSwitch.setOn(openNow!, animated: false)
-        
-        
-        // Do any additional setup after loading the view.
+        distanceSlider.value = Float(distance)
+        openNowSwitch.setOn(openNow, animated: false)
     }
     
-//    @IBAction func backToMain(_ sender: Any) {
-//        print("sending settings as: price = \(savedSettings?.price) distance = \(savedSettings?.distance) openNow = \(savedSettings?.openNow)")
-//    }
+    //    @IBAction func backToMain(_ sender: Any) {
+    //        print("sending settings as: price = \(savedSettings?.price) distance = \(savedSettings?.distance) openNow = \(savedSettings?.openNow)")
+    //    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

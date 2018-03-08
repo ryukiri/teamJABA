@@ -108,7 +108,7 @@ extension SwipeableCardViewContainer {
             delegate?.didSelect(card: cardView, atIndex: index)
         }
     }
-
+    
     func didBeginSwipe(onView view: SwipeableView) {
         // React to Swipe Began?
     }

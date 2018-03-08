@@ -7,19 +7,19 @@
 //
 
 import UIKit
-import YelpAPI
+import CDYelpFusionKit
 import CoreLocation
 
-class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationManagerDelegate {
-
+class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationManagerDelegate, SwipeableCardViewDelegate {
     @IBOutlet private weak var swipeableCardView: SwipeableCardViewContainer!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var noCardsLeftLabel: UILabel!
     
     let locationManager = CLLocationManager()
-    let yelpRepo = YelpRepo.shared
+    var yelpRepo = YelpRepo.shared
     var businesses: [BusinessCard] = []
     var names: [String] = [String]()
+    var selectedCard: Int = -1
     
     var savedSettings : settings = settings(price: "$", distance: 1000.0, openNow: true)
     
@@ -29,6 +29,8 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         self.title = "Eats"
 
         swipeableCardView.dataSource = self
+        swipeableCardView.delegate = self
+        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
@@ -36,34 +38,65 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         self.spinner.startAnimating()
         self.spinner.isHidden = false
         self.noCardsLeftLabel.isHidden = true
-
+        
         if let currentLoc = locationManager.location?.coordinate {
-            yelpRepo.searchTop(coordinate: currentLoc, completion: { (response, error) in
+            yelpRepo.searchTop(coordinate: currentLoc, openNow: savedSettings.openNow, completion: { (response, error) in
                 guard
                     let businesses = response
                 else {
                     print(error as Any)
                     return
                 }
-                                
                 self.businesses = businesses
-                DispatchQueue.main.async {
-                    self.spinner.stopAnimating()
-                    self.spinner.isHidden = true
-                    self.noCardsLeftLabel.isHidden = false
-                    self.swipeableCardView.reloadData()
+
+                // download images
+                for business in self.businesses {
+                    if let imageURL = business.imageURL {
+                        self.yelpRepo.downloadImage(url: imageURL, completion: { (image, error) in
+                            guard
+                                let image = image,
+                                error == nil
+                                else {
+                                    return
+                            }
+                            DispatchQueue.main.async {
+                                business.setImage(image)
+                                self.spinner.stopAnimating()
+                                self.spinner.isHidden = true
+                                self.noCardsLeftLabel.isHidden = false
+                                self.swipeableCardView.reloadData()
+                            }
+                        })
+                    }
                 }
             })
         }
     }
     
-    @IBAction func refreshAction(_ sender: UIButton) {
-        viewDidLoad()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         print("received settings as: price = \(savedSettings.price) distance = \(savedSettings.distance) openNow = \(savedSettings.openNow)")
     }
+    
+    @IBAction func refreshAction(_ sender: UIButton) {
+        self.swipeableCardView.reloadData()
+    }
+    
+    func didSelect(card: SwipeableCardViewCard, atIndex index: Int) {
+        self.selectedCard = index
+        self.performSegue(withIdentifier: "detailsSegue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailsSegue" {
+            let detailsView = segue.destination as? DetailsViewController
+            detailsView?.business = self.businesses[self.selectedCard]
+        }
+        if segue.identifier == "settingsSegue" {
+            let settingsView = segue.destination as! SettingsViewController
+            settingsView.savedSettings = self.savedSettings
+        }
+    }
+
     
     // MARK: - SwipeableCardViewDataSource
     
@@ -75,14 +108,15 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         let business = self.businesses[index]
         let card = SampleSwipeableCard()
         
-        card.viewModel = SampleSwipeableCellViewModel(name: business.name, rating: String(business.rating), imageURL: business.imageURL!)
+        if let name = business.name, let location = business.location, let imageURL = business.imageURL, let rating = business.rating, let image = business.image {
+            card.viewModel = SampleSwipeableCellViewModel(name: name, rating: String(format:"%.1f", rating), imageURL: imageURL, image: image)
         
-        self.names.append(business.name)
-        DataModel.shared.names = self.names
-        
-        DataModel.shared.locations.append(business.location!)
-
-        DataModel.shared.images.append(business.imageURL!)
+            self.names.append(name)
+            
+            DataModel.shared.names = self.names
+            DataModel.shared.locations.append(location)
+            DataModel.shared.images.append(imageURL)
+        }
         return card
     }
     
@@ -90,11 +124,8 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         return nil
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "settingsSegue" {
-            let settingsView = segue.destination as! SettingsViewController
-            settingsView.savedSettings = self.savedSettings
-        }
+    func didSelectCard(index: Int) {
+        print(index)
     }
 }
 
@@ -107,8 +138,7 @@ class DataModel {
     
     var imageURL: URL?
     var images: [URL] = []
-
-    var location: YLPLocation?
-    var locations: [YLPLocation] = []
+    
+    var location: CDYelpLocation?
+    var locations: [CDYelpLocation] = []
 }
-

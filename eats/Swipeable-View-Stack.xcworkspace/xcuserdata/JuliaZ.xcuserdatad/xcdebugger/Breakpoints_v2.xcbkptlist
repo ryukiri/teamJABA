@@ -58,12 +58,20 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Swipeable-View-Stack/API/YelpRepo.swift"
+<<<<<<< HEAD
             timestampString = "542178506.764046"
+=======
+            timestampString = "541924111.189214"
+>>>>>>> details
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
             endingLineNumber = "57"
+<<<<<<< HEAD
             landmarkName = "searchTop(coordinate:completion:)"
+=======
+            landmarkName = "searchTop(coordinate:openNow:completion:)"
+>>>>>>> details
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,6 +82,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Swipeable-View-Stack/View Controllers/ViewController.swift"
+<<<<<<< HEAD
             timestampString = "542178506.76452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -140,6 +149,14 @@
             startingLineNumber = "60"
             endingLineNumber = "60"
             landmarkName = "prepare(for:sender:)"
+=======
+            timestampString = "541924111.189306"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewDidLoad()"
+>>>>>>> details
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -150,12 +167,21 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Swipeable-View-Stack/View Controllers/ViewController.swift"
+<<<<<<< HEAD
             timestampString = "542178506.764894"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "99"
             endingLineNumber = "99"
             landmarkName = "prepare(for:sender:)"
+=======
+            timestampString = "541924111.189683"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "viewDidLoad()"
+>>>>>>> details
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -9,35 +9,67 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>BDBOAuth1Manager.xcscheme</key>
+		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>GoogleToolboxForMac.xcscheme</key>
+		<key>AlamofireObjectMapper.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>Pods-Swipeable-View-Stack.xcscheme</key>
+		<key>BDBOAuth1Manager.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>YelpAPI.xcscheme</key>
+		<key>CDYelpFusionKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
+		<key>ObjectMapper.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>Pods-Swipeable-View-Stack.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>YelpAPI.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+<<<<<<< HEAD
+			<integer>6</integer>
+=======
+			<integer>11</integer>
+>>>>>>> details
+		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>3</integer>
+=======
+			<integer>7</integer>
+>>>>>>> details
 		</dict>
 		<key>pop.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>5</integer>
+=======
+			<integer>10</integer>
+>>>>>>> details
 		</dict>
 	</dict>
 </dict>

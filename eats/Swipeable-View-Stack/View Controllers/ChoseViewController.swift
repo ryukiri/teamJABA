@@ -19,31 +19,31 @@ class ChoseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        name = DataModel.shared.name
-        nameLabel.text = name
-        addressLabel.text = DataModel.shared.location?.address[0]
-        self.getDataFromUrl(url: DataModel.shared.imageURL!, completion: { (data, response, error) in
-            guard
-                let data = data,
-                error == nil
-                else {
-                    return
-            }
-            DispatchQueue.main.async {
-                self.image.image = UIImage(data: data)
-            }
-        })
-        
-        // Do any additional setup after loading the view.
-        let initialLocation = CLLocation(latitude: (DataModel.shared.location?.coordinate?.latitude)!, longitude: (DataModel.shared.location?.coordinate?.longitude)!)
-        centerMapOnLocation(location: initialLocation)
-        
-        // show artwork on map
-        let artwork = MapDetails(title: DataModel.shared.name!,
-                              locationName: DataModel.shared.name!,
-                              discipline: "Restaurant",
-                              coordinate: CLLocationCoordinate2D(latitude: (DataModel.shared.location?.coordinate?.latitude)!, longitude: (DataModel.shared.location?.coordinate?.longitude)!))
-        mapView.addAnnotation(artwork)
+//        name = DataModel.shared.name
+//        nameLabel.text = name
+//        addressLabel.text = DataModel.shared.location?.address[0]
+//        self.getDataFromUrl(url: DataModel.shared.imageURL!, completion: { (data, response, error) in
+//            guard
+//                let data = data,
+//                error == nil
+//                else {
+//                    return
+//            }
+//            DispatchQueue.main.async {
+//                self.image.image = UIImage(data: data)
+//            }
+//        })
+//
+//        // Do any additional setup after loading the view.
+//        let initialLocation = CLLocation(latitude: (DataModel.shared.location?.coordinate?.latitude)!, longitude: (DataModel.shared.location?.coordinate?.longitude)!)
+//        centerMapOnLocation(location: initialLocation)
+//
+//        // show artwork on map
+//        let artwork = MapDetails(title: DataModel.shared.name!,
+//                              locationName: DataModel.shared.name!,
+//                              discipline: "Restaurant",
+//                              coordinate: CLLocationCoordinate2D(latitude: (DataModel.shared.location?.coordinate?.latitude)!, longitude: (DataModel.shared.location?.coordinate?.longitude)!))
+//        mapView.addAnnotation(artwork)
     }
 
     let regionRadius: CLLocationDistance = 500
@@ -76,14 +76,14 @@ class ChoseViewController: UIViewController {
     */
     
     @IBAction func navigateButton(_ sender: Any) {
-        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!))
-        {
-            UIApplication.shared.openURL(NSURL(string:
-                "comgooglemaps://?saddr=&daddr=\(Float((DataModel.shared.location?.coordinate?.latitude)!)),\(Float((DataModel.shared.location?.coordinate?.longitude)!))&directionsmode=driving")! as URL)
-        } else
-        {
-            NSLog("Can't use com.google.maps://");
-        }
+//        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!))
+//        {
+//            UIApplication.shared.openURL(NSURL(string:
+//                "comgooglemaps://?saddr=&daddr=\(Float((DataModel.shared.location?.coordinate?.latitude)!)),\(Float((DataModel.shared.location?.coordinate?.longitude)!))&directionsmode=driving")! as URL)
+//        } else
+//        {
+//            NSLog("Can't use com.google.maps://");
+//        }
     }
     
     @IBAction func shareButton(_ sender: Any) {
