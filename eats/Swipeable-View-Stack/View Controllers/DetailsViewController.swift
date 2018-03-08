@@ -14,6 +14,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var ratingImage: UIImageView!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
+    @IBOutlet weak var detailsView: UIView!
     
     let yelpRepo = YelpRepo.shared
     let dateTime =  DateTimeHelper()
@@ -24,8 +25,9 @@ class DetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         
+        self.view.backgroundColor = Color.hexStringToUIColor("F9F9F9")
         self.view.roundCorners()
-        self.businessImage.roundCorners()
+        self.detailsView.roundCorners()
         
         guard
             let id = business?.id,
