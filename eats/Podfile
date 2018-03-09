@@ -17,4 +17,5 @@ target 'Swipeable-View-Stack' do
   pod 'Alamofire', '~> 4.6'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'SwiftyJSON'
 end

@@ -51,6 +51,7 @@ PODS:
   - nanopb/encode (0.3.8)
   - ObjectMapper (3.1.0)
   - pop (1.0.10)
+  - SwiftyJSON (4.0.0)
   - YelpAPI (3.0.0)
 
 DEPENDENCIES:
@@ -64,6 +65,7 @@ DEPENDENCIES:
   - GooglePlaces
   - ObjectMapper (~> 3.1)
   - pop (= 1.0.10)
+  - SwiftyJSON
   - YelpAPI
 
 SPEC CHECKSUMS:
@@ -82,8 +84,9 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   YelpAPI: 9ae0ee45b998d306c1aff9b2d966dc23121f191e
 
-PODFILE CHECKSUM: 2388ad1e8b9c329d391791b38aacb083258a2708
+PODFILE CHECKSUM: 20505fa10da742b17803a4993f0af96577605a16
 
 COCOAPODS: 1.4.0

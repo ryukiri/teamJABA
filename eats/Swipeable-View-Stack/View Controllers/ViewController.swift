@@ -18,6 +18,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     let locationManager = CLLocationManager()
     var yelpRepo = YelpRepo.shared
     var businesses: [BusinessCard] = []
+    var userLocation: CLLocationCoordinate2D? = nil
     var selectedCard: Int = -1
     var chosenCard: Int = -1
     
@@ -40,6 +41,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         self.noCardsLeftLabel.isHidden = true
         
         if let currentLoc = locationManager.location?.coordinate {
+            self.userLocation = currentLoc
             yelpRepo.searchTop(coordinate: currentLoc, openNow: savedSettings.openNow, completion: { (response, error) in
                 guard
                     let businesses = response
@@ -89,6 +91,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         case "detailsSegue":
             let detailsView = segue.destination as? DetailsViewController
             detailsView?.business = self.businesses[self.selectedCard]
+            detailsView?.userLocation = self.userLocation
         case "settingsSegue":
             let settingsView = segue.destination as? SettingsViewController
             settingsView?.savedSettings = self.savedSettings

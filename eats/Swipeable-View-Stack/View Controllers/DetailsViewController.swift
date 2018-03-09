@@ -8,8 +8,16 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
+import Alamofire
+import SwiftyJSON
 
-class DetailsViewController: UIViewController {
+enum Location {
+    case start
+    case end
+}
+
+class DetailsViewController: UIViewController, GMSMapViewDelegate {
     @IBOutlet weak var businessNameLabel: UILabel!
     @IBOutlet weak var businessImage: UIImageView!
     @IBOutlet weak var ratingImage: UIImageView!
@@ -22,6 +30,7 @@ class DetailsViewController: UIViewController {
     let dateTime =  DateTimeHelper()
     
     var business: BusinessCard? = nil
+    var userLocation: CLLocationCoordinate2D? = nil
     var initialTouchPoint: CGPoint = CGPoint(x: 0,y: 0)
     
     override func viewDidLoad() {
@@ -56,7 +65,8 @@ class DetailsViewController: UIViewController {
                     let address = location.displayAddress,
                     let coords = business.coordinates,
                     let lat = coords.latitude,
-                    let long = coords.longitude
+                    let long = coords.longitude,
+                    let userCoords = self.userLocation
                 else {
                     return
                 }
@@ -79,21 +89,18 @@ class DetailsViewController: UIViewController {
                     }
                 }
                 
-                // Create a GMSCameraPosition that tells the map to display the coordinates
+                let businessCoords: CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, long)
                 let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 16)
+                
                 self.mapView.camera = camera
+                self.mapView.delegate = self
+                self.mapView.isMyLocationEnabled = true
+                self.mapView.settings.myLocationButton = true
+                self.mapView.settings.zoomGestures = true
                 
-                
-                var addressString: String = ""
-                for line in address {
-                    addressString += "\(line)\n"
-                }
-                // Creates a marker in the center of the map.
-                let marker = GMSMarker()
-                marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                marker.title = name
-                marker.snippet = addressString
-                marker.map = self.mapView
+                self.drawPath(start: userCoords, end: businessCoords)
+                self.createMarker(title: "START", coords: userCoords)
+                self.createMarker(title: "END", coords: businessCoords)
             }
         }
     }
@@ -101,6 +108,40 @@ class DetailsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func createMarker(title: String, coords: CLLocationCoordinate2D) {
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2DMake(coords.latitude, coords.longitude)
+        marker.title = title
+        marker.map = self.mapView
+    }
+    
+    private func drawPath(start: CLLocationCoordinate2D, end: CLLocationCoordinate2D) {
+        let origin = "\(start.latitude),\(start.longitude)"
+        let destination = "\(end.latitude),\(end.longitude)"
+        
+        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
+        
+        Alamofire.request(url).responseJSON { (response) in
+            do {
+                let json = try JSON(data: response.data!)
+                let routes = json["routes"].arrayValue
+                
+                // print route using Polyline
+                for route in routes {
+                    let routeOverviewPolyline = route["overview_polyline"].dictionary
+                    let points = routeOverviewPolyline?["points"]?.stringValue
+                    let path = GMSPath.init(fromEncodedPath: points!)
+                    let polyline = GMSPolyline.init(path: path)
+                    polyline.strokeWidth = 4
+                    polyline.strokeColor = Color.hexStringToUIColor("1890f9")
+                    polyline.map = self.mapView
+                }
+            } catch {
+                return
+            }
+        }
     }
     
     private func getRatingImage(_ rating: Double) -> UIImage {
