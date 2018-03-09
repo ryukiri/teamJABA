@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class DetailsViewController: UIViewController {
     @IBOutlet weak var businessNameLabel: UILabel!
@@ -15,6 +16,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var detailsView: UIView!
+    @IBOutlet weak var mapView: GMSMapView!
     
     let yelpRepo = YelpRepo.shared
     let dateTime =  DateTimeHelper()
@@ -22,12 +24,13 @@ class DetailsViewController: UIViewController {
     var business: BusinessCard? = nil
     var initialTouchPoint: CGPoint = CGPoint(x: 0,y: 0)
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(false)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         self.view.backgroundColor = Color.hexStringToUIColor("F9F9F9")
         self.view.roundCorners()
         self.detailsView.roundCorners()
+        self.mapView.roundCorners()
         
         guard
             let id = business?.id,
@@ -48,10 +51,16 @@ class DetailsViewController: UIViewController {
         self.yelpRepo.searchBusinessWithID(id: id) { (response) in
             if let business = response {
                 guard
-                    let hours = business.hours
+                    let hours = business.hours,
+                    let location = business.location,
+                    let address = location.displayAddress,
+                    let coords = business.coordinates,
+                    let lat = coords.latitude,
+                    let long = coords.longitude
                 else {
                     return
                 }
+                // set hours label
                 let hour = hours[0]
                 if let openTimes = hour.open {
                     for open in openTimes {
@@ -69,12 +78,24 @@ class DetailsViewController: UIViewController {
                         }
                     }
                 }
+                
+                // Create a GMSCameraPosition that tells the map to display the coordinates
+                let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 16)
+                self.mapView.camera = camera
+                
+                
+                var addressString: String = ""
+                for line in address {
+                    addressString += "\(line)\n"
+                }
+                // Creates a marker in the center of the map.
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                marker.title = name
+                marker.snippet = addressString
+                marker.map = self.mapView
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
     
     override func didReceiveMemoryWarning() {

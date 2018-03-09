@@ -26,13 +26,18 @@ class ChoseViewController: UIViewController {
             let id = business?.id,
             let name = business?.name,
             let location = business?.location,
+            let address = location.displayAddress,
             let image = business?.image
         else {
             return
         }
+        var addressString: String = ""
+        for line in address {
+            addressString += "\(line)\n"
+        }
         
         nameLabel.text = name
-        addressLabel.text = location.addressOne
+        addressLabel.text = addressString
         self.image.image = image
         
 
