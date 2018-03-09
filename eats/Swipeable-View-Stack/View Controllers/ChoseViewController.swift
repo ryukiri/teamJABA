@@ -92,6 +92,11 @@ class ChoseViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func backButton(_ sender: Any) {
+        var vc = self.storyboard?.instantiateViewController(withIdentifier: "mainVC") as! ViewController
+        self.navigationController?.popToRootViewController(animated: true)
+        self.present(vc, animated: true, completion: nil)
+    }
     
     @IBAction func navigateButton(_ sender: Any) {
         let id = business?.id
