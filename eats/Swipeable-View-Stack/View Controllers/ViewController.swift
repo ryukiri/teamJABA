@@ -22,7 +22,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     var selectedCard: Int = -1
     var chosenCard: Int = -1
     
-    var savedSettings : settings = settings(price: "$", distance: 1000.0, openNow: true)
+    var savedSettings : settings = settings(price: "$", distance: 10000.0, openNow: true) //default
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,14 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
 
         swipeableCardView.dataSource = self
         swipeableCardView.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("received settings as: price = \(savedSettings.price) distance = \(savedSettings.distance) openNow = \(savedSettings.openNow)")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -44,13 +52,17 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
             self.userLocation = currentLoc
             yelpRepo.searchTop(coordinate: currentLoc, openNow: savedSettings.openNow, completion: { (response, error) in
                 guard
-                    let businesses = response
-                else {
-                    print(error as Any)
-                    return
+                    var businesses = response
+                    else {
+                        print(error as Any)
+                        return
                 }
+                
+                businesses = businesses.filter{$0.distance <= self.savedSettings.distance}
+                businesses = businesses.filter{$0.price == self.savedSettings.price}
+                
                 self.businesses = businesses
-
+                
                 // download images
                 for business in self.businesses {
                     if let imageURL = business.imageURL {
@@ -71,12 +83,11 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
                         })
                     }
                 }
+                self.spinner.stopAnimating()
+                self.spinner.isHidden = true
+                self.swipeableCardView.reloadData()
             })
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        print("received settings as: price = \(savedSettings.price) distance = \(savedSettings.distance) openNow = \(savedSettings.openNow)")
     }
     
     @IBAction func refreshAction(_ sender: UIButton) {
@@ -138,3 +149,4 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         self.selectedCard = index
     }
 }
+

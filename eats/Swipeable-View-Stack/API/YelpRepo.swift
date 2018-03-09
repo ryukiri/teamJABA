@@ -22,9 +22,9 @@ class BusinessCard {
     let location: CDYelpLocation?
     var image: UIImage?
     var price: String?
+    var distance: Double
     
-    
-    init(id: String, name: String, rating: Double, phone: String?, imageURL: URL?, image: UIImage?, location: CDYelpLocation?, price: String?) {
+    init(id: String, name: String, rating: Double, phone: String?, imageURL: URL?, image: UIImage?, location: CDYelpLocation?, price: String?, distance: Double) {
         self.id = id
         self.name = name
         self.rating = rating
@@ -33,6 +33,7 @@ class BusinessCard {
         self.imageURL = imageURL
         self.location = location
         self.price = price
+        self.distance = distance
     }
     
     public func setImage(_ image: UIImage) {
@@ -77,13 +78,14 @@ class YelpRepo {
                             let phone = business.phone,
                             let imageURL = business.imageUrl,
                             let location = business.location,
-                            let price = business.price
+                            let price = business.price,
+                            let distance = business.distance
                         else {
                             return
                         }
                         
                         cards.append(
-                            BusinessCard(id: id, name: name, rating: rating, phone: phone, imageURL: imageURL, image: nil, location: location, price: price)
+                            BusinessCard(id: id, name: name, rating: rating, phone: phone, imageURL: imageURL, image: nil, location: location, price: price, distance: distance)
                         )
                     }
                     completion(cards, nil)

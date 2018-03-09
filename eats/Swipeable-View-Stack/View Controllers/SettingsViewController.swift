@@ -13,7 +13,7 @@ struct settings {
     let openNow : Bool
 }
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var distanceSlider: UISlider!
     @IBOutlet weak var openNowSwitch: UISwitch!
@@ -22,6 +22,8 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.delegate = self
         
         self.title = "Settings"
         
@@ -52,17 +54,16 @@ class SettingsViewController: UIViewController {
         print("updated settings to: price = \(savedSettings?.price) distance = \(savedSettings?.distance) openNow = \(savedSettings?.openNow)")
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     
-     */
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        if let settings = self.savedSettings {
+          (viewController as? ViewController)?.savedSettings = settings
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "settingsToMain segue" {
+        if segue.identifier == "settingsToMainSegue" {
             let viewController = segue.destination as? ViewController
             viewController?.savedSettings = savedSettings!
             print("sending settings as: price = \(savedSettings?.price) distance = \(savedSettings?.distance) openNow = \(savedSettings?.openNow)")
