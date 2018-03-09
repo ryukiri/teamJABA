@@ -94,14 +94,28 @@ class ChoseViewController: UIViewController {
     */
     
     @IBAction func navigateButton(_ sender: Any) {
-//        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!))
-//        {
-//            UIApplication.shared.openURL(NSURL(string:
-//                "comgooglemaps://?saddr=&daddr=\(Float((DataModel.shared.location?.coordinate?.latitude)!)),\(Float((DataModel.shared.location?.coordinate?.longitude)!))&directionsmode=driving")! as URL)
-//        } else
-//        {
-//            NSLog("Can't use com.google.maps://");
-//        }
+        let id = business?.id
+        
+        self.yelpRepo.searchBusinessWithID(id: id!) { (response) in
+            if let business = response {
+                guard
+                    let coords = business.coordinates,
+                    let lat = coords.latitude,
+                    let long = coords.longitude
+                    else {
+                        return
+                }
+                
+                if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!))
+                {
+                    UIApplication.shared.openURL(NSURL(string:
+                        "comgooglemaps://?saddr=&daddr=\(Float((lat))),\(Float((long)))&directionsmode=driving")! as URL)
+                } else
+                {
+                    NSLog("Can't use com.google.maps://");
+                }
+            }
+        }
     }
     
     @IBAction func shareButton(_ sender: Any) {

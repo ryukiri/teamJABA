@@ -121,7 +121,7 @@ class DetailsViewController: UIViewController, GMSMapViewDelegate {
         let origin = "\(start.latitude),\(start.longitude)"
         let destination = "\(end.latitude),\(end.longitude)"
         
-        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
+        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=walking"
         
         Alamofire.request(url).responseJSON { (response) in
             do {
