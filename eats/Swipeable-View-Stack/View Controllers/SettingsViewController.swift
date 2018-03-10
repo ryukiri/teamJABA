@@ -41,6 +41,18 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
         distanceSlider.value = Float(distance)
         currentDistance.text = String(Int(distanceSlider.value))
         openNowSwitch.setOn(openNow, animated: false)
+        
+        var priceIndex = 0
+        
+        switch price {
+            case "$": priceIndex = 0
+            case "$$": priceIndex = 1
+            case "$$$": priceIndex = 2
+            case "$$$$": priceIndex = 3
+            default: priceIndex = 4
+        }
+        
+        priceChooser.selectedSegmentIndex = priceIndex
     }
     
     //    @IBAction func backToMain(_ sender: Any) {
@@ -53,28 +65,19 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBAction func saveSettings(_ sender: Any) {
-        savedSettings = settings(price: "$", distance: Double(distanceSlider.value), openNow: openNowSwitch.isOn)
-        print("updated settings to: price = \(savedSettings?.price) distance = \(savedSettings?.distance) openNow = \(savedSettings?.openNow)")
+        savedSettings = settings(price: priceChooser.titleForSegment(at: priceChooser.selectedSegmentIndex)!, distance: Double(distanceSlider.value), openNow: openNowSwitch.isOn)
+        print("updated settings to: price = \(String(describing: savedSettings?.price)) distance = \(String(describing: savedSettings?.distance)) openNow = \(savedSettings?.openNow)")
     }
     
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         if let settings = self.savedSettings {
-          (viewController as? ViewController)?.savedSettings = settings
+            (viewController as? ViewController)?.savedSettings = settings
+            print("sending settings as: price = \(savedSettings?.price) distance = \(savedSettings?.distance) openNow = \(savedSettings?.openNow)")
         }
     }
     
     @IBAction func distanceChanged(_ sender: Any) {
         self.currentDistance.text = String(Int(distanceSlider.value));
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "settingsToMainSegue" {
-            let viewController = segue.destination as? ViewController
-            viewController?.savedSettings = savedSettings!
-            print("sending settings as: price = \(savedSettings?.price) distance = \(savedSettings?.distance) openNow = \(savedSettings?.openNow)")
-        }
     }
     
 }

@@ -143,7 +143,7 @@
                                         <rect key="frame" x="8" y="10" width="398" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="Rkr-MU-Iam"/>
-                                            <constraint firstAttribute="width" priority="800" constant="500" id="tqS-eG-2XC"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" priority="800" constant="500" id="tqS-eG-2XC"/>
                                         </constraints>
                                         <segments>
                                             <segment title="$"/>
@@ -156,12 +156,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="0b8-tw-aTE" firstAttribute="leading" secondItem="TTL-yu-bc2" secondAttribute="leading" constant="8" id="I8a-RG-p71"/>
+                                    <constraint firstItem="0b8-tw-aTE" firstAttribute="leading" relation="lessThanOrEqual" secondItem="TTL-yu-bc2" secondAttribute="leading" constant="8" id="I8a-RG-p71"/>
                                     <constraint firstAttribute="height" constant="48" id="Pkn-6s-t5d"/>
                                     <constraint firstAttribute="width" priority="800" constant="414" id="QRL-f8-5GT"/>
                                     <constraint firstItem="0b8-tw-aTE" firstAttribute="centerX" secondItem="TTL-yu-bc2" secondAttribute="centerX" id="Xbz-U4-or3"/>
                                     <constraint firstItem="0b8-tw-aTE" firstAttribute="centerY" secondItem="TTL-yu-bc2" secondAttribute="centerY" id="xas-Wm-hXP"/>
-                                    <constraint firstAttribute="trailing" secondItem="0b8-tw-aTE" secondAttribute="trailing" constant="8" id="zGL-sT-hoL"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="0b8-tw-aTE" secondAttribute="trailing" constant="8" id="zGL-sT-hoL"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mI1-GZ-eFO">

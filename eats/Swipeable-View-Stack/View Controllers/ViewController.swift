@@ -22,7 +22,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     var selectedCard: Int = -1
     var chosenCard: Int = -1
     
-    var savedSettings : settings = settings(price: "$", distance: 10000.0, openNow: true) //default
+    var savedSettings : settings = settings(price: "Any", distance: 10000.0, openNow: true) //default
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +59,10 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
                 }
                 
                 businesses = businesses.filter{$0.distance <= self.savedSettings.distance}
-                businesses = businesses.filter{$0.price == self.savedSettings.price}
+                
+                if self.savedSettings.price != "Any" {
+                    businesses = businesses.filter{$0.price == self.savedSettings.price}
+                }
                 
                 self.businesses = businesses
                 
