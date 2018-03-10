@@ -15,8 +15,10 @@ struct settings {
 
 class SettingsViewController: UIViewController, UINavigationControllerDelegate {
     
+    @IBOutlet weak var priceChooser: UISegmentedControl!
     @IBOutlet weak var distanceSlider: UISlider!
     @IBOutlet weak var openNowSwitch: UISwitch!
+    @IBOutlet weak var currentDistance: UILabel!
     
     var savedSettings : settings? = nil
     
@@ -37,6 +39,7 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
         }
         
         distanceSlider.value = Float(distance)
+        currentDistance.text = String(Int(distanceSlider.value))
         openNowSwitch.setOn(openNow, animated: false)
     }
     
@@ -58,6 +61,10 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
         if let settings = self.savedSettings {
           (viewController as? ViewController)?.savedSettings = settings
         }
+    }
+    
+    @IBAction func distanceChanged(_ sender: Any) {
+        self.currentDistance.text = String(Int(distanceSlider.value));
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
