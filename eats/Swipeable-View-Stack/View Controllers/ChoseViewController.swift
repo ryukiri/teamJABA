@@ -93,9 +93,8 @@ class ChoseViewController: UIViewController {
     }
     */
     @IBAction func backButton(_ sender: Any) {
-        var vc = self.storyboard?.instantiateViewController(withIdentifier: "mainVC") as! ViewController
-        self.navigationController?.popToRootViewController(animated: true)
-        self.present(vc, animated: true, completion: nil)
+        var navCont = self.storyboard?.instantiateViewController(withIdentifier: "navControl") as! UINavigationController
+        self.present(navCont, animated: true, completion: nil)
     }
     
     @IBAction func navigateButton(_ sender: Any) {

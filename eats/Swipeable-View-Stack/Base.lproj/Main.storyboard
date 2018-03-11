@@ -502,7 +502,7 @@
         <!--Navigation Controller-->
         <scene sceneID="NT4-Fr-AL9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jym-8m-0Zh" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navControl" automaticallyAdjustsScrollViewInsets="NO" id="jym-8m-0Zh" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="home-tab" id="WRh-SF-Mmr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Y0r-tk-IBe">
@@ -523,6 +523,7 @@
         <image name="home-tab" width="22" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="7I5-jC-4SI"/>
         <segue reference="0ju-H5-aJS"/>
     </inferredMetricsTieBreakers>
 </document>
