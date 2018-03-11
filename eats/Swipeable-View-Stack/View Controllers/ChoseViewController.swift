@@ -81,22 +81,7 @@ class ChoseViewController: UIViewController {
             completion(data, response, error)
             }.resume()
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    @IBAction func backButton(_ sender: Any) {
-        var navCont = self.storyboard?.instantiateViewController(withIdentifier: "navControl") as! UINavigationController
-        self.present(navCont, animated: true, completion: nil)
-    }
-    
     @IBAction func navigateButton(_ sender: Any) {
         let id = business?.id
         
