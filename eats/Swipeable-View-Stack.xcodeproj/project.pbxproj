@@ -23,6 +23,7 @@
 		08E523E6204BB0C6002D323C /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523F0204BB0C6002D323C /* ObjectMapper.framework */; };
 		08E523E7204BB0C6002D323C /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523F1204BB0C6002D323C /* pop.framework */; };
 		08E523E8204BB0C6002D323C /* YelpAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523F2204BB0C6002D323C /* YelpAPI.framework */; };
+		499A12B32055E70C00DB3514 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A12B22055E70C00DB3514 /* HistoryViewController.swift */; };
 		91053654204789AD0006BC5A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91053653204789AD0006BC5A /* SettingsViewController.swift */; };
 		D1DB4F6F686EE90C7F0A31C5 /* Pods_Swipeable_View_Stack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8862332D7E886ADB81FEDFB /* Pods_Swipeable_View_Stack.framework */; };
 		D900A22D204D242E008794C0 /* MapDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900A22C204D242E008794C0 /* MapDetails.swift */; };
@@ -68,6 +69,7 @@
 		08E523F1204BB0C6002D323C /* pop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = pop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		08E523F2204BB0C6002D323C /* YelpAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YelpAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37304D7E784FC84C5165D0E5 /* Pods-Swipeable-View-Stack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipeable-View-Stack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swipeable-View-Stack/Pods-Swipeable-View-Stack.debug.xcconfig"; sourceTree = "<group>"; };
+		499A12B22055E70C00DB3514 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		5F8C8FF1559E3E60CA5906FD /* Pods-Swipeable-View-Stack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipeable-View-Stack.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swipeable-View-Stack/Pods-Swipeable-View-Stack.release.xcconfig"; sourceTree = "<group>"; };
 		91053653204789AD0006BC5A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A8862332D7E886ADB81FEDFB /* Pods_Swipeable_View_Stack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swipeable_View_Stack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 				91053653204789AD0006BC5A /* SettingsViewController.swift */,
 				08B3797F2048B5960011C7EB /* DetailsViewController.swift */,
 				08B37982204A9EB40011C7EB /* extensions.swift */,
+				499A12B22055E70C00DB3514 /* HistoryViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				F7FC2D051F9C355300EEF1CE /* SampleSwipeableCard.swift in Sources */,
 				D9402FFA204A867200E4AA77 /* ChoseViewController.swift in Sources */,
 				F7A387191F9BB80100EF5B45 /* SwipeableCardViewContainer.swift in Sources */,
+				499A12B32055E70C00DB3514 /* HistoryViewController.swift in Sources */,
 				F7A387211F9BB8FB00EF5B45 /* UIView+Constraints.swift in Sources */,
 				0887C2C4205178EF0031DC1D /* Color.swift in Sources */,
 				F7A387071F9BB6E400EF5B45 /* AppDelegate.swift in Sources */,

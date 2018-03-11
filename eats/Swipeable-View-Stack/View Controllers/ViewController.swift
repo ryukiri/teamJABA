@@ -26,6 +26,11 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     
     var savedSettings : settings = settings(price: "Any", distance: 10000.0, openNow: true) //default
     
+
+    @IBAction func historyAction(_ sender: Any) {
+        let navCont = self.storyboard?.instantiateViewController(withIdentifier: "historyVC") as! HistoryViewController
+        self.present(navCont, animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
