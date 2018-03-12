@@ -10,6 +10,8 @@ import UIKit
 import CDYelpFusionKit
 import CoreLocation
 
+var historyList : [BusinessCard] = []
+
 class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationManagerDelegate, SwipeableCardViewDelegate, UINavigationControllerDelegate {
     @IBOutlet private weak var swipeableCardView: SwipeableCardViewContainer!
     @IBOutlet weak var spinner: UIActivityIndicatorView!

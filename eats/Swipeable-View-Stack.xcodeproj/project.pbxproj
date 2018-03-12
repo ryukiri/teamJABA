@@ -24,6 +24,7 @@
 		08E523E7204BB0C6002D323C /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523F1204BB0C6002D323C /* pop.framework */; };
 		08E523E8204BB0C6002D323C /* YelpAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523F2204BB0C6002D323C /* YelpAPI.framework */; };
 		499A12B32055E70C00DB3514 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A12B22055E70C00DB3514 /* HistoryViewController.swift */; };
+		499A12B52055E9C800DB3514 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A12B42055E9C800DB3514 /* HistoryTableViewCell.swift */; };
 		91053654204789AD0006BC5A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91053653204789AD0006BC5A /* SettingsViewController.swift */; };
 		D1DB4F6F686EE90C7F0A31C5 /* Pods_Swipeable_View_Stack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8862332D7E886ADB81FEDFB /* Pods_Swipeable_View_Stack.framework */; };
 		D900A22D204D242E008794C0 /* MapDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D900A22C204D242E008794C0 /* MapDetails.swift */; };
@@ -70,6 +71,7 @@
 		08E523F2204BB0C6002D323C /* YelpAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YelpAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37304D7E784FC84C5165D0E5 /* Pods-Swipeable-View-Stack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipeable-View-Stack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swipeable-View-Stack/Pods-Swipeable-View-Stack.debug.xcconfig"; sourceTree = "<group>"; };
 		499A12B22055E70C00DB3514 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		499A12B42055E9C800DB3514 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		5F8C8FF1559E3E60CA5906FD /* Pods-Swipeable-View-Stack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swipeable-View-Stack.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swipeable-View-Stack/Pods-Swipeable-View-Stack.release.xcconfig"; sourceTree = "<group>"; };
 		91053653204789AD0006BC5A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A8862332D7E886ADB81FEDFB /* Pods_Swipeable_View_Stack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swipeable_View_Stack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				F7FC2D081F9C38F800EEF1CE /* SampleSwipeableCellViewModel.swift */,
+				499A12B42055E9C800DB3514 /* HistoryTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 			files = (
 				08159ECD204696A10063A0E8 /* YelpRepo.swift in Sources */,
 				F7FC2D091F9C38F800EEF1CE /* SampleSwipeableCellViewModel.swift in Sources */,
+				499A12B52055E9C800DB3514 /* HistoryTableViewCell.swift in Sources */,
 				F7FC2CFB1F9BDB1400EEF1CE /* CGPoint+SwipeableAdditions.swift in Sources */,
 				F7A387091F9BB6E400EF5B45 /* ViewController.swift in Sources */,
 				F7FC2CFD1F9C06A500EEF1CE /* CGRect+SwipeAdditions.swift in Sources */,
