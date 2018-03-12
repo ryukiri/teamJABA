@@ -7,13 +7,14 @@
 //
 
 import UIKit
-import MapKit
+import GoogleMaps
+import GooglePlaces
 
-class ChoseViewController: UIViewController {
+class ChoseViewController: UIViewController, GMSMapViewDelegate {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapView: GMSMapView!
     
     let yelpRepo = YelpRepo.shared
     
@@ -51,25 +52,20 @@ class ChoseViewController: UIViewController {
                 else {
                     return
                 }
-                let initialLocation = CLLocation(latitude: lat, longitude: long)
-                self.centerMapOnLocation(location: initialLocation)
+                let businessCoords: CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, long)
+                let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 16)
                 
-                // show artwork on map
-                let artwork = MapDetails(title: name,
-                                         locationName: name,
-                                         discipline: "Restaurant",
-                                         coordinate: CLLocationCoordinate2D(latitude: lat, longitude: long))
-                self.mapView.addAnnotation(artwork)
+                self.mapView.camera = camera
+                self.mapView.delegate = self
+                self.mapView.isMyLocationEnabled = true
+                self.mapView.settings.myLocationButton = true
+                self.mapView.settings.zoomGestures = true
+                GoogleMapsHelper.createMarker(title: "Test", coords: businessCoords, mapView: self.mapView)
             }
         }
     }
 
     let regionRadius: CLLocationDistance = 500
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius, regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

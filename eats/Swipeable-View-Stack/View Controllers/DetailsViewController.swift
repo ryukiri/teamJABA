@@ -99,8 +99,8 @@ class DetailsViewController: UIViewController, GMSMapViewDelegate {
                 self.mapView.settings.zoomGestures = true
                 
                 self.drawPath(start: userCoords, end: businessCoords)
-                self.createMarker(title: "START", coords: userCoords)
-                self.createMarker(title: "END", coords: businessCoords)
+                GoogleMapsHelper.createMarker(title: "START", coords: userCoords, mapView: self.mapView)
+                GoogleMapsHelper.createMarker(title: "END", coords: businessCoords, mapView: self.mapView)
             }
         }
     }
@@ -108,13 +108,6 @@ class DetailsViewController: UIViewController, GMSMapViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    private func createMarker(title: String, coords: CLLocationCoordinate2D) {
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2DMake(coords.latitude, coords.longitude)
-        marker.title = title
-        marker.map = self.mapView
     }
     
     private func drawPath(start: CLLocationCoordinate2D, end: CLLocationCoordinate2D) {
