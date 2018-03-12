@@ -28,6 +28,8 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
         
         navigationController?.delegate = self
         
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
         self.title = "Settings"
         
         //load current settings

@@ -304,22 +304,22 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eyC-Rd-HnD">
-                                <rect key="frame" x="16" y="80" width="382" height="61"/>
+                                <rect key="frame" x="143" y="94" width="129.66666666666663" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have chosen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywa-Xv-Bju">
-                                        <rect key="frame" x="0.33333333333334281" y="0.0" width="129.66666666666666" height="20.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="129.66666666666666" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6J-Kf-kid">
-                                        <rect key="frame" x="170.33333333333334" y="20.333333333333329" width="41.666666666666657" height="20.333333333333329"/>
+                                        <rect key="frame" x="44" y="20.333333333333329" width="41.666666666666657" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DG0-QS-KWE">
-                                        <rect key="frame" x="170.33333333333334" y="40.666666666666671" width="41.666666666666657" height="20.333333333333329"/>
+                                        <rect key="frame" x="44" y="40.666666666666657" width="41.666666666666657" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -595,11 +595,21 @@
         <scene sceneID="NT4-Fr-AL9">
             <objects>
                 <navigationController storyboardIdentifier="navControl" automaticallyAdjustsScrollViewInsets="NO" id="jym-8m-0Zh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="home-tab" id="WRh-SF-Mmr"/>
+                    <tabBarItem key="tabBarItem" title="" image="home-tab" id="WRh-SF-Mmr">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Y0r-tk-IBe">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.92145264149999995" green="0.54099340789999995" blue="0.27887649489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="1" green="0.6209490696470723" blue="0.084192245410795619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -617,7 +627,7 @@
         <image name="settings" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="7I5-jC-4SI"/>
         <segue reference="0ju-H5-aJS"/>
-        <segue reference="Klv-os-Efc"/>
     </inferredMetricsTieBreakers>
 </document>

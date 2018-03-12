@@ -40,7 +40,7 @@ class SampleSwipeableCard: SwipeableCardViewCard {
             nameLabel.text = viewModel.name
             ratingLabel.text = viewModel.rating
             
-            imageBackgroundColorView.backgroundColor = UIColor.cyan // temp
+            imageBackgroundColorView.backgroundColor = Color.hexStringToUIColor("D2D0CF") // temp
             
             self.imageView.image = viewModel.image
             backgroundContainerView.layer.cornerRadius = 14.0

@@ -37,9 +37,9 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         super.viewDidLoad()
         
         self.title = "Eats"
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "cute"))
-    
-        self.navigationItem.titleView = imageView
+//        let imageView = UIImageView(image: #imageLiteral(resourceName: "cute"))
+//    
+//        self.navigationItem.titleView = imageView
         
         
         swipeableCardView.dataSource = self
