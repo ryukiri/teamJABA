@@ -20,6 +20,8 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var openNowSwitch: UISwitch!
     @IBOutlet weak var currentDistance: UILabel!
     
+    @IBOutlet weak var checkImage: UIImageView!
+    
     var savedSettings : settings? = nil
     var updatedSettings: Bool? = nil
     
@@ -27,6 +29,7 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
         super.viewDidLoad()
         
         navigationController?.delegate = self
+        self.checkImage.isHidden = true
         
         self.title = "Settings"
         
@@ -63,12 +66,18 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBAction func saveSettings(_ sender: Any) {
         self.updatedSettings = true
-        print(self.updatedSettings)
+//        print(self.updatedSettings)
         savedSettings = settings(price: priceChooser.titleForSegment(at: priceChooser.selectedSegmentIndex)!, distance: Double(distanceSlider.value), openNow: openNowSwitch.isOn)
-        print("updated settings to: price = \(String(describing: savedSettings?.price)) distance = \(String(describing: savedSettings?.distance)) openNow = \(savedSettings?.openNow)")
+//        print("updated settings to: price = \(String(describing: savedSettings?.price)) distance = \(String(describing: savedSettings?.distance)) openNow = \(savedSettings?.openNow)")
+        self.checkImage.isHidden = false
+        self.checkImage.alpha = 1.0
+        UIViewPropertyAnimator(duration: 1.3, curve: .easeOut, animations: {
+            self.checkImage.alpha = 0.0
+        }).startAnimation()
+        
     }
     
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if let settings = self.savedSettings, let updated = self.updatedSettings {
             let mainVC = viewController as? ViewController
             mainVC?.savedSettings = settings

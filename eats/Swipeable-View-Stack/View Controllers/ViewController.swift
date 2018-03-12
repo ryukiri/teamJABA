@@ -50,14 +50,13 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
         
-        print("updated settings to: price = \(String(describing: savedSettings.price)) distance = \(String(describing: savedSettings.distance)) openNow = \(savedSettings.openNow)")
+//        print("updated settings to: price = \(String(describing: savedSettings.price)) distance = \(String(describing: savedSettings.distance)) openNow = \(savedSettings.openNow)")
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
 
         if self.updatedSettings {
-            print("LOAD")
             self.spinner.startAnimating()
             self.spinner.isHidden = false
             self.noCardsLeftLabel.isHidden = true
@@ -80,29 +79,37 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
                     self.businesses = businesses
                     
                     // download images
-                    for business in self.businesses {
-                        if let imageURL = business.imageURL {
-                            self.yelpRepo.downloadImage(url: imageURL, completion: { (image, error) in
-                                guard
-                                    let image = image,
-                                    error == nil
-                                    else {
-                                        return
-                                }
-                                DispatchQueue.main.async {
-                                    business.setImage(image)
-                                    self.spinner.stopAnimating()
-                                    self.spinner.isHidden = true
-                                    self.noCardsLeftLabel.isHidden = false
-                                    self.swipeableCardView.reloadData()
-                                }
-                            })
+                    if self.businesses.count <= 0 {
+                        self.displayNoCards()
+                    } else {
+                        for business in self.businesses {
+                            if let imageURL = business.imageURL {
+                                self.yelpRepo.downloadImage(url: imageURL, completion: { (image, error) in
+                                    guard
+                                        let image = image,
+                                        error == nil
+                                        else {
+                                            return
+                                    }
+                                    DispatchQueue.main.async {
+                                        business.setImage(image)
+                                        self.displayNoCards()
+                                    }
+                                })
+                            }
                         }
                     }
                 })
             }
         }
         self.updatedSettings = false
+    }
+    
+    func displayNoCards() -> Void {
+        self.spinner.stopAnimating()
+        self.spinner.isHidden = true
+        self.noCardsLeftLabel.isHidden = false
+        self.swipeableCardView.reloadData()
     }
     
     @IBAction func refreshAction(_ sender: UIButton) {
