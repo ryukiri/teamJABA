@@ -14,6 +14,7 @@
 		0887C2C4205178EF0031DC1D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0887C2C3205178EF0031DC1D /* Color.swift */; };
 		08B379802048B5960011C7EB /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3797F2048B5960011C7EB /* DetailsViewController.swift */; };
 		08B37983204A9EB40011C7EB /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B37982204A9EB40011C7EB /* extensions.swift */; };
+		08E3C2352056764800B6E1E5 /* YelpDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E3C2342056764800B6E1E5 /* YelpDisplay.swift */; };
 		08E523DF204BB0C6002D323C /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523E9204BB0C6002D323C /* AFNetworking.framework */; };
 		08E523E0204BB0C6002D323C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523EA204BB0C6002D323C /* Alamofire.framework */; };
 		08E523E1204BB0C6002D323C /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E523EB204BB0C6002D323C /* AlamofireObjectMapper.framework */; };
@@ -61,6 +62,7 @@
 		0887C2C3205178EF0031DC1D /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		08B3797F2048B5960011C7EB /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		08B37982204A9EB40011C7EB /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		08E3C2342056764800B6E1E5 /* YelpDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpDisplay.swift; sourceTree = "<group>"; };
 		08E523E9204BB0C6002D323C /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		08E523EA204BB0C6002D323C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		08E523EB204BB0C6002D323C /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlamofireObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +172,7 @@
 				0887C2C12051344E0031DC1D /* DateTimeHelpers.swift */,
 				0887C2C3205178EF0031DC1D /* Color.swift */,
 				087476DD2056154800E625E1 /* GoogleMapsHelper.swift */,
+				08E3C2342056764800B6E1E5 /* YelpDisplay.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				F7FC2D031F9C144300EEF1CE /* SwipeableCardViewDelegate.swift in Sources */,
 				F7FC2D011F9C132F00EEF1CE /* SwipeableViewDelegate.swift in Sources */,
 				F7FC2D051F9C355300EEF1CE /* SampleSwipeableCard.swift in Sources */,
+				08E3C2352056764800B6E1E5 /* YelpDisplay.swift in Sources */,
 				D9402FFA204A867200E4AA77 /* ChoseViewController.swift in Sources */,
 				F7A387191F9BB80100EF5B45 /* SwipeableCardViewContainer.swift in Sources */,
 				087476DE2056154800E625E1 /* GoogleMapsHelper.swift in Sources */,

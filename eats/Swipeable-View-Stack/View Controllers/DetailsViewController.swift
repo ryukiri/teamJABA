@@ -54,7 +54,7 @@ class DetailsViewController: UIViewController, GMSMapViewDelegate {
         
         self.businessNameLabel.text = name
         self.businessImage.image = image
-        self.ratingImage.image = self.getRatingImage(rating)
+        self.ratingImage.image = YelpDisplays.getRatingImage(rating)
         self.priceLabel.text = price
         
         // fetch hours
@@ -138,32 +138,6 @@ class DetailsViewController: UIViewController, GMSMapViewDelegate {
         }
     }
     
-    private func getRatingImage(_ rating: Double) -> UIImage {
-        switch rating {
-        case 1.0:
-            return #imageLiteral(resourceName: "yelp_stars_one_regular")
-        case 1.5:
-            return #imageLiteral(resourceName: "yelp_stars_one_half_regular")
-        case 2.0:
-            return #imageLiteral(resourceName: "yelp_stars_two_regular")
-        case 2.5:
-            return #imageLiteral(resourceName: "yelp_stars_two_half_regular")
-        case 3.0:
-            return #imageLiteral(resourceName: "yelp_stars_three_regular")
-        case 3.5:
-            return #imageLiteral(resourceName: "yelp_stars_three_half_regular")
-        case 4.0:
-            return #imageLiteral(resourceName: "yelp_stars_four_regular")
-        case 4.5:
-            return #imageLiteral(resourceName: "yelp_stars_four_half_regular")
-        case 5.0:
-            return #imageLiteral(resourceName: "yelp_stars_five_regular")
-        default:
-            return #imageLiteral(resourceName: "yelp_stars_zero_regular")
-        }
-    }
-    
-
     @IBAction func onClickPan(_ sender: UIPanGestureRecognizer) {
         let touchPoint = (sender as AnyObject).location(in: self.view?.window)
         

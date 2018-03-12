@@ -331,7 +331,7 @@
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bc7-4S-OFY" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="429" width="414" height="258"/>
+                                <rect key="frame" x="0.0" y="444" width="414" height="243"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ew-12-Z3c">
@@ -404,7 +404,7 @@
                             <constraint firstItem="bc7-4S-OFY" firstAttribute="leading" secondItem="cyP-uL-ME2" secondAttribute="leading" id="kHv-kG-Q30"/>
                             <constraint firstItem="5ew-12-Z3c" firstAttribute="bottom" secondItem="CR5-k2-I5f" secondAttribute="bottom" id="mOH-cH-mxM"/>
                             <constraint firstItem="5ew-12-Z3c" firstAttribute="centerX" secondItem="bc7-4S-OFY" secondAttribute="centerX" id="pjK-Aw-QES"/>
-                            <constraint firstItem="bc7-4S-OFY" firstAttribute="height" secondItem="2kR-v2-IGL" secondAttribute="height" multiplier="0.35" id="s6D-1o-aVh"/>
+                            <constraint firstItem="bc7-4S-OFY" firstAttribute="height" secondItem="2kR-v2-IGL" secondAttribute="height" multiplier="0.33" id="s6D-1o-aVh"/>
                             <constraint firstItem="cyP-uL-ME2" firstAttribute="bottom" secondItem="bc7-4S-OFY" secondAttribute="bottom" id="taT-se-lhD"/>
                             <constraint firstItem="cyP-uL-ME2" firstAttribute="trailing" secondItem="lwb-Tk-NrI" secondAttribute="trailing" id="yJ6-Ka-uGk"/>
                             <constraint firstItem="lwb-Tk-NrI" firstAttribute="leading" secondItem="cyP-uL-ME2" secondAttribute="leading" id="yi6-pl-eW2"/>

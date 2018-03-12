@@ -17,6 +17,7 @@
                 <outlet property="imageBackgroundColorView" destination="KzP-I3-pDi" id="CHr-e4-GU0"/>
                 <outlet property="imageView" destination="n1H-9c-dJi" id="NMN-LW-ykc"/>
                 <outlet property="nameLabel" destination="Gaw-Sp-5GY" id="cet-3r-7Z8"/>
+                <outlet property="ratingImage" destination="jPW-jU-2Wf" id="L1J-Ga-nYz"/>
                 <outlet property="ratingLabel" destination="R9d-cS-uWr" id="4lM-8U-3zz"/>
             </connections>
         </placeholder>
@@ -84,12 +85,19 @@
                                         <constraint firstAttribute="width" constant="20" id="SG6-Qk-VS6"/>
                                     </constraints>
                                 </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jPW-jU-2Wf">
+                                    <rect key="frame" x="25" y="78" width="119" height="25"/>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="qY1-ok-qKi" secondAttribute="trailing" constant="25" id="7LH-Hd-rVe"/>
                                 <constraint firstItem="qY1-ok-qKi" firstAttribute="centerY" secondItem="trc-we-5GV" secondAttribute="centerY" constant="-17" id="8Ha-gh-i8y"/>
+                                <constraint firstAttribute="bottom" secondItem="jPW-jU-2Wf" secondAttribute="bottom" constant="21" id="BbK-DL-UB7"/>
+                                <constraint firstAttribute="trailing" secondItem="jPW-jU-2Wf" secondAttribute="trailing" constant="151.66666666666669" id="JMw-2G-GQg"/>
+                                <constraint firstItem="jPW-jU-2Wf" firstAttribute="leading" secondItem="trc-we-5GV" secondAttribute="leading" constant="25" id="NWE-1D-yIq"/>
                                 <constraint firstItem="qY1-ok-qKi" firstAttribute="leading" secondItem="trc-we-5GV" secondAttribute="leading" constant="25" id="SYK-V7-aPP"/>
+                                <constraint firstItem="jPW-jU-2Wf" firstAttribute="top" secondItem="R9d-cS-uWr" secondAttribute="bottom" constant="8" id="bp8-5z-yK6"/>
                                 <constraint firstAttribute="height" constant="124" id="oQz-kb-ga8"/>
                             </constraints>
                         </view>

@@ -13,7 +13,7 @@ class SampleSwipeableCard: SwipeableCardViewCard {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    
+    @IBOutlet weak var ratingImage: UIImageView!
     @IBOutlet private weak var imageBackgroundColorView: UIView!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var backgroundContainerView: UIView!
@@ -37,10 +37,9 @@ class SampleSwipeableCard: SwipeableCardViewCard {
 
     private func configure(forViewModel viewModel: SampleSwipeableCellViewModel?) {
         if let viewModel = viewModel {
-            nameLabel.text = viewModel.name
-            ratingLabel.text = viewModel.rating
-            
-            imageBackgroundColorView.backgroundColor = Color.hexStringToUIColor("ceced1") // temp
+            self.nameLabel.text = viewModel.name
+            self.ratingLabel.text = viewModel.rating
+            self.ratingImage.image = YelpDisplays.getRatingImage((viewModel.rating as! NSString).doubleValue)
             
             self.imageView.image = viewModel.image
             self.imageView.contentMode = .scaleAspectFill
