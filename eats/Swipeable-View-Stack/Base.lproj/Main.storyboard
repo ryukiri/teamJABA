@@ -313,13 +313,15 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CR5-k2-I5f">
                                 <rect key="frame" x="7" y="383" width="100" height="40"/>
-                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.62094906959999996" blue="0.084192245410000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CR5-k2-I5f" secondAttribute="height" multiplier="25:10" id="BNy-BZ-wcu"/>
                                     <constraint firstAttribute="width" constant="100" id="wTQ-1j-BJS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="Navigate"/>
+                                <state key="normal" title="Navigate">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="navigateButton:" destination="C8C-rK-ohD" eventType="touchUpInside" id="abD-XL-EjY"/>
                                 </connections>
@@ -336,12 +338,14 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ew-12-Z3c">
                                 <rect key="frame" x="157" y="383" width="100" height="40"/>
-                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.62094906959999996" blue="0.084192245410000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5ew-12-Z3c" secondAttribute="height" multiplier="25:10" id="MAT-8o-w5r"/>
                                     <constraint firstAttribute="width" constant="100" id="uw2-hE-Bhm"/>
                                 </constraints>
-                                <state key="normal" title="Remind Me"/>
+                                <state key="normal" title="Remind Me">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="remindButton:" destination="C8C-rK-ohD" eventType="touchUpInside" id="8TT-vS-vqO"/>
                                 </connections>
@@ -370,11 +374,13 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeP-9I-eq5">
                                 <rect key="frame" x="302" y="383" width="100" height="40"/>
-                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.62094906959999996" blue="0.084192245410000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="bjL-hR-bec"/>
                                 </constraints>
-                                <state key="normal" title="Share"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="shareButton:" destination="C8C-rK-ohD" eventType="touchUpInside" id="AHb-g6-bAG"/>
                                 </connections>
