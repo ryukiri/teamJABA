@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import UserNotifications
 
 extension UIApplication {
     var yelpRepo : YelpRepo {

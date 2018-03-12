@@ -365,6 +365,13 @@
                                     <action selector="shareButton:" destination="C8C-rK-ohD" eventType="touchUpInside" id="AHb-g6-bAG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ew-12-Z3c">
+                                <rect key="frame" x="169" y="685" width="77" height="30"/>
+                                <state key="normal" title="Remind Me"/>
+                                <connections>
+                                    <action selector="remindButton:" destination="C8C-rK-ohD" eventType="touchUpInside" id="8TT-vS-vqO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -380,11 +387,13 @@
                             <constraint firstItem="cyP-uL-ME2" firstAttribute="bottom" secondItem="eeP-9I-eq5" secondAttribute="bottom" constant="21" id="VYo-o2-rer"/>
                             <constraint firstItem="cyP-uL-ME2" firstAttribute="trailing" secondItem="eyC-Rd-HnD" secondAttribute="trailing" constant="141.33333333333337" id="YSq-IW-ZGD"/>
                             <constraint firstItem="cyP-uL-ME2" firstAttribute="bottom" secondItem="bc7-4S-OFY" secondAttribute="bottom" constant="58" id="awg-p0-Tzd"/>
+                            <constraint firstItem="cyP-uL-ME2" firstAttribute="bottom" secondItem="5ew-12-Z3c" secondAttribute="bottom" constant="21" id="bC8-fH-zBF"/>
                             <constraint firstItem="cyP-uL-ME2" firstAttribute="trailing" secondItem="eeP-9I-eq5" secondAttribute="trailing" constant="42" id="bga-Kb-1t8"/>
                             <constraint firstItem="lwb-Tk-NrI" firstAttribute="top" secondItem="cyP-uL-ME2" secondAttribute="top" constant="99" id="ens-7e-4jG"/>
                             <constraint firstItem="bc7-4S-OFY" firstAttribute="leading" secondItem="cyP-uL-ME2" secondAttribute="leading" constant="20" id="kHv-kG-Q30"/>
                             <constraint firstItem="lwb-Tk-NrI" firstAttribute="centerX" secondItem="5ug-hd-qx8" secondAttribute="centerX" id="mdj-Xc-OFq"/>
                             <constraint firstItem="CR5-k2-I5f" firstAttribute="leading" secondItem="cyP-uL-ME2" secondAttribute="leading" constant="38" id="qNm-Nn-qkg"/>
+                            <constraint firstItem="5ew-12-Z3c" firstAttribute="centerX" secondItem="2kR-v2-IGL" secondAttribute="centerX" id="reW-8r-2qS"/>
                             <constraint firstItem="eeP-9I-eq5" firstAttribute="top" secondItem="bc7-4S-OFY" secondAttribute="bottom" constant="7" id="tdj-0o-GjK"/>
                             <constraint firstItem="cyP-uL-ME2" firstAttribute="trailing" secondItem="lwb-Tk-NrI" secondAttribute="trailing" constant="16" id="yJ6-Ka-uGk"/>
                             <constraint firstItem="lwb-Tk-NrI" firstAttribute="leading" secondItem="cyP-uL-ME2" secondAttribute="leading" constant="16" id="yi6-pl-eW2"/>
