@@ -62,10 +62,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ggb-SD-bHh">
                         <barButtonItem key="leftBarButtonItem" title="Refresh" style="plain" id="OzV-3t-6x6">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ftB-u9-EzE">
-                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ftB-u9-EzE">
+                                <rect key="frame" x="20" y="5.6666666666666679" width="33" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Refresh"/>
+                                <state key="normal" image="refresh"/>
                                 <connections>
                                     <action selector="refreshAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YUB-1O-Wb1"/>
                                 </connections>
@@ -73,10 +73,10 @@
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Settings" style="plain" id="g06-4g-bAK">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="85D-Su-2ym">
-                                    <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="85D-Su-2ym">
+                                    <rect key="frame" x="361" y="5.6666666666666679" width="33" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Settings"/>
+                                    <state key="normal" image="settings"/>
                                     <connections>
                                         <segue destination="Zig-cH-mLc" kind="show" identifier="settingsSegue" id="MkT-oD-ehc"/>
                                     </connections>
@@ -84,7 +84,7 @@
                             </barButtonItem>
                             <barButtonItem style="plain" id="E8B-Nv-Gdz" userLabel="History">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7af-4p-CVf" userLabel="History">
-                                    <rect key="frame" x="202" y="7" width="92" height="30"/>
+                                    <rect key="frame" x="261" y="7" width="92" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="History"/>
                                     <connections>
@@ -300,7 +300,7 @@
                                 <rect key="frame" x="16" y="226" width="382" height="284"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eyC-Rd-HnD">
-                                <rect key="frame" x="16" y="124" width="382" height="61"/>
+                                <rect key="frame" x="16" y="80" width="382" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have chosen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywa-Xv-Bju">
                                         <rect key="frame" x="126.33333333333336" y="0.0" width="129.66666666666663" height="20.333333333333332"/>
@@ -309,13 +309,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6J-Kf-kid">
-                                        <rect key="frame" x="170.33333333333334" y="20.333333333333343" width="41.666666666666657" height="20.333333333333329"/>
+                                        <rect key="frame" x="170.33333333333334" y="20.333333333333329" width="41.666666666666657" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DG0-QS-KWE">
-                                        <rect key="frame" x="170.33333333333334" y="40.666666666666657" width="41.666666666666657" height="20.333333333333329"/>
+                                        <rect key="frame" x="170.33333333333334" y="40.666666666666671" width="41.666666666666657" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -547,6 +547,8 @@
     </scenes>
     <resources>
         <image name="home-tab" width="22" height="21"/>
+        <image name="refresh" width="33" height="33"/>
+        <image name="settings" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MkT-oD-ehc"/>
