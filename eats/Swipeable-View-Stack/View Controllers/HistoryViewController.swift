@@ -8,8 +8,8 @@
 
 import UIKit
 
-class HistoryViewController: UIViewController {
-
+class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +21,21 @@ class HistoryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    // num rows in section
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return historyList.count
+    }
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HistoryTableViewCell
+        cell.nameLabel.text = historyList[indexPath.row].name
+        cell.historyImage.image = historyList[indexPath.row].image
+        return cell
+    }
+    
     /*
     // MARK: - Navigation
 

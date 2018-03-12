@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -11,8 +12,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
         </array>
     </customFonts>
     <scenes>
@@ -24,28 +25,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6N-cK-EoY">
-                                <rect key="frame" x="155" y="304" width="65" height="59"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="Oo3-L1-LU2">
-                                <rect key="frame" x="220" y="319" width="30" height="29.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cute" translatesAutoresizingMaskIntoConstraints="NO" id="Bvq-UT-q5w">
+                                <rect key="frame" x="94" y="240" width="187.5" height="187.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Oo3-L1-LU2" secondAttribute="height" multiplier="1:1" id="CNr-I5-jig"/>
+                                    <constraint firstAttribute="width" secondItem="Bvq-UT-q5w" secondAttribute="height" multiplier="1:1" id="rYp-Vs-d75"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EATS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pq0-st-APJ">
+                                <rect key="frame" x="142" y="452" width="92" height="37"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="31"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.92145264149999995" green="0.54099340793152828" blue="0.27887649485959742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="R6N-cK-EoY" secondAttribute="bottom" constant="304" id="7fx-RZ-0ki"/>
-                            <constraint firstItem="R6N-cK-EoY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="155" id="9HJ-i5-4Ws"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R6N-cK-EoY" secondAttribute="trailing" constant="155" id="Ryz-Pv-3Kg"/>
-                            <constraint firstItem="Oo3-L1-LU2" firstAttribute="height" secondItem="R6N-cK-EoY" secondAttribute="height" multiplier="0.5" id="fhB-Wf-drb"/>
-                            <constraint firstItem="Oo3-L1-LU2" firstAttribute="centerY" secondItem="R6N-cK-EoY" secondAttribute="centerY" id="klD-wM-fZI"/>
-                            <constraint firstItem="R6N-cK-EoY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="284" id="tSw-VH-RC4"/>
-                            <constraint firstItem="Oo3-L1-LU2" firstAttribute="leading" secondItem="R6N-cK-EoY" secondAttribute="trailing" id="zzn-If-gYF"/>
+                            <constraint firstItem="Bvq-UT-q5w" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1X4-ek-9tL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pq0-st-APJ" secondAttribute="trailing" constant="141" id="CdX-9M-pd3"/>
+                            <constraint firstItem="pq0-st-APJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="142" id="Hma-go-1Gg"/>
+                            <constraint firstItem="pq0-st-APJ" firstAttribute="top" secondItem="Bvq-UT-q5w" secondAttribute="bottom" constant="24.5" id="Wqf-xp-He2"/>
+                            <constraint firstItem="Bvq-UT-q5w" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="XsT-1L-BIs"/>
+                            <constraint firstItem="Bvq-UT-q5w" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.5" id="wgJ-UF-gxK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -56,6 +56,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="hamburger" width="120" height="120"/>
+        <image name="cute" width="90" height="90"/>
     </resources>
 </document>

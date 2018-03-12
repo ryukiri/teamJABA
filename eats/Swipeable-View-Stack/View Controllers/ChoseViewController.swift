@@ -36,7 +36,8 @@ class ChoseViewController: UIViewController, GMSMapViewDelegate {
         for line in address {
             addressString += "\(line)\n"
         }
-        
+        historyList.insert(business!, at: 0)
+        //UserDefaults.standard.set(historyList, forKey: "history")
         nameLabel.text = name
         addressLabel.text = addressString
         self.image.image = image

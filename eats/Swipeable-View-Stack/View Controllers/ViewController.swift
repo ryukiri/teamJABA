@@ -10,6 +10,8 @@ import UIKit
 import CDYelpFusionKit
 import CoreLocation
 
+var historyList : [BusinessCard] = []
+
 class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationManagerDelegate, SwipeableCardViewDelegate, UINavigationControllerDelegate {
     @IBOutlet private weak var swipeableCardView: SwipeableCardViewContainer!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -35,7 +37,11 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         super.viewDidLoad()
         
         self.title = "Eats"
-
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "cute"))
+    
+        self.navigationItem.titleView = imageView
+        
+        
         swipeableCardView.dataSource = self
         swipeableCardView.delegate = self
     }
