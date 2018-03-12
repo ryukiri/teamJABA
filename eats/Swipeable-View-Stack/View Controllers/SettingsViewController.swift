@@ -68,12 +68,18 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
         print("updated settings to: price = \(String(describing: savedSettings?.price)) distance = \(String(describing: savedSettings?.distance)) openNow = \(savedSettings?.openNow)")
     }
     
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if let settings = self.savedSettings, let updated = self.updatedSettings {
             let mainVC = viewController as? ViewController
             mainVC?.savedSettings = settings
             mainVC?.updatedSettings = updated
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let mainViewController = segue.destination as? ViewController
+        mainViewController?.savedSettings = self.savedSettings!
+        mainViewController?.updatedSettings = self.updatedSettings!
     }
 
     @IBAction func distanceChanged(_ sender: Any) {
