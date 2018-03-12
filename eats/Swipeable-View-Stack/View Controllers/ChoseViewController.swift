@@ -17,11 +17,14 @@ class ChoseViewController: UIViewController, GMSMapViewDelegate, UNUserNotificat
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
-    var eventStore = EKEventStore()
-    var calendars:Array<EKCalendar> = []
+    @IBOutlet weak var tintView: UIView!
+    @IBOutlet weak var navigationButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var remindButton: UIButton!
     
     let yelpRepo = YelpRepo.shared
-    
+    var eventStore = EKEventStore()
+    var calendars:Array<EKCalendar> = []
     var business: BusinessCard? = nil
     
     override func viewDidLoad() {
@@ -29,6 +32,12 @@ class ChoseViewController: UIViewController, GMSMapViewDelegate, UNUserNotificat
         UNUserNotificationCenter.current().delegate = self
         
         self.title = "Your Pick"
+        self.mapView.roundCorners()
+        self.tintView.roundCorners()
+        self.shareButton.roundCorners()
+        self.remindButton.roundCorners()
+        self.navigationButton.roundCorners()
+        self.tintView.alpha = 0.4
         
         guard
             let business = business,
@@ -67,7 +76,7 @@ class ChoseViewController: UIViewController, GMSMapViewDelegate, UNUserNotificat
                 self.mapView.isMyLocationEnabled = true
                 self.mapView.settings.myLocationButton = true
                 self.mapView.settings.zoomGestures = true
-                GoogleMapsHelper.createMarker(title: "Test", coords: businessCoords, mapView: self.mapView)
+                GoogleMapsHelper.createMarker(title: addressString, coords: businessCoords, mapView: self.mapView)
             }
         }
         
