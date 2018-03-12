@@ -152,6 +152,10 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRICE RANGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meM-7I-2aC">
                                 <rect key="frame" x="20" y="155" width="108" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="108" id="6Sa-9L-EY5"/>
+                                    <constraint firstAttribute="height" constant="18" id="lbY-Qb-4n3"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
