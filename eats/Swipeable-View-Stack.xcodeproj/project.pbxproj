@@ -590,7 +590,7 @@
 				INFOPLIST_FILE = "Swipeable-View-Stack/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.washington.teamJABAA;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.washington.teamJABA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Swipeable-View-Stack/Swipeable-View-Stack-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -610,7 +610,7 @@
 				INFOPLIST_FILE = "Swipeable-View-Stack/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.washington.teamJABAA;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.washington.teamJABA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Swipeable-View-Stack/Swipeable-View-Stack-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

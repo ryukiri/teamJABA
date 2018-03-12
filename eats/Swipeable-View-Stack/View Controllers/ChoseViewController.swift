@@ -129,10 +129,19 @@ class ChoseViewController: UIViewController, GMSMapViewDelegate, UNUserNotificat
     }
     
     @IBAction func shareButton(_ sender: Any) {
-        let text = "Some message"
+        let name = business?.name
+        let body = "Hey! I'll be eating at \(name!)! \n\nCome join me!"
+        
+        guard let escapedBody = body.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+            return
+        }
+        
+        guard let phoneUrl = URL(string: "sms:&body=\(escapedBody)") else {
+            return
+        }
         
         if UIApplication.shared.canOpenURL(URL(string:"sms:")!) {
-            UIApplication.shared.open(URL(string:"sms:")!, options: [:], completionHandler: nil)
+            UIApplication.shared.open(phoneUrl, options: [:], completionHandler: nil)
         }
     }
     
@@ -162,8 +171,6 @@ class ChoseViewController: UIViewController, GMSMapViewDelegate, UNUserNotificat
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
         alert.addAction(UIAlertAction(title: "1 min", style: UIAlertActionStyle.default, handler: {
             (act: UIAlertAction) in
-            print("1 min")
-  
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false)
             let identifier = "UYLLocalNotification"
             let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
@@ -177,8 +184,6 @@ class ChoseViewController: UIViewController, GMSMapViewDelegate, UNUserNotificat
         }))
         alert.addAction(UIAlertAction(title: "1 hour", style: UIAlertActionStyle.default, handler: {
             (act: UIAlertAction) in
-            print("1 hour")
-            
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3600, repeats: false)
             let identifier = "UYLLocalNotification"
             let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
@@ -192,8 +197,6 @@ class ChoseViewController: UIViewController, GMSMapViewDelegate, UNUserNotificat
         }))
         alert.addAction(UIAlertAction(title: "6 hours", style: UIAlertActionStyle.default, handler: {
             (act: UIAlertAction) in
-            print("1 hour")
-            
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 21600, repeats: false)
             let identifier = "UYLLocalNotification"
             let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
