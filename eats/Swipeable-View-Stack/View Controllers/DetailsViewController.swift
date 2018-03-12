@@ -40,6 +40,7 @@ class DetailsViewController: UIViewController, GMSMapViewDelegate {
         self.view.roundCorners()
         self.detailsView.roundCorners()
         self.mapView.roundCorners()
+        self.businessImage.contentMode = .scaleAspectFill
         
         guard
             let id = business?.id,

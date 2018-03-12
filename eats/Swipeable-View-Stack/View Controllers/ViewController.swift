@@ -10,8 +10,6 @@ import UIKit
 import CDYelpFusionKit
 import CoreLocation
 
-var historyList : [BusinessCard] = []
-
 class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationManagerDelegate, SwipeableCardViewDelegate, UINavigationControllerDelegate {
     @IBOutlet private weak var swipeableCardView: SwipeableCardViewContainer!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -20,6 +18,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     let locationManager = CLLocationManager()
     var yelpRepo = YelpRepo.shared
     var businesses: [BusinessCard] = []
+    var historyList : [BusinessCard] = []
     var userLocation: CLLocationCoordinate2D? = nil
     var selectedCard: Int = -1
     var chosenCard: Int = -1
@@ -28,11 +27,6 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     
     var savedSettings : settings = settings(price: "Any", distance: 10000.0, openNow: true) //default
     
-
-    @IBAction func historyAction(_ sender: Any) {
-        let navCont = self.storyboard?.instantiateViewController(withIdentifier: "historyVC") as! HistoryViewController
-        self.present(navCont, animated: true, completion: nil)
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,7 +50,6 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         locationManager.startUpdatingLocation()
 
         if self.updatedSettings {
-            print("LOAD")
             self.spinner.startAnimating()
             self.spinner.isHidden = false
             self.noCardsLeftLabel.isHidden = true
@@ -138,6 +131,16 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     func didEndSwipeRight(card: SwipeableCardViewCard, atIndex index: Int) {
         self.chosenCard = index
         self.performSegue(withIdentifier: "chosenSegue", sender: nil)
+        
+        // Add history
+        let business = self.businesses[self.chosenCard]
+        if !historyList.contains {$0.id == business.id} {
+            self.historyList.append(business)
+        }
+        
+        if let tabBarVCs = self.tabBarController?.viewControllers, let historyVC = tabBarVCs[1] as? HistoryViewController {
+            historyVC.historyList = self.historyList
+        }
     }
     
     // MARK: - SwipeableCardViewDataSource

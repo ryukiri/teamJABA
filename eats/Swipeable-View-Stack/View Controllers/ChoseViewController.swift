@@ -24,11 +24,12 @@ class ChoseViewController: UIViewController, GMSMapViewDelegate {
         super.viewDidLoad()
         
         guard
-            let id = business?.id,
-            let name = business?.name,
-            let location = business?.location,
+            let business = business,
+            let id = business.id,
+            let name = business.name,
+            let location = business.location,
             let address = location.displayAddress,
-            let image = business?.image
+            let image = business.image
         else {
             return
         }
@@ -36,8 +37,6 @@ class ChoseViewController: UIViewController, GMSMapViewDelegate {
         for line in address {
             addressString += "\(line)\n"
         }
-        historyList.insert(business!, at: 0)
-        //UserDefaults.standard.set(historyList, forKey: "history")
         nameLabel.text = name
         addressLabel.text = addressString
         self.image.image = image
@@ -73,12 +72,6 @@ class ChoseViewController: UIViewController, GMSMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    private func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            completion(data, response, error)
-            }.resume()
-    }
-
     @IBAction func navigateButton(_ sender: Any) {
         let id = business?.id
         

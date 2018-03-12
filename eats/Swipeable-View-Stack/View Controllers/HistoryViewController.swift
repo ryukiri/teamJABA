@@ -9,11 +9,18 @@
 import UIKit
 
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var historyTableView: UITableView!
+    
+    var historyList : [BusinessCard] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        
+        self.historyTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,6 +31,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     // num rows in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return historyList.count

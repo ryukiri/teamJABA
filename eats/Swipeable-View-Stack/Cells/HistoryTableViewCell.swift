@@ -15,6 +15,8 @@ class HistoryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.historyImage.contentMode = .scaleAspectFill
         // Initialization code
     }
 

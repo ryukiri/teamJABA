@@ -43,6 +43,7 @@ class SampleSwipeableCard: SwipeableCardViewCard {
             imageBackgroundColorView.backgroundColor = UIColor.cyan // temp
             
             self.imageView.image = viewModel.image
+            self.imageView.contentMode = .scaleAspectFill
             backgroundContainerView.layer.cornerRadius = 14.0
         }
     }
