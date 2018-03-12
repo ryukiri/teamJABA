@@ -36,6 +36,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         self.title = "Eats"
 //        let imageView = UIImageView(image: #imageLiteral(resourceName: "cute"))
 //    
