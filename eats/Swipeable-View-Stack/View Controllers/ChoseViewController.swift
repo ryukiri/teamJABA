@@ -12,7 +12,7 @@ import GooglePlaces
 import EventKit
 import UserNotifications
 
-class ChoseViewController: UIViewController, GMSMapViewDelegate {
+class ChoseViewController: UIViewController, GMSMapViewDelegate, UNUserNotificationCenterDelegate {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var addressLabel: UILabel!
@@ -26,6 +26,7 @@ class ChoseViewController: UIViewController, GMSMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UNUserNotificationCenter.current().delegate = self
         
         guard
             let id = business?.id,
@@ -202,5 +203,15 @@ class ChoseViewController: UIViewController, GMSMapViewDelegate {
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    //for displaying notification when app is in foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        //If you don't want to show notification when app is open, do something here else and make a return here.
+        //Even you you don't implement this delegate method, you will not see the notification on the specified controller. So, you have to implement this delegate and make sure the below line execute. i.e. completionHandler.
+        
+        completionHandler([.alert, .badge, .sound])
+    }
+
     
 }
