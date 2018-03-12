@@ -47,8 +47,8 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         swipeableCardView.delegate = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(false)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
         
 //        print("updated settings to: price = \(String(describing: savedSettings.price)) distance = \(String(describing: savedSettings.distance)) openNow = \(savedSettings.openNow)")
         
