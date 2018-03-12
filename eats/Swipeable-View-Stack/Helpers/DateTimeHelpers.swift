@@ -51,7 +51,6 @@ class DateTimeHelper {
         }
         dateArray[1] = Substring(newTime)
         let newDateString = dateArray.joined(separator: " ")
-        print(newDateString)
         
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         formatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!

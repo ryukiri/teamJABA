@@ -21,6 +21,7 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var currentDistance: UILabel!
     
     var savedSettings : settings? = nil
+    var updatedSettings: Bool? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,27 +56,26 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
         priceChooser.selectedSegmentIndex = priceIndex
     }
     
-    //    @IBAction func backToMain(_ sender: Any) {
-    //        print("sending settings as: price = \(savedSettings?.price) distance = \(savedSettings?.distance) openNow = \(savedSettings?.openNow)")
-    //    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func saveSettings(_ sender: Any) {
+        self.updatedSettings = true
+        print(self.updatedSettings)
         savedSettings = settings(price: priceChooser.titleForSegment(at: priceChooser.selectedSegmentIndex)!, distance: Double(distanceSlider.value), openNow: openNowSwitch.isOn)
         print("updated settings to: price = \(String(describing: savedSettings?.price)) distance = \(String(describing: savedSettings?.distance)) openNow = \(savedSettings?.openNow)")
     }
     
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        if let settings = self.savedSettings {
-            (viewController as? ViewController)?.savedSettings = settings
-            print("sending settings as: price = \(savedSettings?.price) distance = \(savedSettings?.distance) openNow = \(savedSettings?.openNow)")
+        if let settings = self.savedSettings, let updated = self.updatedSettings {
+            let mainVC = viewController as? ViewController
+            mainVC?.savedSettings = settings
+            mainVC?.updatedSettings = updated
         }
     }
-    
+
     @IBAction func distanceChanged(_ sender: Any) {
         self.currentDistance.text = String(Int(distanceSlider.value));
     }

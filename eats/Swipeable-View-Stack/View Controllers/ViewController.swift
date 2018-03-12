@@ -10,7 +10,9 @@ import UIKit
 import CDYelpFusionKit
 import CoreLocation
 
-class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationManagerDelegate, SwipeableCardViewDelegate {
+var historyList : [BusinessCard] = []
+
+class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationManagerDelegate, SwipeableCardViewDelegate, UINavigationControllerDelegate {
     @IBOutlet private weak var swipeableCardView: SwipeableCardViewContainer!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var noCardsLeftLabel: UILabel!
@@ -22,8 +24,15 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     var selectedCard: Int = -1
     var chosenCard: Int = -1
     
+    var updatedSettings: Bool = true
+    
     var savedSettings : settings = settings(price: "Any", distance: 10000.0, openNow: true) //default
     
+
+    @IBAction func historyAction(_ sender: Any) {
+        let navCont = self.storyboard?.instantiateViewController(withIdentifier: "historyVC") as! HistoryViewController
+        self.present(navCont, animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,63 +43,61 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("received settings as: price = \(savedSettings.price) distance = \(savedSettings.distance) openNow = \(savedSettings.openNow)")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(false)
+        super.viewDidAppear(false)
+        
+        print("updated settings to: price = \(String(describing: savedSettings.price)) distance = \(String(describing: savedSettings.distance)) openNow = \(savedSettings.openNow)")
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        
-        self.spinner.startAnimating()
-        self.spinner.isHidden = false
-        self.noCardsLeftLabel.isHidden = true
-        
-        if let currentLoc = locationManager.location?.coordinate {
-            self.userLocation = currentLoc
-            yelpRepo.searchTop(coordinate: currentLoc, openNow: savedSettings.openNow, completion: { (response, error) in
-                guard
-                    var businesses = response
-                    else {
-                        print(error as Any)
-                        return
-                }
-                
-                businesses = businesses.filter{$0.distance <= self.savedSettings.distance}
-                
-                if self.savedSettings.price != "Any" {
-                    businesses = businesses.filter{$0.price == self.savedSettings.price}
-                }
-                
-                self.businesses = businesses
-                
-                // download images
-                for business in self.businesses {
-                    if let imageURL = business.imageURL {
-                        self.yelpRepo.downloadImage(url: imageURL, completion: { (image, error) in
-                            guard
-                                let image = image,
-                                error == nil
-                                else {
-                                    return
-                            }
-                            DispatchQueue.main.async {
-                                business.setImage(image)
-                                self.spinner.stopAnimating()
-                                self.spinner.isHidden = true
-                                self.noCardsLeftLabel.isHidden = false
-                                self.swipeableCardView.reloadData()
-                            }
-                        })
+
+        if self.updatedSettings {
+            print("LOAD")
+            self.spinner.startAnimating()
+            self.spinner.isHidden = false
+            self.noCardsLeftLabel.isHidden = true
+            if let currentLoc = locationManager.location?.coordinate {
+                self.userLocation = currentLoc
+                yelpRepo.searchTop(coordinate: currentLoc, openNow: savedSettings.openNow, completion: { (response, error) in
+                    guard
+                        var businesses = response
+                        else {
+                            print(error as Any)
+                            return
                     }
-                }
-                self.spinner.stopAnimating()
-                self.spinner.isHidden = true
-                self.swipeableCardView.reloadData()
-            })
+                    
+                    businesses = businesses.filter{$0.distance <= self.savedSettings.distance}
+                    
+                    if self.savedSettings.price != "Any" {
+                        businesses = businesses.filter{$0.price == self.savedSettings.price}
+                    }
+                    
+                    self.businesses = businesses
+                    
+                    // download images
+                    for business in self.businesses {
+                        if let imageURL = business.imageURL {
+                            self.yelpRepo.downloadImage(url: imageURL, completion: { (image, error) in
+                                guard
+                                    let image = image,
+                                    error == nil
+                                    else {
+                                        return
+                                }
+                                DispatchQueue.main.async {
+                                    business.setImage(image)
+                                    self.spinner.stopAnimating()
+                                    self.spinner.isHidden = true
+                                    self.noCardsLeftLabel.isHidden = false
+                                    self.swipeableCardView.reloadData()
+                                }
+                            })
+                        }
+                    }
+                })
+            }
         }
+        self.updatedSettings = false
     }
     
     @IBAction func refreshAction(_ sender: UIButton) {
@@ -109,6 +116,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         case "settingsSegue":
             let settingsView = segue.destination as? SettingsViewController
             settingsView?.savedSettings = self.savedSettings
+            settingsView?.hidesBottomBarWhenPushed = true
         case "chosenSegue":
             let chosenView = segue.destination as? ChoseViewController
             chosenView?.business = self.businesses[self.chosenCard]
