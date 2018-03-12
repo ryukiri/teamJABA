@@ -29,21 +29,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fadeCute" translatesAutoresizingMaskIntoConstraints="NO" id="Vc9-1x-CZc">
-                                <rect key="frame" x="146" y="310.66666666666669" width="123" height="115"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="115" id="hvw-sU-uwl"/>
-                                    <constraint firstAttribute="width" constant="123" id="ikE-9y-bTs"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Cards Left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gm-Im-TT0">
                                 <rect key="frame" x="153.33333333333334" y="436" width="105.66666666666666" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fadeCute" translatesAutoresizingMaskIntoConstraints="NO" id="Vc9-1x-CZc">
+                                <rect key="frame" x="146" y="310" width="123" height="115"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="115" id="hvw-sU-uwl"/>
+                                    <constraint firstAttribute="width" constant="123" id="ikE-9y-bTs"/>
+                                </constraints>
+                            </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Gga-EH-Tgb">
-                                <rect key="frame" x="197" y="358" width="20" height="69"/>
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8K-oz-Scp" customClass="SwipeableCardViewContainer" customModule="Swipeable_View_Stack" customModuleProvider="target">
                                 <rect key="frame" x="5" y="77" width="404" height="607"/>
@@ -52,6 +52,7 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Gga-EH-Tgb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2oL-cC-cx3"/>
                             <constraint firstItem="w8K-oz-Scp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8Br-tM-Kpz"/>
                             <constraint firstItem="w8K-oz-Scp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="8vE-dw-Qgv"/>
                             <constraint firstItem="7gm-Im-TT0" firstAttribute="top" secondItem="Vc9-1x-CZc" secondAttribute="bottom" constant="10.333333333333314" id="AQx-z7-q9r"/>
@@ -59,12 +60,9 @@
                             <constraint firstItem="Vc9-1x-CZc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QLA-aD-jQP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="w8K-oz-Scp" secondAttribute="trailing" constant="5" id="YA0-vK-wkK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="w8K-oz-Scp" secondAttribute="bottom" constant="52" id="aco-6b-xG1"/>
-                            <constraint firstItem="Gga-EH-Tgb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="294" id="bMv-Wr-gvq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Gga-EH-Tgb" secondAttribute="bottom" constant="309" id="fda-En-VA5"/>
-                            <constraint firstItem="Gga-EH-Tgb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="197" id="gUl-gR-hhS"/>
                             <constraint firstItem="w8K-oz-Scp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="13" id="h1X-cI-8TJ"/>
+                            <constraint firstItem="Gga-EH-Tgb" firstAttribute="top" secondItem="Vc9-1x-CZc" secondAttribute="bottom" constant="13" id="id1-Yp-kXe"/>
                             <constraint firstItem="Vc9-1x-CZc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="k6D-L1-uMC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gga-EH-Tgb" secondAttribute="trailing" constant="197" id="rsd-Sr-7tA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -254,6 +252,9 @@
                                     <constraint firstAttribute="height" constant="102" id="vgV-b9-CPB"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="YpU-9y-NiM">
+                                <rect key="frame" x="169.66666666666666" y="330.66666666666669" width="75" height="75"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -261,6 +262,7 @@
                             <constraint firstItem="K24-1n-v7F" firstAttribute="leading" secondItem="fku-9e-3jk" secondAttribute="leading" id="1gv-X2-4Vf"/>
                             <constraint firstItem="mI1-GZ-eFO" firstAttribute="trailing" secondItem="fku-9e-3jk" secondAttribute="trailing" id="6sH-XR-tM5"/>
                             <constraint firstItem="wTA-C4-BgW" firstAttribute="top" secondItem="txa-kK-usi" secondAttribute="top" id="7ux-vi-v3w"/>
+                            <constraint firstItem="YpU-9y-NiM" firstAttribute="centerY" secondItem="txa-kK-usi" secondAttribute="centerY" id="BqI-mP-19d"/>
                             <constraint firstItem="fku-9e-3jk" firstAttribute="trailing" secondItem="bVs-E8-11U" secondAttribute="trailing" id="DHR-Ol-QY7"/>
                             <constraint firstItem="meM-7I-2aC" firstAttribute="top" secondItem="mI1-GZ-eFO" secondAttribute="bottom" constant="22" id="Eky-mp-Qe6"/>
                             <constraint firstItem="wTA-C4-BgW" firstAttribute="leading" secondItem="fku-9e-3jk" secondAttribute="leading" id="HvW-Kf-sud"/>
@@ -273,6 +275,7 @@
                             <constraint firstItem="TTL-yu-bc2" firstAttribute="trailing" secondItem="fku-9e-3jk" secondAttribute="trailing" id="ZRf-YI-wxB"/>
                             <constraint firstItem="fku-9e-3jk" firstAttribute="trailing" secondItem="meM-7I-2aC" secondAttribute="trailing" priority="800" constant="286" id="dbJ-a8-Ziq"/>
                             <constraint firstItem="K24-1n-v7F" firstAttribute="trailing" secondItem="fku-9e-3jk" secondAttribute="trailing" id="hGs-1z-Jsl"/>
+                            <constraint firstItem="YpU-9y-NiM" firstAttribute="centerX" secondItem="txa-kK-usi" secondAttribute="centerX" id="hkZ-I8-Z1C"/>
                             <constraint firstItem="K24-1n-v7F" firstAttribute="top" secondItem="vuw-MU-47J" secondAttribute="bottom" constant="11" id="iv0-9K-k2T"/>
                             <constraint firstItem="TTL-yu-bc2" firstAttribute="top" secondItem="meM-7I-2aC" secondAttribute="bottom" constant="11" id="oAx-jh-FSM"/>
                             <constraint firstItem="mI1-GZ-eFO" firstAttribute="top" secondItem="fku-9e-3jk" secondAttribute="top" constant="31" id="ot6-kh-wcT"/>
@@ -285,6 +288,7 @@
                         <viewLayoutGuide key="safeArea" id="fku-9e-3jk"/>
                     </view>
                     <connections>
+                        <outlet property="checkImage" destination="YpU-9y-NiM" id="uZu-Gs-wQS"/>
                         <outlet property="currentDistance" destination="OAH-dF-Q2B" id="fBk-Tz-rxq"/>
                         <outlet property="distanceSlider" destination="Mbs-bN-su4" id="K73-Dd-s0Y"/>
                         <outlet property="openNowSwitch" destination="a0A-gV-ZQ5" id="Mkd-4O-9FH"/>
@@ -294,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ytZ-iU-sXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1710" y="133"/>
+            <point key="canvasLocation" x="1708.6956521739132" y="132.88043478260872"/>
         </scene>
         <!--Chose View Controller-->
         <scene sceneID="Sqk-4F-N0a">
@@ -629,6 +633,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="check" width="75" height="75"/>
         <image name="fadeCute" width="341" height="341"/>
         <image name="home-tab" width="22" height="21"/>
         <image name="refresh" width="33" height="33"/>
