@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -46,7 +47,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="trc-we-5GV">
-                            <rect key="frame" x="0.0" y="270" width="295" height="90"/>
+                            <rect key="frame" x="0.0" y="236" width="295" height="124"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qY1-ok-qKi">
                                     <rect key="frame" x="25" y="20" width="245" height="50"/>
@@ -87,23 +88,23 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="qY1-ok-qKi" secondAttribute="trailing" constant="25" id="7LH-Hd-rVe"/>
-                                <constraint firstItem="qY1-ok-qKi" firstAttribute="centerY" secondItem="trc-we-5GV" secondAttribute="centerY" id="8Ha-gh-i8y"/>
+                                <constraint firstItem="qY1-ok-qKi" firstAttribute="centerY" secondItem="trc-we-5GV" secondAttribute="centerY" constant="-17" id="8Ha-gh-i8y"/>
                                 <constraint firstItem="qY1-ok-qKi" firstAttribute="leading" secondItem="trc-we-5GV" secondAttribute="leading" constant="25" id="SYK-V7-aPP"/>
-                                <constraint firstAttribute="height" constant="90" id="oQz-kb-ga8"/>
+                                <constraint firstAttribute="height" constant="124" id="oQz-kb-ga8"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="trc-we-5GV" firstAttribute="centerX" secondItem="lhL-QV-UVc" secondAttribute="centerX" id="6Pe-ju-Anq"/>
-                        <constraint firstItem="trc-we-5GV" firstAttribute="top" secondItem="KzP-I3-pDi" secondAttribute="bottom" id="DHh-gV-SMA"/>
+                        <constraint firstItem="trc-we-5GV" firstAttribute="top" secondItem="KzP-I3-pDi" secondAttribute="bottom" constant="-34" id="DHh-gV-SMA"/>
                         <constraint firstAttribute="bottom" secondItem="trc-we-5GV" secondAttribute="bottom" id="IT7-Ph-GOi"/>
                         <constraint firstItem="trc-we-5GV" firstAttribute="leading" secondItem="lhL-QV-UVc" secondAttribute="leading" id="Lfn-2R-VTe"/>
                         <constraint firstAttribute="trailing" secondItem="KzP-I3-pDi" secondAttribute="trailing" id="MqH-cY-qTC"/>
                         <constraint firstItem="KzP-I3-pDi" firstAttribute="top" secondItem="lhL-QV-UVc" secondAttribute="top" id="RiW-rU-m4h"/>
                         <constraint firstItem="KzP-I3-pDi" firstAttribute="leading" secondItem="lhL-QV-UVc" secondAttribute="leading" id="oaO-lq-hbZ"/>
                         <constraint firstAttribute="trailing" secondItem="trc-we-5GV" secondAttribute="trailing" id="qBb-nU-wus"/>
-                        <constraint firstItem="trc-we-5GV" firstAttribute="top" secondItem="KzP-I3-pDi" secondAttribute="bottom" id="uSd-ID-W4f"/>
+                        <constraint firstItem="trc-we-5GV" firstAttribute="top" secondItem="KzP-I3-pDi" secondAttribute="bottom" constant="-34" id="uSd-ID-W4f"/>
                         <constraint firstItem="KzP-I3-pDi" firstAttribute="centerX" secondItem="lhL-QV-UVc" secondAttribute="centerX" id="wPb-d7-EIl"/>
                     </constraints>
                 </view>

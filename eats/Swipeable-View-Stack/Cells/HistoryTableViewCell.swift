@@ -12,11 +12,13 @@ class HistoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet var historyImage: UIImageView!
+    @IBOutlet weak var tintView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.historyImage.contentMode = .scaleAspectFill
+        self.tintView.alpha = 0.3
         // Initialization code
     }
 

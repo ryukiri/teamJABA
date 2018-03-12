@@ -24,3 +24,4 @@ extension UILabel: Visuals {}
 extension UIButton: Visuals {}
 extension UIImageView: Visuals {}
 extension UIView: Visuals {}
+
