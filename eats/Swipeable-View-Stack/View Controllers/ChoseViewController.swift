@@ -28,6 +28,8 @@ class ChoseViewController: UIViewController, GMSMapViewDelegate, UNUserNotificat
         super.viewDidLoad()
         UNUserNotificationCenter.current().delegate = self
         
+        self.title = "Your Pick"
+        
         guard
             let business = business,
             let id = business.id,
