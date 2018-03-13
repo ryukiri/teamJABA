@@ -37,8 +37,8 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
         swipeableCardView.delegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(false)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -48,6 +48,7 @@ class ViewController: UIViewController, SwipeableCardViewDataSource, CLLocationM
             self.spinner.startAnimating()
             self.spinner.isHidden = false
             self.noCardsLeftLabel.isHidden = true
+            self.swipeableCardView.reloadData();
             if let currentLoc = locationManager.location?.coordinate {
                 self.userLocation = currentLoc
                 yelpRepo.searchTop(coordinate: currentLoc, openNow: savedSettings.openNow, completion: { (response, error) in
